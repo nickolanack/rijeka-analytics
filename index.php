@@ -261,7 +261,7 @@ $q=$q();
 
 		?>
 
-		addMetric('metric_month', "This month", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp >= '.$thisMonth))); ?>);
+		addMetric('metric_month', "This month", <?php echo json_encode(array('result'=>$uniqueThistMonth=$q->countDistinct('ip','WHERE timestamp >= '.$thisMonth))); ?>);
 
 
 
@@ -274,10 +274,46 @@ $q=$q();
 
 		?>
 
-		addMetric('metric_lastMonth', "Last month", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp >= '.$lastMonth.' AND timestamp < '.$thisMonth))); ?>);
+		addMetric('metric_lastMonth', "Last month", <?php echo json_encode(array('result'=>$uniqueLastMonth=$q->countDistinct('ip','WHERE timestamp >= '.$lastMonth.' AND timestamp < '.$thisMonth))); ?>);
 
 
 
+
+		<?php
+
+			$end=$lastMonth;
+			$results12Months=array(
+				array(
+					'date'=>date('Y-m', $lastMonth),
+ 					'unique'=>$uniqueLastMonth,
+ 					'total'=>$q->count('WHERE timestamp >= '.$thisMonth)
+				),
+				array(
+					'date'=>date('Y-m', $thisMonth),
+ 					'unique'=>$uniqueThistMonth,
+ 					'total'=>$q->count('WHERE timestamp >= '.$lastMonth.' AND timestamp < '.$thisMonth)
+				)
+			);
+
+			for($i=0;$i<10;$i++){
+
+
+				$start=strtotime(date('Y-m', $end-(3600*24*10)).'-01');
+
+				array_unshift($results12Months, array(
+ 					'date'=>date('Y-m', $start),
+ 					'unique'=>$q->countDistinct('ip','WHERE timestamp >= '.$start.' AND timestamp < '.$end),
+ 					'total'=>$q->count('WHERE timestamp >= '.$start.' AND timestamp < '.$end)
+				))
+
+				$end=$start;
+
+			}
+		
+
+		?>
+
+		var year=<?php echo json_encode($results12Months, JSON_PRETTY_PRINT);?>;
 
 		
 		<?php 
