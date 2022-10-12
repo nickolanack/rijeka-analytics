@@ -226,7 +226,7 @@ if($fileAge>3600){
 		<main>
 			<h1>Analytics. <span>Rijeka in Flux</span> mobile app</h1>
 			<section>
-				<div id="regions_div" style="width: 900px; height: 500px;">
+				<div id="regions_div" style="">
 					
 				</div>
 			<section>
