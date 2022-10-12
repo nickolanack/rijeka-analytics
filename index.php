@@ -142,7 +142,7 @@ $q=$q();
 		};
 
 		addMetric('metrics_div', "Total Events", <?php echo json_encode(array('result'=>$q->count())); ?>);
-		addMetric('metrics_div', "Total Events", <?php echo json_encode(array('result'=>$q->countDistinct('ip'))); ?>);
+		addMetric('metrics_div', "Unique Users", <?php echo json_encode(array('result'=>$q->countDistinct('ip'))); ?>);
 		
 		
 
