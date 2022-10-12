@@ -194,7 +194,7 @@ $q=$q();
 		var addMetric=function(div, title, result){
 
 			var chart = new Keen.Dataviz()
-			.el(document.getElementById(div))
+			.el(div instanceof HTMLElement?div:document.getElementById(div))
 			.height(240)
 			.title(title)
 			.type("metric")
@@ -216,7 +216,7 @@ $q=$q();
 					?>
 
 
-					addMetric('metrics_tours_div', <?php echo json_encode($data->filter->filterTour);?>, <?php echo json_encode(array('result'=>$result['count'])); ?>);
+					addMetric(document.getElementById('metrics_tours_div').appendChild(new Element('div')), <?php echo json_encode($data->filter->filterTour);?>, <?php echo json_encode(array('result'=>$result['count'])); ?>);
 		
 
 					<?php
