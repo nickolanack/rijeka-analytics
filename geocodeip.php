@@ -86,6 +86,7 @@ $map=json_decode(file_get_contents($file), true);
 
 
 $max=700;
+$counter=0;
 foreach($ips as $value){
 
 	$value=(object) $value; //make sure it is an object
@@ -110,6 +111,7 @@ foreach($ips as $value){
 	print_r($obj);
 	if(isset($obj->status)&&isset($obj->data->geo->country_name)){
 		$map[$value->ip]=$obj->data->geo->country_name;
+		$counter++
 	}
 	$max--;
 	echo $max."\n";
@@ -129,6 +131,6 @@ foreach($ips as $value){
 	sleep(1);
 	
 }
-
+echo "wrote ".$counter." new records";
 file_put_contents($file, json_encode($map, JSON_PRETTY_PRINT));
 
