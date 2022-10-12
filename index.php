@@ -186,6 +186,7 @@ if($fileAge>3600){
 
 			    max-width: 900px;
 			    width: calc( 100% - 100px );
+			    margin: 10px auto;
 
 			}
 
@@ -197,6 +198,7 @@ if($fileAge>3600){
 
 			    max-width: 900px;
 			    width: calc( 100% - 100px );
+			    margin: 10px auto;
 			}
 
 			
