@@ -157,7 +157,7 @@ if($fileAge>3600){
 		<style type="text/css">
 			
 
-			div#metrics_div>div .div#metrics_tours_div>div {
+			div#metrics_div>div, div#metrics_tours_div>div {
 			    width: 30%;
 			    margin: 10px;
 			    display: inline-block;
