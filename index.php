@@ -49,6 +49,17 @@ $q=function(){
 	
 		}
 
+		public function countDistinctGroups($where=null){
+
+			if($results = $this->conn->query(
+				'SELECT count(*) as count, data FROM event'.$this->_w($where).' GROUP BY data'
+			)){
+				return $results->fetch_all(MYSQLI_ASSOC);
+			}
+			return [];
+	
+		}
+
 	}
 
 	return new Q($conn);
@@ -168,6 +179,10 @@ $q=$q();
 					<div id="metric_ips"></div>
 				</div>
 
+				<div id="metrics_tours_div" style="width: 900px; height: 500px;">
+					
+				</div>
+
 			<section>
 
 		</main>
@@ -193,7 +208,22 @@ $q=$q();
 		addMetric('metric_total', "Total Events", <?php echo json_encode(array('result'=>$q->count())); ?>);
 		addMetric('metric_ips', "Unique IPs", <?php echo json_encode(array('result'=>$q->countDistinct('ip'))); ?>);
 		
+		<?php 
+
+			foreach ($q->countDistinctGroups() as $result) {
+				$data=json_decode($result['data']);
+				if(isset($data->filter->filterTour)){
+					?>
+
+
+					addMetric('metrics_tours_div', <?php echo json_encode($data->filter->filterTour);?>, <?php echo json_encode(array('result'=>$result['count'])); ?>);
 		
+
+					<?php
+				}
+			} 
+
+		?>
 
 	</script>
 </html>
