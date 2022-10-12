@@ -23,7 +23,9 @@ $q=function(){
 		public function count($where=null){
 
 			if($results = $this->conn->query('SELECT count(*) as count FROM event'.(empty($where)?'':' '.$where))){
-				return $results[0]['count'];
+				foreach ($results as $result) {
+				 	return $result['count'];
+				 } 
 			}
 			return 0;
 	
