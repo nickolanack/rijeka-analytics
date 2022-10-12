@@ -1,6 +1,6 @@
 <?php
 
-
+date_default_timezone_set('Europe/Zagreb');
 
 
 $q=function(){
@@ -192,6 +192,8 @@ $q=$q();
 					<div id="metric_ips"></div>
 					<div id="metric_today"></div>
 					<div id="metric_7days"></div>
+					<div id="metric_month"></div>
+					<div id="metric_lastMonth"></div>
 				</div>
 
 
@@ -232,23 +234,47 @@ $q=$q();
 
 
 		<?php
-
-		date_default_timezone_set('Europe/Zagreb');
+		
 		$today = strtotime(date('Y-m-d'));
 
 		?>
 
 		addMetric('metric_today', "Today", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp > '.$today))); ?>);
 
+
+
+
 		<?php
 
-		date_default_timezone_set('Europe/Zagreb');
-		$last7days = strtotime(date('Y-m-d', (time()-3600*24*7)));
+		$last7days = strtotime(date('Y-m-d', time()-(3600*24*7)));
 
 		?>
 
 		addMetric('metric_7days', "Last 7 days", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp > '.$last7days))); ?>);
 
+
+
+
+		<?php
+
+		$thisMonth = strtotime(date('Y-m').'-01');
+
+		?>
+
+		addMetric('metric_month', "This month", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp > '.$thisMonth))); ?>);
+
+
+
+
+		<?php
+
+
+
+		$lastMonth=strtotime(date('Y-m', $thisMonth-(3600*24*10)).'-01');
+
+		?>
+
+		addMetric('metric_lastMonth', "Last month", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp > '.$lastMonth.' AND timestamp > '.$thisMonth))); ?>);
 
 
 
