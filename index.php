@@ -240,10 +240,10 @@ foreach($ipmap as $ip=>$country){
 					<br/><br/>
 					The app does not track users and does not collect or store any identifying information about individual users. Therefore, the only data (collected by us) that can be 
 					used to indicate a unique user is the IP address. Often a device uses the same IP address for a long period of time, unless they switch between networks,
-					so that the IP address is an approximate indicator of unique users. over a long term the unique IPs is probably an overestimate of unique users but 
+					so that the IP address is an approximate indicator of unique users. Over a long time period, the unique IPs is probably an overestimate of unique users but 
 					it is likely to be more accurate over short periods.
 					<br/><br/>
-					Daily, Weekly and Monthly metrics are using unique IPs unless labeled otherwise
+					Daily, weekly, and monthly metrics are calculated using unique IPs unless labeled otherwise.
 
 
 				</p>
