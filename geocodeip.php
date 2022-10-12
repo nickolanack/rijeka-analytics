@@ -1,13 +1,13 @@
 <?php
 
-if(!isset($argv)){
-	die('can only be run from term');
-}
+// if(!isset($argv)){
+// 	die('can only be run from term');
+// }
 
 
-if(basename($argv[0])!==basename(__FILE__)){
-	die('can only be run directly from term');
-}
+// if(basename($argv[0])!==basename(__FILE__)){
+// 	die('can only be run directly from term');
+// }
 
 $file='../.ipmap.json';
 if(!file_exists($file)){
@@ -16,9 +16,16 @@ if(!file_exists($file)){
 
 
 $domain='some.domain.com';
+
+if(isset($_SERVER['HTTP_HOST']){
+	$domain=$_SERVER['HTTP_HOST'];
+}
+
 if(count($argv)>1){
 	$domain=$argv[1];
 }
+
+
 
 date_default_timezone_set('Europe/Zagreb');
 
