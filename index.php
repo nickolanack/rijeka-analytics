@@ -179,6 +179,15 @@ $q=$q();
 			    text-align: center;
 			}
 
+			
+			p {
+			    width: 900px;
+			    margin: 10px auto;
+			    font-family: sans-serif;
+			    font-weight: 100;
+			    color: #444444;
+			}
+
 			h1>span {
 			    font-weight: 400;
 			    color: #00bbde;
