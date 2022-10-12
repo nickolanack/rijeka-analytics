@@ -124,7 +124,7 @@ foreach($ipmap as $ip=>$country){
 			
 			google.charts.setOnLoadCallback(drawRegionsMap);
 			function drawRegionsMap() {
-				var data = google.visualization.arrayToDataTable(<?php echo json_encode(array_map(function($country)use($countries){
+				var data = google.visualization.arrayToDataTable((['Country', 'Section Views']).concat(<?php echo json_encode(array_map(function($country)use($countries){
 
 					return array(
 						$country,
@@ -139,7 +139,7 @@ foreach($ipmap as $ip=>$country){
 					['Canada', 500],
 					['France', 600],
 					['RU', 700]
-					]*/);
+					]*/));
 				var options = {
 					colorAxis: {colors: ['#cccccc', 'rgb(0, 187, 222)']},
 				};
