@@ -277,7 +277,7 @@ foreach($ipmap as $ip=>$country){
 			.el(div instanceof HTMLElement?div:document.getElementById(div))
 			.height(options.height)
 			.title(title)
-			.type("metric"),
+			.type("metric")
 			.colors(options.colors)
 			.prepare();
 
