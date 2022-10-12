@@ -1,13 +1,13 @@
 <?php
 
-// if(!isset($argv)){
-// 	die('can only be run from term');
-// }
+if(!isset($argv)){
+	die('can only be run from term');
+}
 
 
-// if(basename($argv[0])!==basename(__FILE__)){
-// 	die('can only be run directly from term');
-// }
+if(basename($argv[0])!==basename(__FILE__)){
+	die('can only be run directly from term');
+}
 
 $file='../.ipmap.json';
 if(!file_exists($file)){
