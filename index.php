@@ -97,7 +97,9 @@ $q=$q();
 					['France', 600],
 					['RU', 700]
 					]);
-				var options = {};
+				var options = {
+					colorAxis: {colors: ['#00853f', 'rgb(0, 187, 222)']},
+				};
 				var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 				chart.draw(data, options);
 			}
@@ -129,7 +131,7 @@ $q=$q();
 			    text-align: center;
 			    margin: 50px auto;
 			}
-			
+
 		</style>
 	</head>
 	<body>
