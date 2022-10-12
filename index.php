@@ -4,7 +4,7 @@
 $db=json_decode(file_get_contents('../.sql.json'));
 
 $conn = new mysqli('localhost', $db->username, $db->password);
-if ($conn->connect_error) {
+if ((!$conn)||$conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }
 
