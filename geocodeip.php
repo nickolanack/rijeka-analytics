@@ -87,11 +87,13 @@ $map=json_decode(file_get_contents($file), true);
 
 $max=700;
 $counter=0;
+$skipped=0;
 foreach($ips as $value){
 
 	$value=(object) $value; //make sure it is an object
 
 	if(key_exists($value->ip, $map)){
+		$skipped++;
 		continue;
 	}
 
@@ -131,6 +133,8 @@ foreach($ips as $value){
 	sleep(1);
 	
 }
-echo "wrote ".$counter." new locations out of ".count($ips)." ips\n";
-file_put_contents($file, json_encode($map, JSON_PRETTY_PRINT));
+if($counter>0){
+	file_put_contents($file, json_encode($map, JSON_PRETTY_PRINT));
+}
+echo "wrote ".$counter." new locations out of ".count($ips)." ips, skipped ".$skipped." existing.\n";
 
