@@ -223,12 +223,12 @@ $q=$q();
 				<p>
 					The app requests section data each time a user navigates to a new section within the app (ie: each currated tour is a section), these 
 					are counted as a section views.
-					<br/>
+					<br/><br/>
 					The app does not track users and does not collect and store any identifying information about individual users. Therefore the only indication
 					of a unique user is the IP address, often a device uses the same IP address for a long period of time unless they switch between networks
 					there for the IP address is an approximate indicator of unique users. over a long term the unique IPs is an overestimate of unique users but 
 					is more accurate over short periods.
-					<br/>
+					<br/><br/>
 					Daily, Weekly and Monthly metrics are using unique IPs unless labeled otherwise
 
 
