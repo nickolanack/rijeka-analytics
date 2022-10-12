@@ -237,7 +237,7 @@ $q=$q();
 
 
 			const chart = new Keen.Dataviz({
-			  container: div instanceof HTMLElement?div:document.getElementById(div),
+			  container: '#'+div,
 			  type: 'bar',
 			  title: title,
 			  stacking: 'percent',
