@@ -15,7 +15,7 @@ $q=function(){
 
 	class Q{
 
-		public count($where=null){
+		public function count($where=null){
 
 			if($results = $conn->query('SELECT count(*) as count FROM event'.(empty($where)?'':' '.$where))){
 				return $results[0]['count'];
