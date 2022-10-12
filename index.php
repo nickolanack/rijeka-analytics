@@ -10,7 +10,7 @@ if ((!$conn)||$conn->connect_error) {
 
 
 
-if($results = $conn->query('SELECT count(*) FROM events')){
+if($results = $conn->query('SELECT count(*) FROM event')){
 
 	foreach ($results as $result) {
 		print_r($result);
