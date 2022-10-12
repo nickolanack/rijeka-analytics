@@ -39,7 +39,7 @@ $q=function(){
 		public function countDistinct($field, $where=null){
 
 			if($results = $this->conn->query(
-				'SELECT count(*) as count FROM (SELECT DISTINCT '.$field.' FROM event'.$this->_w($where).')'
+				'SELECT count(*) as count FROM (SELECT DISTINCT '.$field.' FROM event'.$this->_w($where).') as a'
 			)){
 				foreach ($results as $result) {
 				 	return intval($result['count']);
@@ -136,7 +136,7 @@ $q=$q();
 			.type("metric")
 			.prepare();
 
-			chart.data().render();
+			chart.data().render(result);
 
 
 		};
