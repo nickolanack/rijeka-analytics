@@ -157,18 +157,14 @@ if($fileAge>3600){
 		<style type="text/css">
 			
 
-			div#metrics_div>div {
-			    width: 30%;
-			    margin: 10px;
-			    display: inline-block;
-			}
-
-			div#metrics_tours_div>div {
+			div#metrics_div>div .div#metrics_tours_div>div {
 			    width: 30%;
 			    margin: 10px;
 			    display: inline-block;
 			    vertical-align: top;
 			}
+
+		
 
 			div#regions_div, div#metrics_div, div#metrics_tours_div, div#chart_12_months {
 			    max-width: 900px;
