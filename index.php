@@ -236,11 +236,11 @@ foreach($ipmap as $ip=>$country){
 
 				<p>
 					The app requests section data each time a user navigates to a new section within the app (ie: each currated tour is a section), these 
-					are counted as a section views.
+					are counted as section views.
 					<br/><br/>
 					The app does not track users and does not collect or store any identifying information about individual users. Therefore, the only data (collected by us) that can be 
-					used to indicate a unique user is the IP address. Often a device uses the same IP address for a long period of time, unless they switch between networks,
-					so that the IP address is an approximate indicator of unique users. Over a long time period, the unique IPs is probably an overestimate of unique users but 
+					used to indicate a unique user is the IP address; often a device uses the same IP address for a long period of time, unless they switch between networks,
+					so that the IP address is an approximate indicator of unique users. Over a long time period, the unique IPs are probably an overestimate of unique users but 
 					it is likely to be more accurate over short periods.
 					<br/><br/>
 					Daily, weekly, and monthly metrics are calculated using unique IPs unless labeled otherwise.
