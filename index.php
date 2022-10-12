@@ -352,7 +352,7 @@ $q=$q();
 				),
 				array(
 					'date'=>date('Y-m', $thisMonth),
-					'end'=>date('Y-m', $nextMonth); 
+					'end'=>date('Y-m', $nextMonth),
  					'unique'=>$uniqueThistMonth,
  					'total'=>$q->count('WHERE timestamp >= '.$lastMonth.' AND timestamp < '.$thisMonth)
 				)
