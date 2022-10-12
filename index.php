@@ -104,6 +104,7 @@ if($fileAge>3600){
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=500, initial-scale=0.7" />
 		<title>Analytics</title>
 		<script type="text/javascript">
 			if(!window.console){
@@ -162,6 +163,7 @@ if($fileAge>3600){
 			    margin: 10px;
 			    display: inline-block;
 			    vertical-align: top;
+			    min-width: 210px;
 			}
 
 		
