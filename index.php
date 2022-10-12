@@ -40,10 +40,34 @@
 				var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 				chart.draw(data, options);
 			}
+
+
+
+
+			var chart = new Keen.Dataviz()
+			      .el(document.getElementById('metrics_div'))
+			      .height(240)
+			      .title("Total Events")
+			      .type("metric")
+			      .prepare();
+
+			      chart.data({result:123}).render();
+
+
 		</script>
 	</head>
 	<body>
-		<div id="regions_div" style="width: 900px; height: 500px;"></div>
+		<main>
+			<section>
+				<div id="regions_div" style="width: 900px; height: 500px;"></div>
+			<section>
+
+			<section>
+				<div id="metrics_div" style="width: 900px; height: 500px;"></div>
+			<section>
+
+
+		</main>
 	</body>
 	
 </body>
