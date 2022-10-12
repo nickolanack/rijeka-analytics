@@ -16,10 +16,13 @@
 		</script>
 		<script type="text/javascript" src="https://aopfn.geoforms.ca/app/nickolanack/php-core-app/assets/js/ClassObject.js?1655843160"></script>
 		<script type="text/javascript" src="https://aopfn.geoforms.ca/app/nickolanack/php-core-app/assets/js/Window.js?1655851684"></script>
+		
 		<script type="text/javascript" src="https://d26b395fwzu5fz.cloudfront.net/keen-analysis-1.2.2.js"></script>
 		<script type="text/javascript" src="https://d26b395fwzu5fz.cloudfront.net/keen-dataviz-1.1.3.js"></script>
-		<script type="text/javascript" src="https://d26b395fwzu5fz.cloudfront.net/keen-dataviz-1.1.3.css"></script>
+		<link type="text/css" href="https://d26b395fwzu5fz.cloudfront.net/keen-dataviz-1.1.3.css" rel="stylesheet">
+
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js" ></script>
+
 		<script type="text/javascript">
 			google.charts.load('current', {
 				'packages':['geochart'],
@@ -72,6 +75,6 @@
 			.prepare();
 
 			chart.data({result:123}).render();
-		
+
 	</script>
 </html>
