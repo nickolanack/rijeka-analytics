@@ -183,6 +183,10 @@ if($fileAge>3600){
 			    font-weight: 100;
 			    font-size: 50px;
 			    text-align: center;
+
+			    max-width: 900px;
+			    width: calc( 100% - 100px );
+
 			}
 
 			h2 {
@@ -190,15 +194,20 @@ if($fileAge>3600){
 			    font-weight: 100;
 			    font-size: 40px;
 			    text-align: center;
+
+			    max-width: 900px;
+			    width: calc( 100% - 100px );
 			}
 
 			
 			p {
-			    width: 900px;
 			    margin: 10px auto;
 			    font-family: sans-serif;
 			    font-weight: 100;
 			    color: #444444;
+
+			    max-width: 900px;
+			    width: calc( 100% - 100px );
 			}
 
 			h1>span {
