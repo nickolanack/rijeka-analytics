@@ -131,7 +131,13 @@ $q=$q();
 			    display: inline-block;
 			}
 
-			div#metrics_div {
+			div#metrics_tours_div>div {
+			    width: 30%;
+			    margin: 10px;
+			    display: inline-block;
+			}
+
+			div#metrics_div, div#metrics_tours_div  {
 			    width: 900px;
 			    margin: 50px auto;
 			    text-align: center;
@@ -179,6 +185,7 @@ $q=$q();
 					<div id="metric_ips"></div>
 				</div>
 
+				<h2>Curated tour views</h2>
 				<div id="metrics_tours_div" style="width: 900px; height: 500px;">
 					
 				</div>
@@ -213,10 +220,16 @@ $q=$q();
 			foreach ($q->countDistinctGroups() as $result) {
 				$data=json_decode($result['data']);
 				if(isset($data->filter->filterTour)){
+
+					$title=$data->filter->filterTour;
+					$title=explode(':', $title);
+					$title=array_shift($title);
+					$title=trim($title);
+
 					?>
 
 
-					addMetric(document.getElementById('metrics_tours_div').appendChild(new Element('div')), <?php echo json_encode($data->filter->filterTour);?>, <?php echo json_encode(array('result'=>intval($result['count']))); ?>);
+					addMetric(document.getElementById('metrics_tours_div').appendChild(new Element('div')), <?php echo json_encode($title); ?>, <?php echo json_encode(array('result'=>intval($result['count']))); ?>);
 		
 
 					<?php
