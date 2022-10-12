@@ -17,7 +17,7 @@ if($results = $conn->query('SELECT count(*) FROM events')){
 	}
 
 }else{
-	echo 'ERROR';
+	echo 'ERROR: '.$conn->error;
 }
 
 
