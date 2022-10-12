@@ -113,11 +113,16 @@ $q=$q();
 	<body>
 		<main>
 			<section>
-				<div id="regions_div" style="width: 900px; height: 500px;"></div>
+				<div id="regions_div" style="width: 900px; height: 500px;">
+					
+				</div>
 			<section>
 
 			<section>
-				<div id="metrics_div" style="width: 900px; height: 500px;"></div>
+				<div id="metrics_div" style="width: 900px; height: 500px;">
+					<div id="metric_total"></div>
+					<div id="metric_ips"></div>
+				</div>
 
 			<section>
 
@@ -141,8 +146,8 @@ $q=$q();
 
 		};
 
-		addMetric('metrics_div', "Total Events", <?php echo json_encode(array('result'=>$q->count())); ?>);
-		addMetric('metrics_div', "Unique Users", <?php echo json_encode(array('result'=>$q->countDistinct('ip'))); ?>);
+		addMetric('metric_total', "Total Events", <?php echo json_encode(array('result'=>$q->count())); ?>);
+		addMetric('metric_ips', "Unique Users", <?php echo json_encode(array('result'=>$q->countDistinct('ip'))); ?>);
 		
 		
 
