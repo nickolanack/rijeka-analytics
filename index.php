@@ -15,9 +15,14 @@ $q=function(){
 
 	class Q{
 
+		protected $conn;
+		public function __construct($conn){
+			$this->conn=$conn;
+		}
+
 		public function count($where=null){
 
-			if($results = $conn->query('SELECT count(*) as count FROM event'.(empty($where)?'':' '.$where))){
+			if($results = $this->conn->query('SELECT count(*) as count FROM event'.(empty($where)?'':' '.$where))){
 				return $results[0]['count'];
 			}
 			return 0;
@@ -26,7 +31,7 @@ $q=function(){
 
 	}
 
-	return new Q();
+	return new Q($conn);
 
 };
 $q=$q();
