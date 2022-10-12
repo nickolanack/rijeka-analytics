@@ -111,7 +111,7 @@ foreach($ips as $value){
 	print_r($obj);
 	if(isset($obj->status)&&isset($obj->data->geo->country_name)){
 		$map[$value->ip]=$obj->data->geo->country_name;
-		$counter++
+		$counter++;
 	}
 	$max--;
 	echo $max."\n";
