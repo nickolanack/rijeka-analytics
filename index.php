@@ -260,7 +260,7 @@ if($fileAge>3600){
 					so that the IP address is an approximate indicator of unique users. Over a long time period, the unique IPs are probably an overestimate of unique users but 
 					it is likely to be more accurate over short periods.
 					<br/><br/>
-					Daily, weekly, and monthly metrics are calculated using unique IPs unless labeled otherwise.
+					Daily, weekly, and monthly metrics are calculated using unique IPs unless labeled otherwise. Dates and times are formatted for Europe/Zagreb timezone.
 
 
 				</p>
