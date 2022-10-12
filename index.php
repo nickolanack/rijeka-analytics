@@ -3,7 +3,7 @@
 
 
 
-$q=(function(){
+$q=function(){
 
 	$db=json_decode(file_get_contents('../.sql.json'));
 
@@ -21,8 +21,8 @@ $q=(function(){
 
 	return new Q();
 
-})();
-
+};
+$q=$q();
 
 
 
