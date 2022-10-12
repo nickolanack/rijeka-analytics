@@ -317,6 +317,13 @@ if($fileAge>3600){
 			.title(title)
 			.type("bar")
 			.stacked(true)
+			.chartOptions({
+				 bar: {
+			        width: {
+			            ratio: 0.9 // this makes bar width 90% of length between ticks
+			        }
+			    }
+			})
 			.prepare();
 
 			chart.data(result).render();
