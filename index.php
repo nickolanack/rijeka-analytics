@@ -169,7 +169,7 @@ if($fileAge>3600){
 			    display: inline-block;
 			}
 
-			div#metrics_div, div#metrics_tours_div, div#chart_12_months {
+			div#regions_div, div#metrics_div, div#metrics_tours_div, div#chart_12_months {
 			    width: 900px;
 			    margin: 50px auto;
 			    text-align: center;
