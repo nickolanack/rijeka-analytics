@@ -174,6 +174,10 @@ $q=$q();
 			    font-size: 70px;
 			}
 
+			g.c3-axis.c3-axis-y {
+			    display: none;
+			}
+
 
 		</style>
 	</head>
