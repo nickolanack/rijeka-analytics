@@ -161,6 +161,13 @@ $q=$q();
 			    text-align: center;
 			}
 
+			h2 {
+			    font-family: sans-serif;
+			    font-weight: 100;
+			    font-size: 40px;
+			    text-align: center;
+			}
+
 			h1>span {
 			    font-weight: 400;
 			    color: #00bbde;
