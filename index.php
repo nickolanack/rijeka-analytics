@@ -131,7 +131,7 @@ foreach($ipmap as $ip=>$country){
 						$countries[$country]
 					);
 
-				}, array_keys($contries)), JSON_PRETTY_PRINT); ?> /*[
+				}, array_keys($countries)), JSON_PRETTY_PRINT); ?> /*[
 					['Country', 'Section Views'],
 					['Germany', 200],
 					['United States', 300],
