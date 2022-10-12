@@ -136,6 +136,7 @@ $q=$q();
 	</head>
 	<body>
 		<main>
+			<h1>Some Analytics. <span>Rijeka in flux</span><span> Mobile app</span></h1>
 			<section>
 				<div id="regions_div" style="width: 900px; height: 500px;">
 					
