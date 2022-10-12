@@ -236,11 +236,34 @@ $q=$q();
 		var addChart=function(div, title, result, options){
 
 
-			const chart = new Keen.Dataviz({
-			  container: '#'+div,
-			  type: 'bar',
-			  title: title,
-			  stacking: 'percent',
+			// const chart = new Keen.Dataviz({
+			//   container: '#'+div,
+			//   type: 'bar',
+			//   title: title,
+			//   stacking: 'percent',
+			//   legend: {
+			//   	position: 'bottom',
+			//   },
+			//   labelMapping: {
+			//   	total: 'Total',
+			//     unigue: 'Unique'
+			//   },
+			//   renderOnVisible: true,
+			//   palette: 'modern'
+			// });
+				
+
+			options=ObjectAppend_({
+				height:240
+			}, options);
+
+			var chart = new Keen.Dataviz()
+			.el(div instanceof HTMLElement?div:document.getElementById(div))
+			.height(options.height)
+			.title(title)
+			.type("bar")
+			.chartOptions({
+				 stacking: 'percent',
 			  legend: {
 			  	position: 'bottom',
 			  },
@@ -250,10 +273,10 @@ $q=$q();
 			  },
 			  renderOnVisible: true,
 			  palette: 'modern'
-			});
-				
+			})
+			.prepare();
 
-			chart.render(result);
+			chart.data(result).render();
 		}
 
 		addMetric('metric_total', "Total Events", <?php echo json_encode(array('result'=>$q->count())); ?>);
