@@ -20,9 +20,25 @@ $q=function(){
 			$this->conn=$conn;
 		}
 
+		protected _w($where=null){
+			return empty($where)?'':' '.$where;
+
+		}
+
 		public function count($where=null){
 
-			if($results = $this->conn->query('SELECT count(*) as count FROM event'.(empty($where)?'':' '.$where))){
+			if($results = $this->conn->query('SELECT count(*) as count FROM event'.$this->_w($where))){
+				foreach ($results as $result) {
+				 	return intval($result['count']);
+				 } 
+			}
+			return 0;
+	
+		}
+
+		public function countDistinct($field, $where=null){
+
+			if($results = $this->conn->query('SELECT count(*) as count FROM (SELECT DISTINCT '.$field.' FROM event'.$this->_w($where))))){
 				foreach ($results as $result) {
 				 	return intval($result['count']);
 				 } 
@@ -100,23 +116,33 @@ $q=$q();
 
 			<section>
 				<div id="metrics_div" style="width: 900px; height: 500px;"></div>
+
 			<section>
 
 		</main>
 	</body>
 
 	<script type="text/javascript">
-		
-		var chart = new Keen.Dataviz()
+
+
+		var addMetric=function(div, title, result){
+
+			var chart = new Keen.Dataviz()
 			.el(document.getElementById('metrics_div'))
 			.height(240)
 			.title("Total Events")
 			.type("metric")
 			.prepare();
 
-			chart.data(<?php 
-				echo json_encode(array('result'=>$q->count()));
-				?>).render();
+			chart.data().render();
+
+
+		};
+
+		addMetric('metrics_div', "Total Events", <?php echo json_encode(array('result'=>$q->count())); ?>);
+		addMetric('metrics_div', "Total Events", <?php echo json_encode(array('result'=>$q->countDistinct('ip'))); ?>);
+		
+		
 
 	</script>
 </html>
