@@ -98,7 +98,7 @@ $q=$q();
 					['RU', 700]
 					]);
 				var options = {
-					colorAxis: {colors: ['#00853f', 'rgb(0, 187, 222)']},
+					colorAxis: {colors: ['#cccccc', 'rgb(0, 187, 222)']},
 				};
 				var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 				chart.draw(data, options);
