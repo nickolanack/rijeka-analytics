@@ -187,13 +187,13 @@ $q=$q();
 			<section>
 
 			<section>
-				<div id="metrics_div" style="width: 900px; height: 500px;">
+				<div id="metrics_div">
 					<div id="metric_total"></div>
 					<div id="metric_ips"></div>
 				</div>
 
 				<h2>Curated tour views</h2>
-				<div id="metrics_tours_div" style="width: 900px; height: 500px;">
+				<div id="metrics_tours_div">
 					
 				</div>
 
