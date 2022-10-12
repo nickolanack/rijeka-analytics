@@ -137,7 +137,7 @@ $q=$q();
 			    display: inline-block;
 			}
 
-			div#metrics_div, div#metrics_tours_div  {
+			div#metrics_div, div#metrics_tours_div, div#chart_12_months {
 			    width: 900px;
 			    margin: 50px auto;
 			    text-align: center;
@@ -352,13 +352,14 @@ $q=$q();
 
 			return array(
 				'value'=>array(
+
 					array(
-						'name'=>'total',
-						'result'=>$value['total']
+						'name'=>'unigue users',
+						'result'=>$value['unique']
 					),
 					array(
-						'name'=>'unigue',
-						'result'=>$value['unique']
+						'name'=>'total page views',
+						'result'=>$value['total']
 					)
 
 				),
