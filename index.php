@@ -38,7 +38,9 @@ $q=function(){
 
 		public function countDistinct($field, $where=null){
 
-			if($results = $this->conn->query('SELECT count(*) as count FROM (SELECT DISTINCT '.$field.' FROM event'.$this->_w($where))))){
+			if($results = $this->conn->query(
+				'SELECT count(*) as count FROM (SELECT DISTINCT '.$field.' FROM event'.$this->_w($where).')'
+			)){
 				foreach ($results as $result) {
 				 	return intval($result['count']);
 				 } 
