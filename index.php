@@ -217,25 +217,31 @@ $q=$q();
 		
 		<?php 
 
+			$formatted=[];
+
 			foreach ($q->countDistinctGroups() as $result) {
 				$data=json_decode($result['data']);
 				if(isset($data->filter->filterTour)){
 
 					$title=$data->filter->filterTour;
 					$title=explode(':', $title);
-					$title=array_shift($title);
+					$title=array_pop($title);
 					$title=trim($title);
 
-					?>
+					if(!array_key_exists($title, $formatted)){
+						$formatted[$title]=0;
+					}
+					$formatted[$title]+=intval($result['count']);
 
-
-					addMetric(document.getElementById('metrics_tours_div').appendChild(new Element('div')), <?php echo json_encode($title); ?>, <?php echo json_encode(array('result'=>intval($result['count']))); ?>);
-		
-
-					<?php
+					
 				}
-			} 
+			}
 
+			foreach ($formatted as $key => $value) {
+				?>
+					addMetric(document.getElementById('metrics_tours_div').appendChild(new Element('div')), <?php echo json_encode($key); ?>, <?php echo json_encode(array('result'=>$value)); ?>);
+				<?php
+			}
 		?>
 
 	</script>
