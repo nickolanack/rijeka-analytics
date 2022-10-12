@@ -141,7 +141,7 @@ $q=$q();
 			.type("metric")
 			.prepare();
 
-			chart.data().render(result);
+			chart.data(result).render();
 
 
 		};
