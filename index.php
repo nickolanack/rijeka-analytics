@@ -132,11 +132,30 @@ $q=$q();
 			    margin: 50px auto;
 			}
 
+
+
+
+
+
+			h1 {
+			    font-family: sans-serif;
+			    font-weight: 100;
+			    font-size: 50px;
+			    text-align: center;
+			}
+
+			h1>span {
+			    font-weight: 400;
+			    color: #00bbde;
+			    font-size: 70px;
+			}
+
+
 		</style>
 	</head>
 	<body>
 		<main>
-			<h1>Some Analytics. <span>Rijeka in flux</span><span> Mobile app</span></h1>
+			<h1>Some Analytics. <span>Rijeka in Flux</span> mobile app</h1>
 			<section>
 				<div id="regions_div" style="width: 900px; height: 500px;">
 					
