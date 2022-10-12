@@ -133,7 +133,7 @@ foreach($ipmap as $ip=>$country){
 
 				}, array_keys($countries)), JSON_PRETTY_PRINT); ?>));
 				var options = {
-					colorAxis: {colors: ['rgb(161, 199, 211)', 'rgb(0, 187, 222)']},
+					colorAxis: {colors: ['rgb(161, 199, 211)', 'rgb(0, 187, 222)', 'rgb(254, 102, 114)']},
 					region:150
 				};
 				var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
