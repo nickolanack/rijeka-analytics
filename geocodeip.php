@@ -136,5 +136,5 @@ foreach($ips as $value){
 if($counter>0){
 	file_put_contents($file, json_encode($map, JSON_PRETTY_PRINT));
 }
-echo "wrote ".$counter." new locations out of ".count($ips)." ips, skipped ".$skipped." existing.\n";
+echo $domain." wrote ".$counter." new locations out of ".count($ips)." ips, skipped ".$skipped." existing.\n";
 
