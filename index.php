@@ -104,7 +104,7 @@ if($fileAge>3600){
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="viewport" content="width=500, initial-scale=0.7" />
+		<meta name="viewport" content="width=500, initial-scale=1.3" />
 		<title>Analytics</title>
 		<script type="text/javascript">
 			if(!window.console){
