@@ -242,7 +242,7 @@ $q=$q();
 		<?php
 
 		date_default_timezone_set('Europe/Zagreb');
-		$last7days = strtotime(date('Y-m-d') (time()-3600*24*7));
+		$last7days = strtotime(date('Y-m-d'), (time()-3600*24*7));
 
 		?>
 
