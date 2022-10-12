@@ -349,7 +349,7 @@ $q=$q();
  					'total'=>$q->count('WHERE timestamp >= '.$thisMonth)
 				),
 				array(
-					'date'=>date('Y-m', $thisMonth),
+					'start'=>date('Y-m', $thisMonth),
 					'end'=>date('Y-m', $nextMonth),
  					'unique'=>$uniqueThistMonth,
  					'total'=>$q->count('WHERE timestamp >= '.$lastMonth.' AND timestamp < '.$thisMonth)
@@ -362,7 +362,9 @@ $q=$q();
 				$start=strtotime(date('Y-m', $end-(3600*24*10)).'-01');
 
 				array_unshift($results12Months, array(
- 					'date'=>date('Y-m', $start),
+
+ 					'start'=>date('Y-m', $start),
+ 					'end'=>date('Y-m', $end),
  					'unique'=>$q->countDistinct('ip','WHERE timestamp >= '.$start.' AND timestamp < '.$end),
  					'total'=>$q->count('WHERE timestamp >= '.$start.' AND timestamp < '.$end)
 				));
@@ -398,7 +400,7 @@ $q=$q();
 		}, $results12Months), JSON_PRETTY_PRINT);?>
 
 
-		addChart('chart_12_months', 'Last 12 Months', year);
+		addChart('chart_12_months', 'Last 12 Months', {result:year});
 
 
 
