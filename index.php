@@ -278,7 +278,7 @@ $q=$q();
 
 				
 
-			chart.render();;
+			chart.render(result);
 		}
 
 		addMetric('metric_total', "Total Events", <?php echo json_encode(array('result'=>$q->count())); ?>);
@@ -397,7 +397,12 @@ $q=$q();
 
 			);
 
-		}, $results12Months), JSON_PRETTY_PRINT);?>;
+		}, $results12Months), JSON_PRETTY_PRINT);?>
+
+
+		addChart('chart_12_months', 'Last 12 Months', year);
+
+
 
 		
 		<?php 
