@@ -197,6 +197,10 @@ $q=$q();
 				</div>
 
 
+				<div id="chart_12_months">
+				</div>
+
+
 				<h2>Curated tour views</h2>
 				<div id="metrics_tours_div">
 					
@@ -227,6 +231,55 @@ $q=$q();
 
 
 		};
+
+
+		var addChart=function(div, title, result, options){
+
+
+			const chart = new KeenDataviz({
+			  container: div instanceof HTMLElement?div:document.getElementById(div),
+			  type: 'bar',
+			  title: title,
+			  stacking: 'percent',
+			  legend: {
+			  	position: 'bottom',
+			  },
+			  labelMapping: {
+			  	total: 'Total',
+			    unigue: 'Unique'
+			  },
+			  renderOnVisible: true,
+			  palette: 'modern'
+			});
+
+			var example={"result": [
+
+
+			{"value": [
+					{"product.name": "apps", "result": 53}, 
+					{"product.name": "books", "result": 47}, 
+					{"product.name": "games", "result": 24}, 
+					{"product.name": "sounds", "result": 76}
+				], 
+			"timeframe": {"start": "2019-03-20T00:00:00.000Z", "end": "2019-03-21T00:00:00.000Z"}
+			
+
+			}, {"value": [
+				{"product.name": "apps", "result": 32}, 
+				{"product.name": "books", "result": 24}, 
+				{"product.name": "games", "result": 56}, 
+				{"product.name": "sounds", "result": 32}], 
+
+			"timeframe": {"start": "2019-03-21T00:00:00.000Z", "end": "2019-03-22T00:00:00.000Z"}
+
+
+			}, {"value": [{"product.name": "apps", "result": 27}, {"product.name": "books", "result": 32}, {"product.name": "games", "result": 18}, {"product.name": "sounds", "result": 33}], "timeframe": {"start": "2019-03-22T00:00:00.000Z", "end": "2019-03-23T00:00:00.000Z"}}, {"value": [{"product.name": "apps", "result": 68}, {"product.name": "books", "result": 56}, {"product.name": "games", "result": 65}, {"product.name": "sounds", "result": 59}], "timeframe": {"start": "2019-03-23T00:00:00.000Z", "end": "2019-03-24T00:00:00.000Z"}}, {"value": [{"product.name": "apps", "result": 38}, {"product.name": "books", "result": 48}, {"product.name": "games", "result": 50}, {"product.name": "sounds", "result": 26}], "timeframe": {"start": "2019-03-24T00:00:00.000Z", "end": "2019-03-25T00:00:00.000Z"}}, {"value": [{"product.name": "apps", "result": 34}, {"product.name": "books", "result": 15}, {"product.name": "games", "result": 18}, {"product.name": "sounds", "result": 14}], "timeframe": {"start": "2019-03-25T00:00:00.000Z", "end": "2019-03-26T00:00:00.000Z"}}]}
+
+
+				
+
+			chart.render();;
+		}
 
 		addMetric('metric_total', "Total Events", <?php echo json_encode(array('result'=>$q->count())); ?>);
 		addMetric('metric_ips', "Unique IPs", <?php echo json_encode(array('result'=>$q->countDistinct('ip'))); ?>);
@@ -281,15 +334,25 @@ $q=$q();
 
 		<?php
 
+
+			$nextMonth=strtotime(date('Y-m', $thisMonth+(3600*24*20)).'-01'));
+			if($thisMonth==$nextMonth){
+				$nextMonth=strtotime(date('Y-m', $thisMonth+(3600*24*35)).'-01'));
+			}
+
+
+
 			$end=$lastMonth;
 			$results12Months=array(
 				array(
-					'date'=>date('Y-m', $lastMonth),
+					'start'=>date('Y-m', $lastMonth),
+					'end'=>date('Y-m', $thisMonth),
  					'unique'=>$uniqueLastMonth,
  					'total'=>$q->count('WHERE timestamp >= '.$thisMonth)
 				),
 				array(
 					'date'=>date('Y-m', $thisMonth),
+					'end'=>date('Y-m', $nextMonth); 
  					'unique'=>$uniqueThistMonth,
  					'total'=>$q->count('WHERE timestamp >= '.$lastMonth.' AND timestamp < '.$thisMonth)
 				)
@@ -313,7 +376,28 @@ $q=$q();
 
 		?>
 
-		var year=<?php echo json_encode($results12Months, JSON_PRETTY_PRINT);?>;
+		var year=<?php echo json_encode(array_map(function($value){
+
+			return array(
+				'value'=>array(
+					array(
+						'name'=>'total',
+						'result'=>$value['total']
+					),
+					array(
+						'name'=>'unigue',
+						'result'=>$value['unique']
+					)
+
+				),
+				'timeframe'=>array(
+					'start'=>$value['start'],
+					'end'=>$value['end'],
+				)
+
+			);
+
+		}, $results12Months), JSON_PRETTY_PRINT);?>;
 
 		
 		<?php 
