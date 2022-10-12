@@ -124,22 +124,14 @@ foreach($ipmap as $ip=>$country){
 			
 			google.charts.setOnLoadCallback(drawRegionsMap);
 			function drawRegionsMap() {
-				var data = google.visualization.arrayToDataTable((['Country', 'Section Views']).concat(<?php echo json_encode(array_map(function($country)use($countries){
+				var data = google.visualization.arrayToDataTable(([['Country', 'Section Views']]).concat(<?php echo json_encode(array_map(function($country)use($countries){
 
 					return array(
 						$country,
 						$countries[$country]
 					);
 
-				}, array_keys($countries)), JSON_PRETTY_PRINT); ?> /*[
-					['Country', 'Section Views'],
-					['Germany', 200],
-					['United States', 300],
-					['Brazil', 400],
-					['Canada', 500],
-					['France', 600],
-					['RU', 700]
-					]*/));
+				}, array_keys($countries)), JSON_PRETTY_PRINT); ?>));
 				var options = {
 					colorAxis: {colors: ['#cccccc', 'rgb(0, 187, 222)']},
 				};
