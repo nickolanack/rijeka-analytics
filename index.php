@@ -135,9 +135,9 @@ $q=$q();
 		var addMetric=function(div, title, result){
 
 			var chart = new Keen.Dataviz()
-			.el(document.getElementById('metrics_div'))
+			.el(document.getElementById(div))
 			.height(240)
-			.title("Total Events")
+			.title(title)
 			.type("metric")
 			.prepare();
 
