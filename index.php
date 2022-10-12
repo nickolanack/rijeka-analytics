@@ -242,11 +242,11 @@ $q=$q();
 		<?php
 
 		date_default_timezone_set('Europe/Zagreb');
-		$7days = strtotime(date('Y-m-d') (time()-3600*24*7));
+		$last7days = strtotime(date('Y-m-d') (time()-3600*24*7));
 
 		?>
 
-		addMetric('metric_today', "Last 7 days", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp > '.$7days))); ?>);
+		addMetric('metric_today', "Last 7 days", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp > '.$last7days))); ?>);
 
 
 
