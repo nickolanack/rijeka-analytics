@@ -304,7 +304,7 @@ $q=$q();
  					'date'=>date('Y-m', $start),
  					'unique'=>$q->countDistinct('ip','WHERE timestamp >= '.$start.' AND timestamp < '.$end),
  					'total'=>$q->count('WHERE timestamp >= '.$start.' AND timestamp < '.$end)
-				))
+				));
 
 				$end=$start;
 
