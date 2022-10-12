@@ -17,7 +17,7 @@ if(!file_exists($file)){
 
 $domain='some.domain.com';
 
-if(isset($_SERVER['HTTP_HOST']){
+if(isset($_SERVER['HTTP_HOST'])){
 	$domain=$_SERVER['HTTP_HOST'];
 }
 
