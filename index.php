@@ -1,24 +1,38 @@
 <?php
 
 
-$db=json_decode(file_get_contents('../.sql.json'));
-
-$conn = new mysqli('localhost', $db->username, $db->password, 'rijeka');
-if ((!$conn)||$conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
 
 
+$q=(function(){
 
-if($results = $conn->query('SELECT count(*) FROM event')){
+	$db=json_decode(file_get_contents('../.sql.json'));
 
-	foreach ($results as $result) {
-		print_r($result);
+	$conn = new mysqli('localhost', $db->username, $db->password, 'rijeka');
+	if ((!$conn)||$conn->connect_error) {
+	  die("Connection failed: " . $conn->connect_error);
 	}
 
-}else{
-	echo 'ERROR: '.$conn->error;
-}
+
+	class Q{
+
+
+
+	}
+
+	return new Q();
+
+})();
+
+
+
+
+// if($results = $conn->query('SELECT count(*) as count FROM event')){
+
+	
+
+// }else{
+// 	echo 'ERROR: '.$conn->error;
+// }
 
 
 ?><!DOCTYPE html>
