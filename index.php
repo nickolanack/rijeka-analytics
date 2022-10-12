@@ -109,6 +109,28 @@ $q=$q();
 
 
 		</script>
+		<style type="text/css">
+			
+
+			div#metrics_div>div {
+			    width: 30%;
+			    margin: 10px;
+			    display: inline-block;
+			}
+
+			div#metrics_div {
+			    width: 900px;
+			    margin: 50px auto;
+			    text-align: center;
+			}
+
+			div#regions_div {
+			    margin: auto;
+			    text-align: center;
+			    margin: 50px auto;
+			}
+			
+		</style>
 	</head>
 	<body>
 		<main>
@@ -147,7 +169,7 @@ $q=$q();
 		};
 
 		addMetric('metric_total', "Total Events", <?php echo json_encode(array('result'=>$q->count())); ?>);
-		addMetric('metric_ips', "Unique Users", <?php echo json_encode(array('result'=>$q->countDistinct('ip'))); ?>);
+		addMetric('metric_ips', "Unique IPs", <?php echo json_encode(array('result'=>$q->countDistinct('ip'))); ?>);
 		
 		
 
