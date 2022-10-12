@@ -60,6 +60,17 @@ $q=function(){
 	
 		}
 
+		public function distinct($field, $where=null){
+
+			if($results = $this->conn->query(
+				'SELECT DISTINCT '.$field.' FROM event'.$this->_w($where)
+			)){
+				return $results->fetch_all(MYSQLI_ASSOC);
+			}
+			return [];
+	
+		}
+
 	}
 
 	return new Q($conn);
@@ -416,6 +427,34 @@ $q=$q();
 				<?php
 			}
 		?>
+
+
+
+
+
+
+
+		<?php 
+
+
+		if(isset($_GET['dump_ip'])){
+			?>
+
+			var ips = 
+
+			<?php echo json_encode($q->distinct('ip'));?>
+
+			;
+
+			<?php
+
+
+		}
+
+
+		?>
+
+
 
 	</script>
 </html>
