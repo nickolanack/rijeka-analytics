@@ -236,25 +236,8 @@ $q=$q();
 		var addChart=function(div, title, result, options){
 
 
-			// const chart = new Keen.Dataviz({
-			//   container: '#'+div,
-			//   type: 'bar',
-			//   title: title,
-			//   stacking: 'percent',
-			//   legend: {
-			//   	position: 'bottom',
-			//   },
-			//   labelMapping: {
-			//   	total: 'Total',
-			//     unigue: 'Unique'
-			//   },
-			//   renderOnVisible: true,
-			//   palette: 'modern'
-			// });
-				
-
 			options=ObjectAppend_({
-				height:240
+				height:340
 			}, options);
 
 			var chart = new Keen.Dataviz()
@@ -262,18 +245,7 @@ $q=$q();
 			.height(options.height)
 			.title(title)
 			.type("bar")
-			.chartOptions({
-				 stacking: 'percent',
-			  legend: {
-			  	position: 'bottom',
-			  },
-			  labelMapping: {
-			  	total: 'Total',
-			    unigue: 'Unique'
-			  },
-			  renderOnVisible: true,
-			  palette: 'modern'
-			})
+			.stacked(true)
 			.prepare();
 
 			chart.data(result).render();
