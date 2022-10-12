@@ -90,7 +90,9 @@ foreach($ipmap as $ip=>$country){
 }
 
 
-if(time()-filemtime('../.ipmap.json')>3600){
+$fileAge=time()-filemtime('../.ipmap.json');
+echo $fileAge;
+if($fileAge>3600){
 	touch('../.ipmap.json');
 	shell_exec('php ./geocodeip.php '.escapeshellarg($_SERVER['HTTP_HOST']).' > .log.text 2>&1 &');
 }
