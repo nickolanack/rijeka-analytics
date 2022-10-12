@@ -358,11 +358,11 @@ $q=$q();
 				'value'=>array(
 
 					array(
-						'name'=>'unigue users',
+						'name'=>'Unigue Users',
 						'result'=>$value['unique']
 					),
 					array(
-						'name'=>'total page views',
+						'name'=>'Total Section Views',
 						'result'=>$value['total']
 					)
 
