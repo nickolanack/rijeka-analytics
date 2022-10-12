@@ -19,7 +19,7 @@
 		<script type="text/javascript" src="https://d26b395fwzu5fz.cloudfront.net/keen-analysis-1.2.2.js"></script>
 		<script type="text/javascript" src="https://d26b395fwzu5fz.cloudfront.net/keen-dataviz-1.1.3.js"></script>
 		<script type="text/javascript" src="https://d26b395fwzu5fz.cloudfront.net/keen-dataviz-1.1.3.css"></script>
-		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js" ></script>
 		<script type="text/javascript">
 			google.charts.load('current', {
 				'packages':['geochart'],
@@ -44,14 +44,7 @@
 
 
 
-			var chart = new Keen.Dataviz()
-			      .el(document.getElementById('metrics_div'))
-			      .height(240)
-			      .title("Total Events")
-			      .type("metric")
-			      .prepare();
-
-			      chart.data({result:123}).render();
+			
 
 
 		</script>
@@ -66,9 +59,19 @@
 				<div id="metrics_div" style="width: 900px; height: 500px;"></div>
 			<section>
 
-
 		</main>
 	</body>
-	
-</body>
+
+	<script type="text/javascript">
+		
+		var chart = new Keen.Dataviz()
+			.el(document.getElementById('metrics_div'))
+			.height(240)
+			.title("Total Events")
+			.type("metric")
+			.prepare();
+
+			chart.data({result:123}).render();
+		
+	</script>
 </html>
