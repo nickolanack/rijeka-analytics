@@ -90,6 +90,12 @@ foreach($ipmap as $ip=>$country){
 }
 
 
+if(time()-filemtime('../.ipmap.json')>3600){
+	touch('../.ipmap.json');
+	shell_exec('php ./geocodeip.php '.escapeshellarg($_SERVER['HTTP_HOST']).' > .log.text 2>&1 &');
+}
+
+
 
 
 ?><!DOCTYPE html>
@@ -477,20 +483,22 @@ foreach($ipmap as $ip=>$country){
 
 		<?php 
 
+		/*
+		
+			if(isset($_GET['dump_ip'])){
+				?>
 
-		if(isset($_GET['dump_ip'])){
-			?>
+				var ips = 
 
-			var ips = 
+				<?php echo json_encode($q->distinct('ip'));?>
 
-			<?php echo json_encode($q->distinct('ip'));?>
+				;
 
-			;
+				<?php
 
-			<?php
+			}
 
-
-		}
+		*/
 
 
 		?>
