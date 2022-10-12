@@ -1,4 +1,16 @@
-<!DOCTYPE html>
+<?php
+
+
+$db=json_decode(file_get_contents('../.sql.json'));
+
+$conn = new mysqli('localhost', $db->username, $db->password);
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+
+
+
+?><!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="utf-8">
@@ -16,7 +28,7 @@
 		</script>
 		<script type="text/javascript" src="https://aopfn.geoforms.ca/app/nickolanack/php-core-app/assets/js/ClassObject.js?1655843160"></script>
 		<script type="text/javascript" src="https://aopfn.geoforms.ca/app/nickolanack/php-core-app/assets/js/Window.js?1655851684"></script>
-		
+
 		<script type="text/javascript" src="https://d26b395fwzu5fz.cloudfront.net/keen-analysis-1.2.2.js"></script>
 		<script type="text/javascript" src="https://d26b395fwzu5fz.cloudfront.net/keen-dataviz-1.1.3.js"></script>
 		<link type="text/css" href="https://d26b395fwzu5fz.cloudfront.net/keen-dataviz-1.1.3.css" rel="stylesheet">
