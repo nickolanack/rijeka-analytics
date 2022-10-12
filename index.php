@@ -305,7 +305,9 @@ foreach($ipmap as $ip=>$country){
 			chart.data(result).render();
 		}
 
-		addMetric('metric_total', "Total App Section Views", <?php echo json_encode(array('result'=>$q->count())); ?>);
+		addMetric('metric_total', "Total App Section Views", <?php echo json_encode(array('result'=>$q->count())); ?>,{
+			colors:['rgb(254, 102, 114)']
+		});
 		addMetric('metric_ips', "Unique IPs", <?php echo json_encode(array('result'=>$q->countDistinct('ip'))); ?>);
 
 
