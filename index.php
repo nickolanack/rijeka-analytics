@@ -15,7 +15,14 @@ $q=function(){
 
 	class Q{
 
+		public count($where=null){
 
+			if($results = $conn->query('SELECT count(*) as count FROM event'.(empty($where)?'':' '.$where))){
+				return $results[0]['count'];
+			}
+			return 0;
+	
+		}
 
 	}
 
@@ -23,17 +30,6 @@ $q=function(){
 
 };
 $q=$q();
-
-
-
-// if($results = $conn->query('SELECT count(*) as count FROM event')){
-
-	
-
-// }else{
-// 	echo 'ERROR: '.$conn->error;
-// }
-
 
 ?><!DOCTYPE html>
 <html>
@@ -111,7 +107,9 @@ $q=$q();
 			.type("metric")
 			.prepare();
 
-			chart.data({result:123}).render();
+			chart.data(<?php 
+				echo json_encode(array('result'=>$q->count()));
+				?>).render();
 
 	</script>
 </html>
