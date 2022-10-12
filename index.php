@@ -335,9 +335,9 @@ $q=$q();
 		<?php
 
 
-			$nextMonth=strtotime(date('Y-m', $thisMonth+(3600*24*20)).'-01'));
+			$nextMonth=strtotime(date('Y-m', $thisMonth+(3600*24*20)).'-01');
 			if($thisMonth==$nextMonth){
-				$nextMonth=strtotime(date('Y-m', $thisMonth+(3600*24*35)).'-01'));
+				$nextMonth=strtotime(date('Y-m', $thisMonth+(3600*24*35)).'-01');
 			}
 
 
