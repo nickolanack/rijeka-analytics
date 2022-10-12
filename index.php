@@ -239,7 +239,7 @@ $q=$q();
 
 		?>
 
-		addMetric('metric_today', "Today", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp > '.$today))); ?>);
+		addMetric('metric_today', "Today", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp >= '.$today))); ?>);
 
 
 
@@ -250,7 +250,7 @@ $q=$q();
 
 		?>
 
-		addMetric('metric_7days', "Last 7 days", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp > '.$last7days))); ?>);
+		addMetric('metric_7days', "Last 7 days", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp >= '.$last7days))); ?>);
 
 
 
@@ -261,7 +261,7 @@ $q=$q();
 
 		?>
 
-		addMetric('metric_month', "This month", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp > '.$thisMonth))); ?>);
+		addMetric('metric_month', "This month", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp >= '.$thisMonth))); ?>);
 
 
 
@@ -274,7 +274,7 @@ $q=$q();
 
 		?>
 
-		addMetric('metric_lastMonth', "Last month", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp > '.$lastMonth.' AND timestamp > '.$thisMonth))); ?>);
+		addMetric('metric_lastMonth', "Last month", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp >= '.$lastMonth.' AND timestamp < '.$thisMonth))); ?>);
 
 
 
