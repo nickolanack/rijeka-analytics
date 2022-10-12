@@ -216,7 +216,7 @@ $q=$q();
 					?>
 
 
-					addMetric(document.getElementById('metrics_tours_div').appendChild(new Element('div')), <?php echo json_encode($data->filter->filterTour);?>, <?php echo json_encode(array('result'=>$result['count'])); ?>);
+					addMetric(document.getElementById('metrics_tours_div').appendChild(new Element('div')), <?php echo json_encode($data->filter->filterTour);?>, <?php echo json_encode(array('result'=>intval($result['count']))); ?>);
 		
 
 					<?php
