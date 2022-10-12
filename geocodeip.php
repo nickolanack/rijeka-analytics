@@ -21,7 +21,7 @@ if(isset($_SERVER['HTTP_HOST'])){
 	$domain=$_SERVER['HTTP_HOST'];
 }
 
-if(count($argv)>1){
+if(isset($argv)&&count($argv)>1){
 	$domain=$argv[1];
 }
 
