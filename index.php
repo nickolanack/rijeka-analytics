@@ -78,6 +78,20 @@ $q=function(){
 };
 $q=$q();
 
+
+
+$ipmap=json_decode(file_get_contents('../.ipmap.json'), true);
+$countries=array();
+foreach($ipmap as $ip=>$country){
+	if(!array_key_exists($country, $countries)){
+		$countries[$country]=0;
+	}
+	$countries[$country]++;
+}
+
+
+
+
 ?><!DOCTYPE html>
 <html>
 	<head>
@@ -110,7 +124,14 @@ $q=$q();
 			
 			google.charts.setOnLoadCallback(drawRegionsMap);
 			function drawRegionsMap() {
-				var data = google.visualization.arrayToDataTable([
+				var data = google.visualization.arrayToDataTable(<?php echo json_encode(array_map(function($country)use($countries){
+
+					return array(
+						$country,
+						$countries[$country]
+					);
+
+				}, array_keys($contries)), JSON_PRETTY_PRINT); ?> /*[
 					['Country', 'Section Views'],
 					['Germany', 200],
 					['United States', 300],
@@ -118,7 +139,7 @@ $q=$q();
 					['Canada', 500],
 					['France', 600],
 					['RU', 700]
-					]);
+					]*/);
 				var options = {
 					colorAxis: {colors: ['#cccccc', 'rgb(0, 187, 222)']},
 				};
