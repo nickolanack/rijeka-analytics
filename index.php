@@ -222,6 +222,13 @@ if($fileAge>3600){
 			    display: none;
 			}
 
+			@media only screen and (max-width: 600px) {
+			 	div#metrics_div>div, div#metrics_tours_div>div {
+			 		min-width: unset;
+			 		width: 90%;
+			 	}
+			}
+
 
 		</style>
 	</head>
