@@ -111,7 +111,7 @@ $q=$q();
 			google.charts.setOnLoadCallback(drawRegionsMap);
 			function drawRegionsMap() {
 				var data = google.visualization.arrayToDataTable([
-					['Country', 'Popularity'],
+					['Country', 'Section Views'],
 					['Germany', 200],
 					['United States', 300],
 					['Brazil', 400],
@@ -266,7 +266,7 @@ $q=$q();
 			chart.data(result).render();
 		}
 
-		addMetric('metric_total', "Total Events", <?php echo json_encode(array('result'=>$q->count())); ?>);
+		addMetric('metric_total', "Total App Section Views", <?php echo json_encode(array('result'=>$q->count())); ?>);
 		addMetric('metric_ips', "Unique IPs", <?php echo json_encode(array('result'=>$q->countDistinct('ip'))); ?>);
 
 
