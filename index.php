@@ -191,6 +191,7 @@ $q=$q();
 					<div id="metric_total"></div>
 					<div id="metric_ips"></div>
 					<div id="metric_today"></div>
+					<div id="metric_7days"></div>
 				</div>
 
 
@@ -246,7 +247,7 @@ $q=$q();
 
 		?>
 
-		addMetric('metric_today', "Last 7 days", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp > '.$last7days))); ?>);
+		addMetric('metric_7days', "Last 7 days", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp > '.$last7days))); ?>);
 
 
 
