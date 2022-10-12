@@ -20,7 +20,7 @@ $q=function(){
 			$this->conn=$conn;
 		}
 
-		protected _w($where=null){
+		protected function _w($where=null){
 			return empty($where)?'':' '.$where;
 
 		}
