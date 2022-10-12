@@ -205,11 +205,15 @@ $q=$q();
 	<script type="text/javascript">
 
 
-		var addMetric=function(div, title, result){
+		var addMetric=function(div, title, result, options){
+
+			options=ObjectAppend_({
+				height:240
+			}, options);
 
 			var chart = new Keen.Dataviz()
 			.el(div instanceof HTMLElement?div:document.getElementById(div))
-			.height(240)
+			.height(options.height)
 			.title(title)
 			.type("metric")
 			.prepare();
@@ -246,7 +250,13 @@ $q=$q();
 
 			foreach ($formatted as $key => $value) {
 				?>
-					addMetric(document.getElementById('metrics_tours_div').appendChild(new Element('div')), <?php echo json_encode($key); ?>, <?php echo json_encode(array('result'=>$value)); ?>);
+					addMetric(
+						document.getElementById('metrics_tours_div').appendChild(new Element('div')), 
+						<?php echo json_encode($key); ?>, 
+						<?php echo json_encode(array('result'=>$value)); ?>,
+						{
+							height:200
+						});
 				<?php
 			}
 		?>
