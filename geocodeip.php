@@ -131,6 +131,6 @@ foreach($ips as $value){
 	sleep(1);
 	
 }
-echo "wrote ".$counter." new records";
+echo "wrote ".$counter." new locations out of ".count($ips).' ips';
 file_put_contents($file, json_encode($map, JSON_PRETTY_PRINT));
 
