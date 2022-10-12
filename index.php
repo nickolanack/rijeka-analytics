@@ -190,6 +190,7 @@ $q=$q();
 				<div id="metrics_div">
 					<div id="metric_total"></div>
 					<div id="metric_ips"></div>
+					<div id="metric_today"></div>
 				</div>
 
 				<h2>Curated tour views</h2>
@@ -225,6 +226,16 @@ $q=$q();
 
 		addMetric('metric_total', "Total Events", <?php echo json_encode(array('result'=>$q->count())); ?>);
 		addMetric('metric_ips', "Unique IPs", <?php echo json_encode(array('result'=>$q->countDistinct('ip'))); ?>);
+
+
+		<?php
+
+		date_default_timezone_set('Europe/Zagreb');
+		$time = strtotime(date('Y-m-d'));
+
+		?>
+
+		addMetric('metric_today', "Today", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp>'.$time))); ?>);
 		
 		<?php 
 
