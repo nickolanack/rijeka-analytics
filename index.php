@@ -296,6 +296,16 @@ if($fileAge>3600){
 				<div id="chart_distribution">
 				</div>
 
+
+				<p>
+					Activity distribution shows the total number of unique users (unique ips) grouped on the number of sections views that were logged for each user. 
+					The shape of the chart is expected to follow a normal distribution centered around 0 (the right half of a normal distribution). 
+					We expect a smaller group of highly active users and a larger group of casual viewers.
+					<br/>
+					for the following metrics we are separating the unique user groups into casual <= 8 and active > 8
+
+
+				</p>
 				
 
 				<div id="chart_12_months_active">
