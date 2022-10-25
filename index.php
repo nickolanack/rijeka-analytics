@@ -396,7 +396,8 @@ if($fileAge>3600){
 			        width: {
 			            ratio: 0.9 // this makes bar width 90% of length between ticks
 			        }
-			    }
+			    },
+			    colors:["#66cdaa"]
 			})
 			.prepare();
 
@@ -691,7 +692,8 @@ if($fileAge>3600){
 						<?php echo json_encode($key); ?>, 
 						<?php echo json_encode(array('result'=>$value)); ?>,
 						{
-							height:200
+							height:200,
+							color:["#66cdaa"]
 						});
 				<?php
 			}
