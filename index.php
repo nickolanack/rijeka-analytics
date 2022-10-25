@@ -586,7 +586,7 @@ if($fileAge>3600){
 		?>
 
 
-		var distribution=<?php echo json_encode(array_map(function($value)use($ranges){
+		var distribution=<?php echo json_encode(array_map(function($value, $i)use($ranges){
 
 			return array(
 				'value'=>array(
@@ -596,11 +596,15 @@ if($fileAge>3600){
 						'result'=>$value
 					)
 
+				),
+				'timeframe'=>array(
+					'start'=>$range[$i][0],
+					'end'=>$range[$i][1],
 				)
 
 			);
 
-		}, $values), JSON_PRETTY_PRINT);?>
+		}, $values, array_keys($values)), JSON_PRETTY_PRINT);?>
 
 
 		addChart('chart_distribution', 'User interaction distribution', {result:distribution});
