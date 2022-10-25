@@ -632,7 +632,7 @@ if($fileAge>3600){
 
 			$formatted=[];
 
-			foreach ($q->countDistinctGroups(' WHERE ip in ('. $q->distributionThreshold('ip', 8) .') ') as $result) {
+			foreach ($q->countDistinctGroups(' WHERE ip in ('. $q->distributionThreshold('ip', 16) .') ') as $result) {
 				$data=json_decode($result['data']);
 				if(isset($data->filter->filterTour)){
 
