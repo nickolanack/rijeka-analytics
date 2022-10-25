@@ -526,7 +526,7 @@ if($fileAge>3600){
 
 			$group=function($v)use($base){
 				 return (int) log($v, $base); 
-			}
+			};
 
 			$range=function($i)use($base){
 				return [pow($base, $i), pow($base, $i+1)];
@@ -538,7 +538,7 @@ if($fileAge>3600){
 
 			$group=function($v)use($segmentSize){
 				 return (int) $v/$segmentSize;
-			}
+			};
 
 			$range=function($i)use($segmentSize){
 				return [$i*$segmentSize, ($i+1)*$segmentSize];
