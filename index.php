@@ -173,7 +173,7 @@ if($fileAge>3600){
 		<style type="text/css">
 			
 
-			div#metrics_div>div, div#metrics_tours_div>div, div#metrics_tours_div_active>div, div#metrics_tours_div_casual>div {
+			div#metrics_div>div, div#metrics_tours_div>div, div#metrics_tours_div_active_items>div, div#metrics_tours_div_casual>div {
 			    width: 30%;
 			    margin: 10px;
 			    display: inline-block;
@@ -241,11 +241,22 @@ if($fileAge>3600){
 			}
 
 			@media only screen and (max-width: 600px) {
-			 	div#metrics_div>div, div#metrics_tours_div>div,  div#metrics_tours_div_active>div, div#metrics_tours_div_casual>div {
+			 	div#metrics_div>div, div#metrics_tours_div>div,  div#metrics_tours_div_active_items>div, div#metrics_tours_div_casual>div {
 			 		min-width: unset;
 			 		width: 90%;
 			 	}
 			}
+
+
+			#metrics_tours_div_casual .keen-dataviz {
+			    scale: 0.3;
+			    position: relative;
+			    top: 70px;
+			    left: 90px;
+			    filter: invert(1);
+			    
+			}
+
 
 
 		</style>
@@ -312,12 +323,16 @@ if($fileAge>3600){
 				</p>
 				
 				<h2>Active user section views</h2>
-				<div id="metrics_tours_div_active">
+				<div id="metrics_tours_div_active" >
+					<div id="metrics_tours_div_active_items">
+
+					</div>
+
+					<div id="metrics_tours_div_casual">
+					</div>
 				</div>
 
-				<h2>Casual user section views</h2>
-				<div id="metrics_tours_div_casual">
-				</div>
+				
 
 			<section>
 
@@ -657,7 +672,7 @@ if($fileAge>3600){
 			foreach ($formatted as $key => $value) {
 				?>
 					addMetric(
-						document.getElementById('metrics_tours_div_active').appendChild(new Element('div')), 
+						document.getElementById('metrics_tours_div_active_items').appendChild(new Element('div')), 
 						<?php echo json_encode($key); ?>, 
 						<?php echo json_encode(array('result'=>$value)); ?>,
 						{
