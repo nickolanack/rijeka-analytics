@@ -192,6 +192,7 @@ if($fileAge>3600){
 			}
 
 			.keen-dataviz-title {
+				margin-top: 100px;
 			    scale: 2;
 			}
 
@@ -217,6 +218,7 @@ if($fileAge>3600){
 			    margin: 10px auto;
 			    font-size: 28px;
 			    color: #4D4D4D;
+			    margin-top: 100px;
 			}
 
 			
