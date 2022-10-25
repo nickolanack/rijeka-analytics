@@ -574,7 +574,7 @@ if($fileAge>3600){
 				$values[]=0;
 			}
 
-			$ranges[$i]$range($i);
+			$ranges[$i]=$range($i);
 		}
 
 		echo json_encode($values);
