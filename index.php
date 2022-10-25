@@ -257,6 +257,17 @@ if($fileAge>3600){
 			    
 			}
 
+			div#metrics_tours_div_active {
+			    position: relative;
+			}
+
+			div#metrics_tours_div_casual {
+			    position: absolute;
+			    top: 16px;
+			    left: 35px;
+			    margin: 0;
+			}
+
 
 
 		</style>
@@ -710,7 +721,7 @@ if($fileAge>3600){
 				?>
 					addMetric(
 						document.getElementById('metrics_tours_div_casual').appendChild(new Element('div')), 
-						<?php echo json_encode($key); ?>, 
+						"Casual",
 						<?php echo json_encode(array('result'=>$value)); ?>,
 						{
 							height:200
