@@ -180,7 +180,7 @@ if($fileAge>3600){
 
 		
 
-			div#regions_div, div#metrics_div, div#metrics_tours_div, div#chart_12_months,  div#chart_distribution {
+			div#regions_div, div#metrics_div, div#metrics_tours_div, div#chart_12_months, div#chart_distribution {
 			    max-width: 900px;
 			    width: calc( 100% - 100px );
 			    margin: 50px auto;
@@ -188,6 +188,9 @@ if($fileAge>3600){
 			    vertical-align: top;
 			}
 
+			.keen-dataviz-title {
+			    scale: 2;
+			}
 
 
 			h1 {
@@ -203,14 +206,14 @@ if($fileAge>3600){
 			}
 
 			h2 {
-			    font-family: sans-serif;
-			    font-weight: 100;
-			    font-size: 40px;
+			    font-family: 'Gotham Rounded SSm A', 'Gotham Rounded SSm B', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+			    font-weight: 200;
 			    text-align: center;
-
 			    max-width: 900px;
 			    width: calc( 100% - 100px );
 			    margin: 10px auto;
+			    font-size: 28px;
+			    color: #4D4D4D;
 			}
 
 			
