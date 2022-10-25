@@ -298,9 +298,9 @@ if($fileAge>3600){
 
 
 				<p>
-					Activity distribution shows the total number of unique users (unique ips) grouped on the number of sections views that were logged for each user. 
-					The shape of the chart is expected to follow a normal distribution centered around 0 (the right half of a normal distribution). 
-					Assumes a smaller group of highly active users and a larger group of casual viewers.
+					Activity distribution (histogram) shows the total number of unique users (unique ips) grouped on the number of sections views that were logged for each user. 
+					The shape of the chart is expected to follow a half-normal distribution (the right half of a normal distribution centered around 0). 
+					This assumes a smaller group of highly active users and a larger group of casual viewers.
 					<br/>
 					For the following metrics unique user data is seperated into two groups; casual <= 8, and active > 8.
 
