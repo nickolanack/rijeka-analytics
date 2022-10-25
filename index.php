@@ -594,7 +594,7 @@ if($fileAge>3600){
 		var distribution=<?php echo json_encode(array_map(function($value, $i)use($ranges){
 
 			return array(
-				'result'=>$value,
+				'result'=>array($value,0),
 				'label'=> $ranges[$i][0].' - '.$ranges[$i][1].' Section views',
 				
 
