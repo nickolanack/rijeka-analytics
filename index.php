@@ -289,7 +289,7 @@ if($fileAge>3600){
 
 
 				<h2>Unique section views</h2>
-				<p>*These are not the only sections that are logged as views, but are easily to distinguished from other sections</p>
+				<p>*These are not the only sections that are logged as `section views`, but are easily to distinguished from other sections. Some section views do not request data that in unique and so cannot be identified as a specific app section.</p>
 				<div id="metrics_tours_div">
 					
 				</div>
