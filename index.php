@@ -603,7 +603,7 @@ if($fileAge>3600){
 		}, $values), JSON_PRETTY_PRINT);?>
 
 
-		addChart('chart_12_months', 'Last 12 Months', {result:distribution});
+		addChart('chart_distribution', 'User interaction distribution', {result:distribution});
 
 		<?php
 
