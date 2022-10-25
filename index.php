@@ -278,11 +278,11 @@ if($fileAge>3600){
 			label.active-u:after, label.casual-u:after {
 			    content: "";
 			    display: inline-block;
-			    width: 20px;
-			    height: 20px;
+			    width: 12px;
+			    height: 12px;
 			    background-color: mediumaquamarine;
 			    margin-left: 5px;
-			    vertical-align: bottom;
+			    vertical-align: top;
 			    border:1px solid #404040;
 			}
 
@@ -355,7 +355,7 @@ if($fileAge>3600){
 				</p>
 				
 				<h2>Active user section views</h2>
-				<p><label class="active-u">Active users</label> <label class="casual-u" >Casual users</label></p>
+				<p style="text-align: right;"><label class="active-u">Active users</label> <label class="casual-u" >Casual users</label></p>
 				<div id="metrics_tours_div_active" >
 					<div id="metrics_tours_div_active_items">
 
