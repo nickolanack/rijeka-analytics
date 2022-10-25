@@ -620,7 +620,7 @@ if($fileAge>3600){
 		}, $values, array_keys($values)), JSON_PRETTY_PRINT);?>
 
 
-		addChart('chart_distribution', 'Unique user activity distribution', {result:distribution});
+		addChart('chart_distribution', 'Unique user activity distribution (log2)', {result:distribution});
 
 		<?php
 
