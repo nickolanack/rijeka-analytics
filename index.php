@@ -693,7 +693,7 @@ if($fileAge>3600){
 						<?php echo json_encode(array('result'=>$value)); ?>,
 						{
 							height:200,
-							color:["#66cdaa"]
+							colors:["#66cdaa"]
 						});
 				<?php
 			}
