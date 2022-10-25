@@ -252,7 +252,7 @@ if($fileAge>3600){
 				</div>
 
 				<p>
-					The app requests section data each time a user navigates to a new section within the app (ie: each currated tour is a section), these 
+					The app requests section data each time a user navigates to a new section within the app (ie: each curated tour is a section), these 
 					are counted as section views.
 					<br/><br/>
 					The app does not track users and does not collect or store any identifying information about individual users. Therefore, the only data (collected by us) that can be 
