@@ -514,7 +514,7 @@ if($fileAge>3600){
 		<?php 
 
 		$groupSize=5;
-		$dataset=array();
+		$dist=array();
 
 		$max=0;
 
@@ -523,21 +523,25 @@ if($fileAge>3600){
 
 			$max=max($index, $max);
 
-			if(isset($dataset[$index])){
-				$dataset[$index]++;
+			if(isset($dist[$index])){
+				$dist[$index]++;
 				continue;
 			}
 
-			$dataset[$index]=1;
+			$dist[$index]=1;
 		}
 
+		$values=array();
+
 		for($i=0; $i<$max; $i++){
-			if(!isset($dataset[$i])){
-				$dataset[$i]=0;
+			if(isset($dist[$i])){
+				$values[]=$dist[$i];
+			}else{
+				$values[]=0;
 			}
 		}
 
-		echo json_encode($dataset);
+		echo json_encode($values);
 
 
 		/*
