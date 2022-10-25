@@ -60,6 +60,18 @@ $q=function(){
 	
 		}
 
+
+		public function distribution($field, $where=null){
+
+			if($results = $this->conn->query(
+				'SELECT '.$field, .', count(*) as count, data FROM event'.$this->_w($where).' GROUP BY '.$field
+			)){
+				return $results->fetch_all(MYSQLI_ASSOC);
+			}
+			return [];
+	
+		}
+
 		public function distinct($field, $where=null){
 
 			if($results = $this->conn->query(
@@ -500,6 +512,9 @@ if($fileAge>3600){
 
 
 		<?php 
+
+
+		echo json_encode($q->distribution('ip'));
 
 		/*
 		
