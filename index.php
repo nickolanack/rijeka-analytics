@@ -281,6 +281,9 @@ if($fileAge>3600){
 				<div id="chart_12_months">
 				</div>
 
+				<div id="chart_distribution">
+				</div>
+
 
 				<h2>Curated tour views</h2>
 				<div id="metrics_tours_div">
@@ -580,6 +583,29 @@ if($fileAge>3600){
 		echo json_encode($values);
 		echo json_encode($ranges);
 
+		?>
+
+
+		var distribution=<?php echo json_encode(array_map(function($value)use($ranges){
+
+			return array(
+				'value'=>array(
+
+					array(
+						'name'=>'Users',
+						'result'=>$value
+					)
+
+				)
+
+			);
+
+		}, $values), JSON_PRETTY_PRINT);?>
+
+
+		addChart('chart_12_months', 'Last 12 Months', {result:distribution});
+
+		<?php
 
 		/*
 		
