@@ -549,7 +549,9 @@ if($fileAge>3600){
 
 		};
 
-		$useLinearScale(10);
+
+		$useLogarithmicScale(2);
+		//$useLinearScale(10);
 
 		$dist=array();
 
