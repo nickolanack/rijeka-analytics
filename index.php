@@ -60,6 +60,9 @@ $q=function(){
 	
 		}
 
+		public function distributionThreshold($field, $n){
+			'SELECT '.$field.' FROM (SELECT '.$field.', count(*) as count, data FROM event GROUP BY '.$field.') as a WHERE a.count>='.$n;
+		}
 
 		public function distribution($field, $where=null){
 
@@ -303,7 +306,7 @@ if($fileAge>3600){
 					This assumes a smaller group of highly active users and a larger group of casual viewers.
 				</p>
 				<p>
-					For the following metrics unique user data is seperated into two groups; casual <= 8, and active > 8.
+					For the following metrics unique user data is seperated into two groups; casual < 8, and active >= 8.
 
 
 				</p>
@@ -621,6 +624,46 @@ if($fileAge>3600){
 
 
 		addChart('chart_distribution', 'Unique user activity distribution (log2)', {result:distribution});
+
+
+
+
+		<?php 
+
+			$formatted=[];
+
+			foreach ($q->countDistinctGroups(' WHERE ip in ('.($q->distributionThreshold('ip',8).') ') as $result) {
+				$data=json_decode($result['data']);
+				if(isset($data->filter->filterTour)){
+
+					$title=$data->filter->filterTour;
+					$title=explode(':', $title);
+					$title=array_pop($title);
+					$title=trim($title);
+
+					if(!array_key_exists($title, $formatted)){
+						$formatted[$title]=0;
+					}
+					$formatted[$title]+=intval($result['count']);
+
+					
+				}
+			}
+
+			foreach ($formatted as $key => $value) {
+				?>
+					addMetric(
+						document.getElementById('chart_12_months_active').appendChild(new Element('div')), 
+						<?php echo json_encode($key); ?>, 
+						<?php echo json_encode(array('result'=>$value)); ?>,
+						{
+							height:200
+						});
+				<?php
+			}
+		?>
+
+
 
 		<?php
 
