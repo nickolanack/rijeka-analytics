@@ -132,7 +132,7 @@ if($fileAge>3600){
 			
 			google.charts.setOnLoadCallback(drawRegionsMap);
 			function drawRegionsMap() {
-				var data = google.visualization.arrayToDataTable(([['Country', 'Section Unique Views']]).concat(<?php echo json_encode(array_map(function($country)use($countries){
+				var data = google.visualization.arrayToDataTable(([['Country', 'Unique IPs']]).concat(<?php echo json_encode(array_map(function($country)use($countries){
 
 					return array(
 						$country,
@@ -434,7 +434,7 @@ if($fileAge>3600){
 				'value'=>array(
 
 					array(
-						'name'=>'Unigue Users',
+						'name'=>'Unique Users',
 						'result'=>$value['unique']
 					),
 					array(
