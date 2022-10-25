@@ -532,6 +532,7 @@ if($fileAge>3600){
 		}
 
 		$values=array();
+		$ranges=array();
 
 		for($i=0; $i<=$max; $i++){
 			if(isset($dist[$i])){
@@ -539,9 +540,12 @@ if($fileAge>3600){
 			}else{
 				$values[]=0;
 			}
+
+			$ranges[$i]=[pow(2, $i), pow(2, $i+1)];
 		}
 
 		echo json_encode($values);
+		echo json_encode($ranges);
 
 
 		/*
