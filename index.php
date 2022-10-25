@@ -519,7 +519,7 @@ if($fileAge>3600){
 		$max=0;
 
 		foreach($q->distribution('ip') as $interact){
-			$index=(int) $interact['count']/$groupSize;
+			$index=(int) log($interact['count'], 2); // $interact['count']/$groupSize;
 
 			$max=max($index, $max);
 
