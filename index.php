@@ -462,8 +462,8 @@ if($fileAge>3600){
 
 				),
 				'timeframe'=>array(
-					'start'=>$value['start'],
-					'end'=>$value['end'],
+					'start'=>$value['start'].'-01',
+					'end'=>$value['end'].'-01',
 				)
 
 			);
