@@ -533,7 +533,7 @@ if($fileAge>3600){
 
 		$values=array();
 
-		for($i=0; $i<$max; $i++){
+		for($i=0; $i<=$max; $i++){
 			if(isset($dist[$i])){
 				$values[]=$dist[$i];
 			}else{
