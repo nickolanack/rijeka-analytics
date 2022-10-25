@@ -253,7 +253,6 @@ if($fileAge>3600){
 			    position: relative;
 			    top: 70px;
 			    left: 90px;
-			    filter: invert(1);
 			    
 			}
 
@@ -724,7 +723,8 @@ if($fileAge>3600){
 						"Casual",
 						<?php echo json_encode(array('result'=>$value)); ?>,
 						{
-							height:200
+							height:200,
+							colors:["#ffffff"]
 						});
 				<?php
 			}
