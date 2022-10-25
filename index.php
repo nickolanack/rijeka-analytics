@@ -602,7 +602,7 @@ if($fileAge>3600){
 					)
 
 				),
-				'timeframe'=>array(
+				'interval'=>array(
 					'start'=>$range[$i][0],
 					'end'=>$range[$i][1],
 				)
