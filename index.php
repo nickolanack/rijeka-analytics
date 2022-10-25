@@ -340,7 +340,7 @@ if($fileAge>3600){
 				</p>
 				
 				<h2>Active user section views</h2>
-				<label class="active-u">Active users</label> <labe lclass="casual-u" >Casual users</label>
+				<p><label class="active-u">Active users</label> <label class="casual-u" >Casual users</label></p>
 				<div id="metrics_tours_div_active" >
 					<div id="metrics_tours_div_active_items">
 
