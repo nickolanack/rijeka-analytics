@@ -61,7 +61,7 @@ $q=function(){
 		}
 
 		public function distributionThreshold($field, $n){
-			'SELECT '.$field.' FROM (SELECT '.$field.', count(*) as count, data FROM event GROUP BY '.$field.') as a WHERE a.count>='.$n;
+			return 'SELECT '.$field.' FROM (SELECT '.$field.', count(*) as count, data FROM event GROUP BY '.$field.') as a WHERE a.count>='.$n;
 		}
 
 		public function distribution($field, $where=null){
