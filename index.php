@@ -595,11 +595,8 @@ if($fileAge>3600){
 
 			return array(
 				'result'=>$value,
+				'value'=>$range[$i][0].' - '.$range[$i][1],
 				
-				'interval'=>array(
-					'start'=>$range[$i][0],
-					'end'=>$range[$i][1],
-				)
 
 			);
 
