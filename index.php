@@ -268,6 +268,11 @@ if($fileAge>3600){
 			}
 
 
+			div#metrics_tours_div_casual .keen-dataviz-metric-value{
+				color: black;
+			}
+
+
 
 		</style>
 	</head>
