@@ -288,7 +288,8 @@ if($fileAge>3600){
 				</div>
 
 
-				<h2>Curated tour views</h2>
+				<h2>Unique section views</h2>
+				<p>*These are not the only sections that are logged as views, but are easily to distinguished from other sections</p>
 				<div id="metrics_tours_div">
 					
 				</div>
@@ -596,8 +597,6 @@ if($fileAge>3600){
 			return array(
 				'result'=>$value,
 				'label'=> $ranges[$i][0].' - '.$ranges[$i][1].' Section views',
-				
-
 			);
 
 		}, $values, array_keys($values)), JSON_PRETTY_PRINT);?>
