@@ -532,7 +532,7 @@ if($fileAge>3600){
 				return [pow($base, $i), pow($base, $i+1)];
 			};
 
-		}
+		};
 
 		$useLinearScale=function($segmentSize)use(&$group, &$range){
 
@@ -544,7 +544,7 @@ if($fileAge>3600){
 				return [$i*$segmentSize, ($i+1)*$segmentSize];
 			};
 
-		}
+		};
 
 		$useLinearScale(10);
 
