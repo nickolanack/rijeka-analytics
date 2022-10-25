@@ -513,14 +513,46 @@ if($fileAge>3600){
 
 		<?php 
 
-		//$groupSize=5;
+
+		$group=function($v){
+			return (int) $v;
+		};
+		$range=function($i){
+			return [$i, $i+1];
+		};
+
+
+		$useLogarithmicScale=function($base)use(&$group, &$range){
+
+			$group=function($v)use($base){
+				 return (int) log($v, $base); 
+			}
+
+			$range=function($i)use($base){
+				return [pow($base, $i), pow($base, $i+1)];
+			};
+
+		}
+
+		$useLinearScale=function($segmentSize)use(&$group, &$range){
+
+			$group=function($v)use($segmentSize){
+				 return (int) $v/$segmentSize;
+			}
+
+			$range=function($i)use($segmentSize){
+				return [$i*$segmentSize, ($i+1)*$segmentSize];
+			};
+
+		}
+
+		$useLinearScale(10);
+
 		$dist=array();
-		$base=1.5;
 
 		$max=0;
-
 		foreach($q->distribution('ip') as $interact){
-			$index=(int) log($interact['count'], $base); // $interact['count']/$groupSize;
+			$index=$group($interact['count']); // $interact['count']/$groupSize;
 
 			$max=max($index, $max);
 
@@ -542,7 +574,7 @@ if($fileAge>3600){
 				$values[]=0;
 			}
 
-			$ranges[$i]=[pow($base, $i), pow($base, $i+1)];
+			$ranges[$i]$range($i);
 		}
 
 		echo json_encode($values);
