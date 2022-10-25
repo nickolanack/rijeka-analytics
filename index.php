@@ -132,7 +132,7 @@ if($fileAge>3600){
 			
 			google.charts.setOnLoadCallback(drawRegionsMap);
 			function drawRegionsMap() {
-				var data = google.visualization.arrayToDataTable(([['Country', 'Section Views']]).concat(<?php echo json_encode(array_map(function($country)use($countries){
+				var data = google.visualization.arrayToDataTable(([['Country', 'Section Unique Views']]).concat(<?php echo json_encode(array_map(function($country)use($countries){
 
 					return array(
 						$country,
