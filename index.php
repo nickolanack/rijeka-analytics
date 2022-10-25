@@ -513,8 +513,21 @@ if($fileAge>3600){
 
 		<?php 
 
+		$groupSize=5;
+		$dataset=array();
 
-		echo json_encode($q->distribution('ip'));
+		foreach($q->distribution('ip') as $interact){
+			$index=(int) $interact['count']/$groupSize;
+			if(isset($dataset[$index])){
+				$dataset[$index]++;
+				continue;
+			}
+
+			$dataset[$index]=1;
+		}
+
+		echo json_encode($dataset);
+
 
 		/*
 		
