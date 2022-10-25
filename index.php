@@ -513,13 +513,14 @@ if($fileAge>3600){
 
 		<?php 
 
-		$groupSize=5;
+		//$groupSize=5;
 		$dist=array();
+		$base=1.5;
 
 		$max=0;
 
 		foreach($q->distribution('ip') as $interact){
-			$index=(int) log($interact['count'], 2); // $interact['count']/$groupSize;
+			$index=(int) log($interact['count'], $base); // $interact['count']/$groupSize;
 
 			$max=max($index, $max);
 
@@ -541,7 +542,7 @@ if($fileAge>3600){
 				$values[]=0;
 			}
 
-			$ranges[$i]=[pow(2, $i), pow(2, $i+1)];
+			$ranges[$i]=[pow($base, $i), pow($base, $i+1)];
 		}
 
 		echo json_encode($values);
