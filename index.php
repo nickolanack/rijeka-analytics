@@ -595,7 +595,7 @@ if($fileAge>3600){
 
 			return array(
 				'result'=>$value,
-				'value'=>$range[$i][0].' - '.$range[$i][1],
+				'label'=> $ranges[$i][0].' - '.$ranges[$i][1],
 				
 
 			);
