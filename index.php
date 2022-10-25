@@ -594,14 +594,7 @@ if($fileAge>3600){
 		var distribution=<?php echo json_encode(array_map(function($value, $i)use($ranges){
 
 			return array(
-				'value'=>array(
-
-					array(
-						'name'=>'Users',
-						'result'=>$value
-					)
-
-				),
+				'value'=>$value,
 				'interval'=>array(
 					'start'=>$range[$i][0],
 					'end'=>$range[$i][1],
