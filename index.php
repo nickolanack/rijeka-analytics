@@ -60,8 +60,8 @@ $q=function(){
 	
 		}
 
-		public function distributionThreshold($field, $n){
-			return 'SELECT '.$field.' FROM (SELECT '.$field.', count(*) as count, data FROM event GROUP BY '.$field.') as a WHERE a.count>='.$n;
+		public function distributionThreshold($field, $n, $comparator){
+			return 'SELECT '.$field.' FROM (SELECT '.$field.', count(*) as count, data FROM event GROUP BY '.$field.') as a WHERE a.count'. $comparator.$n;
 		}
 
 		public function distribution($field, $where=null){
@@ -173,7 +173,7 @@ if($fileAge>3600){
 		<style type="text/css">
 			
 
-			div#metrics_div>div, div#metrics_tours_div>div, div#metrics_tours_div_active>div {
+			div#metrics_div>div, div#metrics_tours_div>div, div#metrics_tours_div_active>div, div#metrics_tours_div_casual>div {
 			    width: 30%;
 			    margin: 10px;
 			    display: inline-block;
@@ -183,7 +183,7 @@ if($fileAge>3600){
 
 		
 
-			div#regions_div, div#metrics_div, div#metrics_tours_div, div#metrics_tours_div_active,div#chart_12_months, div#chart_distribution {
+			div#regions_div, div#metrics_div, div#metrics_tours_div, div#metrics_tours_div_active, div#metrics_tours_div_casual, div#chart_12_months, div#chart_distribution {
 			    max-width: 900px;
 			    width: calc( 100% - 100px );
 			    margin: 50px auto;
@@ -241,7 +241,7 @@ if($fileAge>3600){
 			}
 
 			@media only screen and (max-width: 600px) {
-			 	div#metrics_div>div, div#metrics_tours_div>div,  div#metrics_tours_div_active>div {
+			 	div#metrics_div>div, div#metrics_tours_div>div,  div#metrics_tours_div_active>div, div#metrics_tours_div_casual>div {
 			 		min-width: unset;
 			 		width: 90%;
 			 	}
@@ -306,13 +306,17 @@ if($fileAge>3600){
 					This assumes a smaller group of highly active users and a larger group of casual viewers.
 				</p>
 				<p>
-					For the following metrics unique user data is seperated into two groups; casual < 8, and active >= 8.
+					For the following metrics unique user data is seperated into two groups; casual < 16, and active >= 16.
 
 
 				</p>
 				
-
+				<h2>Active user section views</h2>
 				<div id="metrics_tours_div_active">
+				</div>
+
+				<h2>Casual user section views</h2>
+				<div id="metrics_tours_div_casual">
 				</div>
 
 			<section>
@@ -632,7 +636,7 @@ if($fileAge>3600){
 
 			$formatted=[];
 
-			foreach ($q->countDistinctGroups(' WHERE ip in ('. $q->distributionThreshold('ip', 16) .') ') as $result) {
+			foreach ($q->countDistinctGroups(' WHERE ip in ('. $q->distributionThreshold('ip', 16, '>=') .') ') as $result) {
 				$data=json_decode($result['data']);
 				if(isset($data->filter->filterTour)){
 
@@ -654,6 +658,43 @@ if($fileAge>3600){
 				?>
 					addMetric(
 						document.getElementById('metrics_tours_div_active').appendChild(new Element('div')), 
+						<?php echo json_encode($key); ?>, 
+						<?php echo json_encode(array('result'=>$value)); ?>,
+						{
+							height:200
+						});
+				<?php
+			}
+		?>
+
+
+
+		<?php 
+
+			$formatted=[];
+
+			foreach ($q->countDistinctGroups(' WHERE ip in ('. $q->distributionThreshold('ip', 16, '<') .') ') as $result) {
+				$data=json_decode($result['data']);
+				if(isset($data->filter->filterTour)){
+
+					$title=$data->filter->filterTour;
+					$title=explode(':', $title);
+					$title=array_pop($title);
+					$title=trim($title);
+
+					if(!array_key_exists($title, $formatted)){
+						$formatted[$title]=0;
+					}
+					$formatted[$title]+=intval($result['count']);
+
+					
+				}
+			}
+
+			foreach ($formatted as $key => $value) {
+				?>
+					addMetric(
+						document.getElementById('metrics_tours_div_casual').appendChild(new Element('div')), 
 						<?php echo json_encode($key); ?>, 
 						<?php echo json_encode(array('result'=>$value)); ?>,
 						{
