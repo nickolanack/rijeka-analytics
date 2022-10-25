@@ -173,7 +173,7 @@ if($fileAge>3600){
 		<style type="text/css">
 			
 
-			div#metrics_div>div, div#metrics_tours_div>div {
+			div#metrics_div>div, div#metrics_tours_div>div, div#metrics_tours_div_active>div {
 			    width: 30%;
 			    margin: 10px;
 			    display: inline-block;
@@ -183,7 +183,7 @@ if($fileAge>3600){
 
 		
 
-			div#regions_div, div#metrics_div, div#metrics_tours_div, div#chart_12_months, div#chart_distribution {
+			div#regions_div, div#metrics_div, div#metrics_tours_div, div#metrics_tours_div_active,div#chart_12_months, div#chart_distribution {
 			    max-width: 900px;
 			    width: calc( 100% - 100px );
 			    margin: 50px auto;
@@ -241,7 +241,7 @@ if($fileAge>3600){
 			}
 
 			@media only screen and (max-width: 600px) {
-			 	div#metrics_div>div, div#metrics_tours_div>div {
+			 	div#metrics_div>div, div#metrics_tours_div>div,  div#metrics_tours_div_active>div {
 			 		min-width: unset;
 			 		width: 90%;
 			 	}
@@ -312,7 +312,7 @@ if($fileAge>3600){
 				</p>
 				
 
-				<div id="chart_12_months_active">
+				<div id="metrics_tours_div_active">
 				</div>
 
 			<section>
@@ -653,7 +653,7 @@ if($fileAge>3600){
 			foreach ($formatted as $key => $value) {
 				?>
 					addMetric(
-						document.getElementById('chart_12_months_active').appendChild(new Element('div')), 
+						document.getElementById('metrics_tours_div_active').appendChild(new Element('div')), 
 						<?php echo json_encode($key); ?>, 
 						<?php echo json_encode(array('result'=>$value)); ?>,
 						{
