@@ -284,14 +284,21 @@ if($fileAge>3600){
 				<div id="chart_12_months">
 				</div>
 
-				<div id="chart_distribution">
-				</div>
+				
 
 
 				<h2>Unique section views</h2>
 				<p>*These are not the only sections that are logged as `section views`, but are easily distinguished from others. Because some section views do not request unique data, they cannot be identified as a specific app section and are not included below.</p>
-				<div id="metrics_tours_div">
-					
+				<div id="metrics_tours_div">	
+				</div>
+
+
+				<div id="chart_distribution">
+				</div>
+
+				
+
+				<div id="chart_12_months_active">
 				</div>
 
 			<section>
