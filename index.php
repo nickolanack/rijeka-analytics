@@ -275,6 +275,21 @@ if($fileAge>3600){
 			}
 
 
+			label.active-u:after, label.casual-u:after {
+			    content: "";
+			    display: inline-block;
+			    width: 20px;
+			    height: 20px;
+			    background-color: mediumaquamarine;
+			    margin-left: 5px;
+			    vertical-align: bottom;
+			    border:1px solid #404040;
+			}
+
+			label.casual-u:after {
+			     background-color: white;    
+			}
+
 
 		</style>
 	</head>
