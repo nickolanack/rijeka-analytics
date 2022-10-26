@@ -685,10 +685,10 @@ if($fileAge>3600){
 		?>
 
 
-		var distribution=<?php echo json_encode(array_map(function($value, $i)use($ranges){
+		var distribution=<?php echo json_encode(array_map(function($value, $i)use($ranges){Editor.RenderStaticPreview(assetPath : string, subAssets : Object[], width : int, height : int)
 
 			return array(
-				'label'=>'test',
+				'label'=>$ranges[$i][0].' - '.$ranges[$i][1].' Section views',
 				'result'=>array(
 						//'id'=>$i,
 						'result'=>$value,
