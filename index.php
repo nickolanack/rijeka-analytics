@@ -424,6 +424,11 @@ if($fileAge>3600){
 			});
 
 
+			if(options.colorMapping){
+				chart.colorMapping(options.colorMapping);
+			}
+
+
 			if(options.colors){
 				chart.colors(options.colors);
 			}
@@ -689,7 +694,15 @@ if($fileAge>3600){
 
 
 		addChart('chart_distribution', 'Unique user activity distribution (log2)', {result:distribution}, {
-			colors:["#66cdaa", "#e0e0e0"]
+			
+			colorMapping:{
+			    '1 - 2 section views': '#e0e0e0', // column - color
+			    '2 - 4 section views': '#e0e0e0',
+			    '4 - 8 section views': '#e0e0e0',
+			    '8 - 16 section views': '#e0e0e0',
+			  },
+
+			 colors:["#66cdaa"]
 		});
 
 
