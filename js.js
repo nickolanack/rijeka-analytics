@@ -10,6 +10,7 @@ var drawCloroplethMap = (function(){
 
 
 	var loaded=false;
+	var buff=[];
 	function onLoadCharts() {
 		loaded=true;
 		if(buff.length){
