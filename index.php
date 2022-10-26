@@ -115,7 +115,9 @@ if($fileAge>3600){
 
 
 
-		})(chartData)});
+		})(chartData)},{
+			colors:["rgb(0, 187, 222)", "#f0f0f0"]
+		});
 
 
 		addMetric('metric_total', "Total App Section Views", <?php echo json_encode(array('result'=>$q->count())); ?>,{
