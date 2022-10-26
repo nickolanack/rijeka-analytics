@@ -711,9 +711,9 @@ if($fileAge>3600){
 					}else{
 						obj[Math.pow(2,i)+' - '+Math.pow(2,i+1)+' Section Views']='#66cdaa';
 					}
-
-
 				}
+
+				return obj;
 
 
 			})()
