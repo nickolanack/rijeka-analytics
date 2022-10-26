@@ -700,7 +700,7 @@ if($fileAge>3600){
 		}, $values, array_keys($values)), JSON_PRETTY_PRINT);?>
 
 
-		addChart('chart_distribution', 'Unique user activity distribution (log2)', {result:([{field:'value'}]).concat(distribution), query:{
+		addChart('chart_distribution', 'Unique user activity distribution (log2)', {result:([]).concat(distribution), query:{
 			//analysis_type:'select_unique'
 		}}, {
 
