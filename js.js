@@ -15,7 +15,7 @@ var drawCloroplethMap = (function(){
 		if(buff.length){
 			var b=buff.slice(0);
 			buff=[];
-			b.forEach(function(f){ f(); };
+			b.forEach(function(f){ f(); });
 		}
 	}
 			
