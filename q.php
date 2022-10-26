@@ -77,7 +77,7 @@ class Q{
 
 
 
-		public function monthRanges($n=12, $map=null;){
+		public function monthRanges($n=12, $map=null){
 
 
 			$thisMonth = strtotime(date('Y-m').'-01');
