@@ -796,6 +796,8 @@ if($fileAge>3600){
 
 			$end=$nextMonth;
 
+			$results12Months=array();
+
 			for($i=0;$i<12;$i++){
 
 
