@@ -22,11 +22,18 @@ $q=$q();
 
 $ipmap=json_decode(file_get_contents('../.ipmap.json'), true);
 $countries=array();
+
+$localIps=array();
+
 foreach($ipmap as $ip=>$country){
 	if(!array_key_exists($country, $countries)){
 		$countries[$country]=0;
 	}
 	$countries[$country]++;
+
+	if($country==='Croatia'){
+		$localIps[]=$ip;
+	}
 }
 
 
@@ -98,7 +105,7 @@ if($fileAge>3600){
 	<script type="text/javascript">
 
 
-		addDonut('donut_local', 'Regions', {result:(function(data){
+		addDonut('donut_local', 'Local Region vs World', {result:(function(data){
 
 			var out={'Croatia':0, 'Other':0};
 			data.forEach(function(item){
