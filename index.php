@@ -98,7 +98,24 @@ if($fileAge>3600){
 	<script type="text/javascript">
 
 
-		addDonut('donut_local', 'Regions', {result:chartData});
+		addDonut('donut_local', 'Regions', {result:(function(data){
+
+			var out={'Croatia':0, 'Other':0};
+			data.forEach(function(item){
+				if(out[item[0]]){
+					out[item[0]]+=item[1];
+					return;
+				}
+				out['Other']+=item[1];
+			});
+
+			return Object.keys(out).map(function(key){
+				return [key,out[key]];
+			});
+
+
+
+		})(chartData)});
 
 
 		addMetric('metric_total', "Total App Section Views", <?php echo json_encode(array('result'=>$q->count())); ?>,{
