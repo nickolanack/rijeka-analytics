@@ -102,7 +102,7 @@ if($fileAge>3600){
 
 			var out={'Croatia':0, 'Other':0};
 			data.forEach(function(item){
-				if(out[item[0]]){
+				if(typeof out[item[0]]!='undefined'){
 					out[item[0]]+=item[1];
 					return;
 				}
