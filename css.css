@@ -132,7 +132,7 @@
 			}
 
 
-			label.active-u:after, label.casual-u:after {
+			label.active-u:after, label.casual-u:after, label.unique-u:after, label.total-u:after  {
 			    content: "";
 			    display: inline-block;
 			    width: 12px;
@@ -145,6 +145,12 @@
 
 			label.casual-u:after {
 			     background-color: white;    
+			}
+			label.total-u:after {
+			     background-color: rgb(254, 102, 114);    
+			}
+			label.casual-u:after {
+			     background-color: rgb(0, 187, 222);    
 			}
 
 
