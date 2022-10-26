@@ -84,9 +84,6 @@
 					<div id="donut_active">
 					</div>
 
-					<div id="donut_active_last6Months">
-					</div>
-
 					<div id="donut_active_last1Months">
 					</div>
 				</div>
