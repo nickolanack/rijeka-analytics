@@ -83,3 +83,82 @@ var showWorld=function(){
 	
 
 }
+
+
+
+var addMetric=(function(){
+
+
+	var addMetric=function(div, title, result, options){
+
+		options=ObjectAppend_({
+			height:240,
+			colors:["#00bbde"]
+		}, options);
+
+		var chart = new Keen.Dataviz()
+		.el(div instanceof HTMLElement?div:document.getElementById(div))
+		.height(options.height)
+		.title(title)
+		.type("metric")
+		.colors(options.colors)
+		.prepare();
+
+		chart.data(result).render();
+
+
+	};
+
+	return addMetric;
+
+})();
+
+
+
+var addChart=(function(){
+
+
+	var addChart=function(div, title, result, options){
+
+
+		options=ObjectAppend_({
+			height:340
+		}, options);
+
+		var chart = new Keen.Dataviz()
+		.el(div instanceof HTMLElement?div:document.getElementById(div))
+		.height(options.height)
+		.title(title)
+		.type("bar")
+		.stacked(true)
+		.chartOptions({
+			 bar: {
+		        width: {
+		            ratio: 0.9 // this makes bar width 90% of length between ticks
+		        }
+		    },
+		    colors:["#66cdaa"]
+		
+		});
+
+		if(options.colors){
+			chart.colors(options.colors);
+		}
+
+
+		if(options.colorMapping){
+			chart.colorMapping(options.colorMapping);
+		}
+
+
+		
+
+
+		chart.prepare();
+
+		chart.data(result).render();
+	}
+
+
+})();
+

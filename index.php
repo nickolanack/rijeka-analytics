@@ -44,7 +44,7 @@ if($fileAge>3600){
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<meta name="viewport" content="width=500, initial-scale=1.3" />
+		<meta name="viewport" content="width=500, initial-scale=1" />
 		<title>Analytics</title>
 		<script type="text/javascript">
 			if(!window.console){
@@ -97,68 +97,6 @@ if($fileAge>3600){
 
 	<script type="text/javascript">
 
-
-		var addMetric=function(div, title, result, options){
-
-			options=ObjectAppend_({
-				height:240,
-				colors:["#00bbde"]
-			}, options);
-
-			var chart = new Keen.Dataviz()
-			.el(div instanceof HTMLElement?div:document.getElementById(div))
-			.height(options.height)
-			.title(title)
-			.type("metric")
-			.colors(options.colors)
-			.prepare();
-
-			chart.data(result).render();
-
-
-		};
-
-
-		var addChart=function(div, title, result, options){
-
-
-			options=ObjectAppend_({
-				height:340
-			}, options);
-
-			var chart = new Keen.Dataviz()
-			.el(div instanceof HTMLElement?div:document.getElementById(div))
-			.height(options.height)
-			.title(title)
-			.type("bar")
-			.stacked(true)
-			.chartOptions({
-				 bar: {
-			        width: {
-			            ratio: 0.9 // this makes bar width 90% of length between ticks
-			        }
-			    },
-			    colors:["#66cdaa"]
-			
-			});
-
-			if(options.colors){
-				chart.colors(options.colors);
-			}
-
-
-			if(options.colorMapping){
-				chart.colorMapping(options.colorMapping);
-			}
-
-
-			
-
-
-			chart.prepare();
-
-			chart.data(result).render();
-		}
 
 		addMetric('metric_total', "Total App Section Views", <?php echo json_encode(array('result'=>$q->count())); ?>,{
 			colors:['rgb(254, 102, 114)']
