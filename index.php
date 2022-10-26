@@ -68,7 +68,7 @@ if($fileAge>3600){
 		<link type="text/css" href="css.css" rel="stylesheet">
 
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js" ></script>
-
+		<script type="text/javascript" src="js.js"></script>
 		<script type="text/javascript">
 
 
