@@ -507,9 +507,7 @@ if($fileAge>3600){
 					colors:["#66cdaa", "#e0e0e0"]
 				});
 
-				addDonut('donut_active', 'Active and casual users - last 12 months', {result:year},{
-					colors:["#66cdaa", "#e0e0e0"]
-				});
+
 
 
 		})(<?php echo json_encode(array_map(function($value){
@@ -539,7 +537,27 @@ if($fileAge>3600){
 
 	
 
+		addDonut('donut_active', 'All Time Active and Casual', {result:<?php 
 
+
+			'active'=$q->countDistinct('ip', 'WHERE ip in ('. $q->distributionThreshold('ip', 16, '>=') .')'),
+ 			'casual'=$q->countDistinct('ip', 'WHERE ip in ('. $q->distributionThreshold('ip', 16, '<') .')')
+
+ 			echo json_encode(array(
+ 				array(
+ 					'name'=>'Casual Users',
+ 					'result'=>$casual
+ 				),
+ 				array(
+ 					'name'=>'Active Users',
+ 					'result'=>$active
+ 				)
+ 			));
+
+
+			?>},{
+					colors:["#66cdaa", "#e0e0e0"]
+				});
 
 
 
