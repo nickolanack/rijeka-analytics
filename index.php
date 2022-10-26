@@ -154,45 +154,18 @@ if($fileAge>3600){
 		<?php
 
 
-			$nextMonth=strtotime(date('Y-m', $thisMonth+(3600*24*20)).'-01');
-			if($thisMonth==$nextMonth){
-				$nextMonth=strtotime(date('Y-m', $thisMonth+(3600*24*35)).'-01');
-			}
+			$results12Months=$q->monthRanges(12, function($start, $end) use($q){
 
-
-
-			$end=$lastMonth;
-			$results12Months=array(
-				array(
-					'start'=>date('Y-m', $lastMonth),
-					'end'=>date('Y-m', $thisMonth),
- 					'unique'=>$uniqueLastMonth,
- 					'total'=>$q->count('WHERE timestamp >= '.$thisMonth)
-				),
-				array(
-					'start'=>date('Y-m', $thisMonth),
-					'end'=>date('Y-m', $nextMonth),
- 					'unique'=>$uniqueThistMonth,
- 					'total'=>$q->count('WHERE timestamp >= '.$lastMonth.' AND timestamp < '.$thisMonth)
-				)
-			);
-
-			for($i=0;$i<10;$i++){
-
-
-				$start=strtotime(date('Y-m', $end-(3600*24*10)).'-01');
-
-				array_unshift($results12Months, array(
+				return array(
 
  					'start'=>date('Y-m', $start),
  					'end'=>date('Y-m', $end),
  					'unique'=>$q->countDistinct('ip','WHERE timestamp >= '.$start.' AND timestamp < '.$end),
  					'total'=>$q->count('WHERE timestamp >= '.$start.' AND timestamp < '.$end)
-				));
+				);
 
-				$end=$start;
 
-			}
+			});
 		
 
 		?>

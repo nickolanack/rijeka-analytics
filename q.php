@@ -77,7 +77,7 @@ class Q{
 
 
 
-		public function monthRanges($n=12){
+		public function monthRanges($n=12, $map=null;){
 
 
 			$thisMonth = strtotime(date('Y-m').'-01');
@@ -106,6 +106,18 @@ class Q{
 				$end=$start;
 
 			}
+
+
+			if($map instanceof \Closure){
+
+				return array_map(function($range)use ($map){
+
+					return $map($range['start'], $range['end']);
+
+				}, $dateRanges);
+
+			}
+
 
 
 			return $dateRanges;
