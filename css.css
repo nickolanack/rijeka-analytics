@@ -132,6 +132,11 @@
 			}
 
 
+			label.active-u, label.casual-u, label.unique-u, label.total-u  {
+				position: relative;
+				top: 40px;
+			}
+
 			label.active-u:after, label.casual-u:after, label.unique-u:after, label.total-u:after  {
 			    content: "";
 			    display: inline-block;
