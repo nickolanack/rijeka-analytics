@@ -18,7 +18,8 @@
 			}
 
 			div#regions_div.hidden, div#regions_div_.hidden{
-				display: none;
+				visibility: hidden;
+				position: absolute;
 			}
 
 			button.region, button.world {
