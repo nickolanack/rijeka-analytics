@@ -59,3 +59,27 @@ var drawCloroplethMap = (function(){
 	return drawCloroplethMap;
 
 })();
+
+
+
+var showRegion=function(){
+
+	$$('button.region')[0].addClass('active');
+	$$('button.world')[0].removeClass('active');
+
+	$$('#regions_div_')[0].addClass('hidden');
+	$$('#regions_div')[0].removeClass('hidden');
+
+}
+
+var showWorld=function(){
+
+	$$('button.region')[0].removeClass('active');
+	$$('button.world')[0].addClass('active');
+
+
+	$$('#regions_div')[0].addClass('hidden');
+	$$('#regions_div_')[0].removeClass('hidden');
+	
+
+}
