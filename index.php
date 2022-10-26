@@ -707,9 +707,9 @@ if($fileAge>3600){
 
 				for(var i=0;i<10;i++){
 					if(i<4){
-						obj[Math.pow(2,i)+' - '+Math.pow(2,i+1)+' Section Views']='#f0f0f0';
+						obj[Math.pow(2,i)+' - '+Math.pow(2,i+1)+' Section Views']=function(){ return '#f0f0f0'; };
 					}else{
-						obj[Math.pow(2,i)+' - '+Math.pow(2,i+1)+' Section Views']='#66cdaa';
+						obj[Math.pow(2,i)+' - '+Math.pow(2,i+1)+' Section Views']=function(){ return '#66cdaa'; };
 					}
 				}
 
