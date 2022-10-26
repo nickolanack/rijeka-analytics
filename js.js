@@ -40,7 +40,7 @@ var drawCloroplethMap = (function(){
 		};
 
 
-		if(laoded){
+		if(loaded){
 			render();
 			return;
 		}
