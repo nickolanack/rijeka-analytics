@@ -107,7 +107,7 @@
 			}
 
 
-			#metrics_tours_div_casual .keen-dataviz {
+			#metrics_tours_div_casual .keen-dataviz, .metrics-overlay .keen-dataviz {
 			    scale: 0.3;
 			    position: relative;
 			    top: 70px;
@@ -115,11 +115,11 @@
 			    
 			}
 
-			div#metrics_tours_div_active {
+			div#metrics_tours_div_active, div.width-overlay  {
 			    position: relative;
 			}
 
-			div#metrics_tours_div_casual {
+			div#metrics_tours_div_casual, div.metrics-overlay  {
 			    position: absolute;
 			    top: 16px;
 			    left: 35px;
@@ -127,7 +127,7 @@
 			}
 
 
-			div#metrics_tours_div_casual .keen-dataviz .keen-dataviz-metric-value{
+			div#metrics_tours_div_casual .keen-dataviz .keen-dataviz-metric-value, div.metrics-overlay .keen-dataviz .keen-dataviz-metric-value{
 				color: black;
 			}
 
