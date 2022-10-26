@@ -126,6 +126,10 @@
 			    margin: 0;
 			}
 
+			.metrics-overlay .keen-dataviz .keen-dataviz-metric {
+			    color: transparent;
+			}
+
 
 			div#metrics_tours_div_casual .keen-dataviz .keen-dataviz-metric-value, div.metrics-overlay .keen-dataviz .keen-dataviz-metric-value{
 				color: black;
