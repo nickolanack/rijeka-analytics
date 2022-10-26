@@ -354,7 +354,7 @@ if($fileAge>3600){
 
 				</p>
 				
-				<h2>Active user section views</h2>
+				<h2>Active user section views compared with casual users</h2>
 				<p style="text-align: right;"><label class="active-u">Active users</label> <label class="casual-u" >Casual users</label></p>
 				<div id="metrics_tours_div_active" >
 					<div id="metrics_tours_div_active_items">
@@ -365,6 +365,10 @@ if($fileAge>3600){
 					</div>
 				</div>
 
+
+
+				<div id="chart_12_months_active">
+				</div>
 				
 
 			<section>
@@ -757,27 +761,101 @@ if($fileAge>3600){
 
 
 
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		<?php
 
-		/*
-		
-			if(isset($_GET['dump_ip'])){
-				?>
 
-				var ips = 
-
-				<?php echo json_encode($q->distinct('ip'));?>
-
-				;
-
-				<?php
-
+			$nextMonth=strtotime(date('Y-m', $thisMonth+(3600*24*20)).'-01');
+			if($thisMonth==$nextMonth){
+				$nextMonth=strtotime(date('Y-m', $thisMonth+(3600*24*35)).'-01');
 			}
 
-		*/
+			$end=$nextMonth;
 
+			for($i=0;$i<12;$i++){
+
+
+				$start=strtotime(date('Y-m', $end-(3600*24*10)).'-01');
+
+				array_unshift($results12Months, array(
+
+ 					'start'=>date('Y-m', $start),
+ 					'end'=>date('Y-m', $end),
+ 					'active'=>$q->countDistinct('ip', 'WHERE timestamp >= '.$start.' AND timestamp < '.$end.' AND ip in ('. $q->distributionThreshold('ip', 16, '>=') .')'),
+ 					'casual'=>$q->countDistinct('ip', 'WHERE timestamp >= '.$start.' AND timestamp < '.$end.' AND ip in ('. $q->distributionThreshold('ip', 16, '<') .')')
+				));
+
+				$end=$start;
+
+			}
+		
 
 		?>
+
+		(function(year){
+
+
+				addChart('chart_12_months_active', 'Last 12 Months', {result:year});
+
+
+		})(<?php echo json_encode(array_map(function($value){
+
+			return array(
+				'value'=>array(
+
+					array(
+						'name'=>'Active Users',
+						'result'=>$value['active']
+					),
+					array(
+						'name'=>'Casual Users',
+						'result'=>$value['casual']
+					)
+
+				),
+				'timeframe'=>array(
+					'start'=>$value['start'].'-01',
+					'end'=>$value['end'].'-01',
+				)
+
+			);
+
+		}, $results12Months), JSON_PRETTY_PRINT);?>);
+
+
+	
+
+
+
+
+
+
+
+
 
 
 
