@@ -12,82 +12,7 @@ $q=function(){
 	  die("Connection failed: " . $conn->connect_error);
 	}
 
-
-	class Q{
-
-		protected $conn;
-		public function __construct($conn){
-			$this->conn=$conn;
-		}
-
-		protected function _w($where=null){
-			return empty($where)?'':' '.$where;
-
-		}
-
-		public function count($where=null){
-
-			if($results = $this->conn->query('SELECT count(*) as count FROM event'.$this->_w($where))){
-				foreach ($results as $result) {
-				 	return intval($result['count']);
-				 } 
-			}
-			return 0;
-	
-		}
-
-		public function countDistinct($field, $where=null){
-
-			if($results = $this->conn->query(
-				'SELECT count(*) as count FROM (SELECT DISTINCT '.$field.' FROM event'.$this->_w($where).') as a'
-			)){
-				foreach ($results as $result) {
-				 	return intval($result['count']);
-				 } 
-			}
-			return 0;
-	
-		}
-
-		public function countDistinctGroups($where=null){
-
-			if($results = $this->conn->query(
-				'SELECT count(*) as count, data FROM event'.$this->_w($where).' GROUP BY data'
-			)){
-				return $results->fetch_all(MYSQLI_ASSOC);
-			}
-			return [];
-	
-		}
-
-		public function distributionThreshold($field, $n, $comparator){
-			return 'SELECT '.$field.' FROM (SELECT '.$field.', count(*) as count, data FROM event GROUP BY '.$field.') as a WHERE a.count'. $comparator.$n;
-		}
-
-		public function distribution($field, $where=null){
-
-			if($results = $this->conn->query(
-				'SELECT '.$field.', count(*) as count, data FROM event'.$this->_w($where).' GROUP BY '.$field
-			)){
-				return $results->fetch_all(MYSQLI_ASSOC);
-			}
-			return [];
-	
-		}
-
-		public function distinct($field, $where=null){
-
-			if($results = $this->conn->query(
-				'SELECT DISTINCT '.$field.' FROM event'.$this->_w($where)
-			)){
-				return $results->fetch_all(MYSQLI_ASSOC);
-			}
-			return [];
-	
-		}
-
-	}
-
+	include_once __DIR__.'/q.php';
 	return new Q($conn);
 
 };
@@ -133,6 +58,8 @@ if($fileAge>3600){
 		</script>
 		<script type="text/javascript" src="https://aopfn.geoforms.ca/app/nickolanack/php-core-app/assets/js/ClassObject.js?1655843160"></script>
 		<script type="text/javascript" src="https://aopfn.geoforms.ca/app/nickolanack/php-core-app/assets/js/Window.js?1655851684"></script>
+
+		<script type="text/javascript" src="js.js"></script>
 
 		<script type="text/javascript" src="https://d26b395fwzu5fz.cloudfront.net/keen-analysis-1.2.2.js"></script>
 		<script type="text/javascript" src="https://d26b395fwzu5fz.cloudfront.net/keen-dataviz-1.1.3.js"></script>
@@ -703,9 +630,7 @@ if($fileAge>3600){
 		addChart('chart_distribution', 'Unique user activity distribution (log2)', {result:([]).concat(distribution), query:{
 			//group_by:'activity'
 		}}, {
-
 			colors:["#91a8a0"]
-
 			 //colors:["#66cdaa"]
 		});
 
