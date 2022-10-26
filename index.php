@@ -471,7 +471,7 @@ if($fileAge>3600){
 		<?php
 
 
-			$results12Months=arrayMap(function($range) use($q){
+			$results12Months=array_map(function($range) use($q){
 
 				return array(
 
