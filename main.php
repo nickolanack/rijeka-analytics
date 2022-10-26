@@ -6,7 +6,7 @@
 				<div id="regions_div" style="">
 					
 				</div>
-				<div id="regions_div_" style="">
+				<div id="regions_div_" class="hidden" style="">
 					
 				</div>
 			<section>
