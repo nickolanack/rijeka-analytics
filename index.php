@@ -693,7 +693,7 @@ if($fileAge>3600){
 						'label'=>$ranges[$i][0].' - '.$ranges[$i][1].' Section views',
 						'result'=>$value
 						)
-					),
+					
 					array(
 						'label'=>$ranges[$i][0].' - '.$ranges[$i][1].' Section views',
 						'result'=>$value
