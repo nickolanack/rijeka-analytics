@@ -9,9 +9,16 @@
 				<div id="regions_div_" class="hidden metric-section" style="">
 					
 				</div>
+
+
+
 			<section>
 
 			<section>
+
+				<div id="donut_local" class="metric-section"></div>
+
+
 				<div id="metrics_div" class="metric-section">
 					<div id="metric_total"></div>
 					<div id="metric_ips"></div>

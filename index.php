@@ -98,6 +98,9 @@ if($fileAge>3600){
 	<script type="text/javascript">
 
 
+		addDonut('donut_local', 'Regions', {result:chartData});
+
+
 		addMetric('metric_total', "Total App Section Views", <?php echo json_encode(array('result'=>$q->count())); ?>,{
 			colors:['rgb(254, 102, 114)']
 		});
