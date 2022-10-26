@@ -79,16 +79,17 @@
 				<div id="chart_12_months_active" class="metric-section">
 				</div>
 
-
-				<div id="donut_active" class="metric-section">
-				</div>
-
-				<div id="donut_active_last6Months" class="metric-section">
-				</div>
-
-				<div id="donut_active_last1Months" class="metric-section">
-				</div>
+				<div id="donuts" class="metric-section">
 				
+					<div id="donut_active">
+					</div>
+
+					<div id="donut_active_last6Months">
+					</div>
+
+					<div id="donut_active_last1Months">
+					</div>
+				</div>
 				
 
 			<section>
