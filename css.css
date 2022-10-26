@@ -17,6 +17,18 @@
 			    vertical-align: top;
 			}
 
+			div#regions_div.hidden, div#regions_div_.hidden{
+				display: none;
+			}
+
+			button.region, button.world{
+
+			}
+
+			button.region.active, button.world.active{
+				
+			}
+
 			.keen-dataviz-title {
 				margin-top: 100px;
 			    scale: 2;
