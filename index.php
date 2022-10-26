@@ -694,7 +694,7 @@ if($fileAge>3600){
 
 
 		addChart('chart_distribution', 'Unique user activity distribution (log2)', {result:distribution}, {
-			
+
 			colorMapping:{
 			    '1 - 2 section views': '#e0e0e0', // column - color
 			    '2 - 4 section views': '#e0e0e0',
@@ -702,7 +702,7 @@ if($fileAge>3600){
 			    '8 - 16 section views': '#e0e0e0',
 			  },
 
-			 colors:["#66cdaa"]
+			 //colors:["#66cdaa"]
 		});
 
 
