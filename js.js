@@ -10,13 +10,13 @@ var drawCloroplethMap = (function(){
 
 
 	var loaded=false;
-	var buff=[];
+	var queue=[];
 	function onLoadCharts() {
 		loaded=true;
-		if(buff.length){
-			var b=buff.slice(0);
-			buff=[];
-			b.forEach(function(f){ f(); });
+		if(queue.length){
+			var q=queue.slice(0);
+			queue=[];
+			q.forEach(function(f){ f(); });
 		}
 	}
 			
@@ -46,7 +46,7 @@ var drawCloroplethMap = (function(){
 			return;
 		}
 
-		buff.push(render);
+		queue.push(render);
 
 
 	};
