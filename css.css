@@ -23,7 +23,7 @@
 			}
 
 			button.region, button.world {
-			    background-color: mediumaquamarine;
+			    background-color: transparent;
 			    border: none;
 			    margin: 5px;
 			    padding: 3px 10px;
@@ -31,20 +31,21 @@
 			    display: inline-block;
 			    border-radius: 2px;
 			    vertical-align: middle;
+				position: relative;
+    			top: 35px;
 			}
 
 			button.region.active, button.world.active {
-			    box-shadow: 0 0 3px rgb(0 0 0 / 30%) inset;
-			    background-color: #3cb37154;
+			  
 			}
 
 
 			button.region.active:after, button.world.active:after {
 			    content: "";
 			    position: relative;
-			    border-bottom: 2px solid mediumseagreen;
+			    border-bottom: 2px solid black;
 			    display: block;
-			    top: 11px;
+			    top: 5px;
 			}
 
 			.keen-dataviz-title {
