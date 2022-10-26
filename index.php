@@ -687,10 +687,12 @@ if($fileAge>3600){
 
 		var distribution=<?php echo json_encode(array_map(function($value, $i)use($ranges){
 
-			return array(
-				'label'=>$ranges[$i][0].' - '.$ranges[$i][1].' Section views',
-				'result'=>$value
-			);
+			return $value;
+
+			// array(
+			// 	'label'=>$ranges[$i][0].' - '.$ranges[$i][1].' Section views',
+			// 	'result'=>$value
+			// );
 
 		}, $values, array_keys($values)), JSON_PRETTY_PRINT);?>
 
