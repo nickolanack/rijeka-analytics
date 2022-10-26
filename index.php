@@ -479,7 +479,7 @@ if($fileAge>3600){
  					'end'=>date('Y-m', $range['end']),
  					'active'=>$q->countDistinct('ip', 'WHERE timestamp >= '. $range['start'] .' AND timestamp < '. $range['end'] .' AND ip in ('. $q->distributionThreshold('ip', 16, '>=') .')'),
  					'casual'=>$q->countDistinct('ip', 'WHERE timestamp >= '. $range['start'] .' AND timestamp < '. $range['end'] .' AND ip in ('. $q->distributionThreshold('ip', 16, '<') .')')
-				)
+				);
 
 
 			}, $q->monthRanges(12));
