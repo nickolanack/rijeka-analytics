@@ -704,22 +704,7 @@ if($fileAge>3600){
 			//group_by:'activity'
 		}}, {
 
-			colorMapping:(function(){
-
-				var obj={}
-
-				for(var i=0;i<10;i++){
-					if(i<4){
-						obj[Math.pow(2,i)+' - '+Math.pow(2,i+1)+' Section Views']=function(){ return '#f0f0f0'; };
-					}else{
-						obj[Math.pow(2,i)+' - '+Math.pow(2,i+1)+' Section Views']=function(){ return '#66cdaa'; };
-					}
-				}
-
-				return obj;
-
-
-			})()
+			colors:["#91a8a0"]
 
 			 //colors:["#66cdaa"]
 		});
