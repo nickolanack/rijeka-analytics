@@ -829,7 +829,7 @@ if($fileAge>3600){
 		(function(year){
 
 
-				addChart('chart_12_months_active', 'Last 12 Months', {result:year},{
+				addChart('chart_12_months_active', 'Active and Casual Users Last 12 Months', {result:year},{
 					colors:["#66cdaa", "#e0e0e0"]
 				});
 
