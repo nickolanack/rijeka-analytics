@@ -107,6 +107,28 @@ if($fileAge>3600){
 
 		addDonut('donut_local', 'Local Region vs World', {result:(function(data){
 
+			<?php
+				$iplist=implode(', ', array_map(function(ip){ return json_encode($ip); }, $localIps));
+
+				echo json_encode(array(
+					array(
+						'Croatia', $q->count('WHERE ip in ('.$iplist.')'),
+					), array(
+						'Other', $q->count('WHERE ip not in ('.$iplist.')')
+					)
+
+				));
+
+			?>
+
+
+		})()},{
+			colors:["rgb(0, 187, 222)", "#f0f0f0"]
+		});
+
+
+		addDonut('donut_local', 'Local Region vs World', {result:(function(data){
+
 			var out={'Croatia':0, 'Other':0};
 			data.forEach(function(item){
 				if(typeof out[item[0]]!='undefined'){
@@ -125,6 +147,7 @@ if($fileAge>3600){
 		})(chartData)},{
 			colors:["rgb(0, 187, 222)", "#f0f0f0"]
 		});
+
 
 
 		addMetric('metric_total', "Total App Section Views", <?php echo json_encode(array('result'=>$q->count())); ?>,{
