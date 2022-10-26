@@ -556,7 +556,7 @@ if($fileAge>3600){
 
 
 			?>},{
-					colors:["#66cdaa", "#e0e0e0"]
+					colors:["#e0e0e0","#66cdaa"]
 				});
 
 
