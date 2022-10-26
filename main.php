@@ -16,7 +16,7 @@
 
 			<section>
 
-				<div id="donuts_" class="metric-section">
+				<div id="donuts_" class="metric-section donuts">
 					<div id="donut_local" class=""></div>
 					<div id="donut_local_views" class=""></div>
 				</div>
