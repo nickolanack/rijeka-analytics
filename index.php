@@ -701,12 +701,22 @@ if($fileAge>3600){
 			//analysis_type:'select_unique'
 		}}, {
 
-			colorMapping:{
-			    'Result': function(d){ 
-			    	return '#e0e0e0'; 
-			    }, // column - color
+			colorMapping:(function(){
 
-			  },
+				var obj={}
+
+				for(var i=0, i<10;i++){
+					if(i<4){
+						obj[Math.po(2,i)+' - '+Math.po(2,i+1)+' Section Views']='#f0f0f0';
+					}else{
+						obj[Math.po(2,i)+' - '+Math.po(2,i+1)+' Section Views']='#66cdaa';
+					}
+
+
+				}
+
+
+			})();
 
 			 //colors:["#66cdaa"]
 		});
