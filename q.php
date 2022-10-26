@@ -62,7 +62,7 @@ class Q{
 		}
 
 
-		protected function formatGroups($results, $section){
+		public function formatGroups($results, $section){
 
 			$formatted=[];
 
