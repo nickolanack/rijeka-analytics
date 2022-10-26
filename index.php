@@ -705,7 +705,7 @@ if($fileAge>3600){
 
 				var obj={}
 
-				for(var i=0, i<10;i++){
+				for(var i=0;i<10;i++){
 					if(i<4){
 						obj[Math.po(2,i)+' - '+Math.po(2,i+1)+' Section Views']='#f0f0f0';
 					}else{
