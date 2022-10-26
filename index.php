@@ -65,9 +65,13 @@ if($fileAge>3600){
 		<script type="text/javascript" src="https://d26b395fwzu5fz.cloudfront.net/keen-dataviz-1.1.3.js"></script>
 		<link type="text/css" href="https://d26b395fwzu5fz.cloudfront.net/keen-dataviz-1.1.3.css" rel="stylesheet">
 
+		<link type="text/css" href="css.css" rel="stylesheet">
+
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js" ></script>
 
 		<script type="text/javascript">
+
+
 			google.charts.load('current', {
 				'packages':['geochart'],
 			});
@@ -90,135 +94,8 @@ if($fileAge>3600){
 				chart.draw(data, options);
 			}
 
-
-
-
-			
-
-
 		</script>
-		<style type="text/css">
-			
-
-			div#metrics_div>div, div#metrics_tours_div>div, div#metrics_tours_div_active_items>div, div#metrics_tours_div_casual>div {
-			    width: 30%;
-			    margin: 10px;
-			    display: inline-block;
-			    vertical-align: top;
-			    min-width: 210px;
-			}
-
 		
-
-			div#regions_div, div#metrics_div, div#metrics_tours_div, div#metrics_tours_div_active, div#metrics_tours_div_casual, div#chart_12_months, div#chart_12_months_active, div#chart_distribution {
-			    max-width: 900px;
-			    width: calc( 100% - 100px );
-			    margin: 50px auto;
-			    text-align: center;
-			    vertical-align: top;
-			}
-
-			.keen-dataviz-title {
-				margin-top: 100px;
-			    scale: 2;
-			}
-
-
-			h1 {
-			    font-family: sans-serif;
-			    font-weight: 100;
-			    font-size: 50px;
-			    text-align: center;
-
-			    max-width: 900px;
-			    width: calc( 100% - 100px );
-			    margin: 10px auto;
-
-			}
-
-			h2 {
-			    font-family: 'Gotham Rounded SSm A', 'Gotham Rounded SSm B', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-			    font-weight: 200;
-			    text-align: center;
-			    max-width: 900px;
-			    width: calc( 100% - 100px );
-			    margin: 10px auto;
-			    font-size: 28px;
-			    color: #4D4D4D;
-			    margin-top: 100px;
-			}
-
-			
-			p {
-			    margin: 10px auto;
-			    font-family: sans-serif;
-			    font-weight: 100;
-			    color: #444444;
-
-			    max-width: 900px;
-			    width: calc( 100% - 100px );
-			}
-
-			h1>span {
-			    font-weight: 400;
-			    color: #00bbde;
-			    font-size: 70px;
-			}
-
-			g.c3-axis.c3-axis-y {
-			    display: none;
-			}
-
-			@media only screen and (max-width: 600px) {
-			 	div#metrics_div>div, div#metrics_tours_div>div,  div#metrics_tours_div_active_items>div, div#metrics_tours_div_casual>div {
-			 		min-width: unset;
-			 		width: 90%;
-			 	}
-			}
-
-
-			#metrics_tours_div_casual .keen-dataviz {
-			    scale: 0.3;
-			    position: relative;
-			    top: 70px;
-			    left: 90px;
-			    
-			}
-
-			div#metrics_tours_div_active {
-			    position: relative;
-			}
-
-			div#metrics_tours_div_casual {
-			    position: absolute;
-			    top: 16px;
-			    left: 35px;
-			    margin: 0;
-			}
-
-
-			div#metrics_tours_div_casual .keen-dataviz .keen-dataviz-metric-value{
-				color: black;
-			}
-
-
-			label.active-u:after, label.casual-u:after {
-			    content: "";
-			    display: inline-block;
-			    width: 12px;
-			    height: 12px;
-			    background-color: mediumaquamarine;
-			    margin-left: 5px;
-			    vertical-align: top;
-			    border:1px solid #404040;
-			}
-
-			label.casual-u:after {
-			     background-color: white;    
-			}
-
-
-		</style>
 	</head>
 	<body>
 		<main>
