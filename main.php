@@ -44,10 +44,10 @@
 
 				<h2>Unique section views</h2>
 				<p>*These are not the only sections that are logged as `section views`, but are easily distinguished from others. Because some section views do not request unique data, they cannot be identified as a specific app section and are not included below.</p>
-				<div id="metrics_tours_div" class="metric-section">	
+				<div id="metrics_tours_div" class="metric-section metrics-group">	
 				</div>
 
-				<div id="metrics_tours_div_unique" class="metric-section">	
+				<div id="metrics_tours_div_unique" class="metric-section metrics-group">	
 				</div>
 
 				

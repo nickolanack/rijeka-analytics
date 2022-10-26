@@ -67,6 +67,7 @@ class Q{
 		public function distribution($field, $where=null){
 
 			if($results = $this->conn->query(
+				
 				'SELECT '.$field.', count(*) as count, data FROM event'.$this->_w($where).' GROUP BY '.$field
 			)){
 				return $results->fetch_all(MYSQLI_ASSOC);
