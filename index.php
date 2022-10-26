@@ -420,8 +420,16 @@ if($fileAge>3600){
 			        }
 			    },
 			    colors:["#66cdaa"]
-			})
-			.prepare();
+			
+			});
+
+
+			if(options.colors){
+				chart.colors(options.colors);
+			}
+
+
+			chart.prepare();
 
 			chart.data(result).render();
 		}
