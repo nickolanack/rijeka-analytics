@@ -2,7 +2,7 @@
 		<main>
 			<h1>Analytics. <span>Rijeka in Flux</span> mobile app</h1>
 			<section>
-				<p><button class="region" onclick="showRegion();"></button><button class="world" onclick="showWorld();"></button></p>
+				<p style="text-align: right;"><button class="region" onclick="showRegion();">Region</button><button class="world" onclick="showWorld();">World</button></p>
 				<div id="regions_div" style="">
 					
 				</div>
