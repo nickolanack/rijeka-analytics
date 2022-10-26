@@ -540,8 +540,8 @@ if($fileAge>3600){
 		addDonut('donut_active', 'All Time Active and Casual', {result:<?php 
 
 
-			'active'=$q->countDistinct('ip', 'WHERE ip in ('. $q->distributionThreshold('ip', 16, '>=') .')');
- 			'casual'=$q->countDistinct('ip', 'WHERE ip in ('. $q->distributionThreshold('ip', 16, '<') .')');
+			$active=$q->countDistinct('ip', 'WHERE ip in ('. $q->distributionThreshold('ip', 16, '>=') .')');
+ 			$casual=$q->countDistinct('ip', 'WHERE ip in ('. $q->distributionThreshold('ip', 16, '<') .')');
 
  			echo json_encode(array(
  				array(
