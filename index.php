@@ -507,7 +507,7 @@ if($fileAge>3600){
 					colors:["#66cdaa", "#e0e0e0"]
 				});
 
-				addDonut('chart_12_months_active', 'Active and casual users - last 12 months', {result:year},{
+				addDonut('donut_active', 'Active and casual users - last 12 months', {result:year},{
 					colors:["#66cdaa", "#e0e0e0"]
 				});
 

@@ -3,16 +3,16 @@
 			<h1>Analytics. <span>Rijeka in Flux</span> mobile app</h1>
 			<section>
 				<p style="text-align: right;"><button class="region active" onclick="showRegion();">Region</button><button class="world" onclick="showWorld();">World</button></p>
-				<div id="regions_div" style="">
+				<div id="regions_div" style="" class="metric-section">
 					
 				</div>
-				<div id="regions_div_" class="hidden" style="">
+				<div id="regions_div_" class="hidden metric-section" style="">
 					
 				</div>
 			<section>
 
 			<section>
-				<div id="metrics_div">
+				<div id="metrics_div" class="metric-section">
 					<div id="metric_total"></div>
 					<div id="metric_ips"></div>
 					<div id="metric_today"></div>
@@ -36,7 +36,7 @@
 				</p>
 
 
-				<div id="chart_12_months">
+				<div id="chart_12_months" class="metric-section">
 				</div>
 
 				
@@ -44,11 +44,11 @@
 
 				<h2>Unique section views</h2>
 				<p>*These are not the only sections that are logged as `section views`, but are easily distinguished from others. Because some section views do not request unique data, they cannot be identified as a specific app section and are not included below.</p>
-				<div id="metrics_tours_div">	
+				<div id="metrics_tours_div" class="metric-section">	
 				</div>
 
 
-				<div id="chart_distribution">
+				<div id="chart_distribution" class="metric-section">
 				</div>
 
 
@@ -65,7 +65,7 @@
 				
 				<h2>Active user section views compared with casual users</h2>
 				<p style="text-align: right;"><label class="active-u">Active users</label> <label class="casual-u" >Casual users</label></p>
-				<div id="metrics_tours_div_active" >
+				<div id="metrics_tours_div_active"  class="metric-section">
 					<div id="metrics_tours_div_active_items">
 
 					</div>
@@ -76,7 +76,11 @@
 
 
 
-				<div id="chart_12_months_active">
+				<div id="chart_12_months_active" class="metric-section">
+				</div>
+
+
+				<div id="donut_active" class="metric-section">
 				</div>
 				
 
