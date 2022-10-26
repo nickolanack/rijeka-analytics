@@ -82,28 +82,7 @@ if($fileAge>3600){
 
 				}, array_keys($countries)), JSON_PRETTY_PRINT); ?>, 'regions_div');
 
-			// google.charts.load('current', {
-			// 	'packages':['geochart'],
-			// });
 			
-			// google.charts.setOnLoadCallback(drawRegionsMap);
-			// function drawRegionsMap() {
-			// 	var data = google.visualization.arrayToDataTable(([['Country', 'Unique IPs']]).concat(<?php echo json_encode(array_map(function($country)use($countries){
-
-			// 		return array(
-			// 			$country,
-			// 			$countries[$country]
-			// 		);
-
-			// 	}, array_keys($countries)), JSON_PRETTY_PRINT); ?>));
-			// 	var options = {
-			// 		colorAxis: {colors: ['rgb(161, 199, 211)', 'rgb(0, 187, 222)', 'rgb(254, 102, 114)']},
-			// 		region:150
-			// 	};
-			// 	var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
-			// 	chart.draw(data, options);
-			// }
-
 		</script>
 		
 	</head>
