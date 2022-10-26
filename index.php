@@ -503,21 +503,46 @@ if($fileAge>3600){
 			$active=$q->countDistinct('ip', 'WHERE ip in ('. $q->distributionThreshold('ip', 16, '>=') .')');
  			$casual=$q->countDistinct('ip', 'WHERE ip in ('. $q->distributionThreshold('ip', 16, '<') .')');
 
- 			echo json_encode(array(
- 				array(
- 					'name'=>'Casual Users',
- 					'result'=>$casual
- 				),
- 				array(
- 					'name'=>'Active Users',
- 					'result'=>$active
- 				)
- 			));
+		 			echo json_encode(array(
+		 				array(
+		 					'name'=>'Casual Users',
+		 					'result'=>$casual
+		 				),
+		 				array(
+		 					'name'=>'Active Users',
+		 					'result'=>$active
+		 				)
+		 			));
 
 
 			?>},{
-					colors:["#e0e0e0","#66cdaa"]
-				});
+			colors:["#e0e0e0","#66cdaa"]
+		});
+
+		addDonut('donut_active_last6Months', 'All Time Active and Casual', {result:<?php 
+
+
+			$range=$q->monthRanges(6)[0];
+
+
+			$active=$q->countDistinct('ip', 'WHERE timestamp >= '. $range['start'] .' AND ip in ('. $q->distributionThreshold('ip', 16, '>=') .')');
+ 			$casual=$q->countDistinct('ip', 'WHERE timestamp >= '. $range['start'] .' AND ip in ('. $q->distributionThreshold('ip', 16, '<') .')');
+
+		 			echo json_encode(array(
+		 				array(
+		 					'name'=>'Casual Users',
+		 					'result'=>$casual
+		 				),
+		 				array(
+		 					'name'=>'Active Users',
+		 					'result'=>$active
+		 				)
+		 			));
+
+
+			?>},{
+			colors:["#e0e0e0","#66cdaa"]
+		});
 
 
 

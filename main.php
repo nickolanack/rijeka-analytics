@@ -82,6 +82,12 @@
 
 				<div id="donut_active" class="metric-section">
 				</div>
+
+				<div id="donut_active_last6Months" class="metric-section">
+				</div>
+
+
+				
 				
 
 			<section>
