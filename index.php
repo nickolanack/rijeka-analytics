@@ -519,10 +519,35 @@ if($fileAge>3600){
 			colors:["#e0e0e0","#66cdaa"]
 		});
 
-		addDonut('donut_active_last6Months', 'All Time Active and Casual', {result:<?php 
+		addDonut('donut_active_last6Months', '6 Months Active and Casual', {result:<?php 
 
 
 			$range=$q->monthRanges(6)[0];
+
+
+			$active=$q->countDistinct('ip', 'WHERE timestamp >= '. $range['start'] .' AND ip in ('. $q->distributionThreshold('ip', 16, '>=') .')');
+ 			$casual=$q->countDistinct('ip', 'WHERE timestamp >= '. $range['start'] .' AND ip in ('. $q->distributionThreshold('ip', 16, '<') .')');
+
+		 			echo json_encode(array(
+		 				array(
+		 					'name'=>'Casual Users',
+		 					'result'=>$casual
+		 				),
+		 				array(
+		 					'name'=>'Active Users',
+		 					'result'=>$active
+		 				)
+		 			));
+
+
+			?>},{
+			colors:["#e0e0e0","#66cdaa"]
+		});
+
+		addDonut('donut_active_last1Months', 'Last Month Active and Casual', {result:<?php 
+
+
+			$range=$q->monthRanges(1)[0];
 
 
 			$active=$q->countDistinct('ip', 'WHERE timestamp >= '. $range['start'] .' AND ip in ('. $q->distributionThreshold('ip', 16, '>=') .')');
