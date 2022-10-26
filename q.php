@@ -75,4 +75,44 @@ class Q{
 	
 		}
 
+
+
+		public function monthRanges($n=12){
+
+
+			$thisMonth = strtotime(date('Y-m').'-01');
+
+
+			$nextMonth=strtotime(date('Y-m', $thisMonth+(3600*24*20)).'-01');
+			if($thisMonth==$nextMonth){
+				$nextMonth=strtotime(date('Y-m', $thisMonth+(3600*24*35)).'-01');
+			}
+
+			$end=$nextMonth;
+
+			$dateRanges=array();
+
+			for($i=0;$i<$n;$i++){
+
+
+				$start=strtotime(date('Y-m', $end-(3600*24*10)).'-01');
+
+				array_unshift($dateRanges, array(
+
+ 					'start'=>$start,
+ 					'end'=>$end,
+				));
+
+				$end=$start;
+
+			}
+
+
+			return $dateRanges;
+
+
+		}
+
+
+
 	}

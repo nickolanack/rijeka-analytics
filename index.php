@@ -471,31 +471,18 @@ if($fileAge>3600){
 		<?php
 
 
-			$nextMonth=strtotime(date('Y-m', $thisMonth+(3600*24*20)).'-01');
-			if($thisMonth==$nextMonth){
-				$nextMonth=strtotime(date('Y-m', $thisMonth+(3600*24*35)).'-01');
-			}
+			$results12Months=arrayMap(function($range) use($q){
 
-			$end=$nextMonth;
+				return array(
 
-			$results12Months=array();
+ 					'start'=>date('Y-m', $range['start']),
+ 					'end'=>date('Y-m', $range['end']),
+ 					'active'=>$q->countDistinct('ip', 'WHERE timestamp >= '. $range['start'] .' AND timestamp < '. $range['end'] .' AND ip in ('. $q->distributionThreshold('ip', 16, '>=') .')'),
+ 					'casual'=>$q->countDistinct('ip', 'WHERE timestamp >= '. $range['start'] .' AND timestamp < '. $range['end'] .' AND ip in ('. $q->distributionThreshold('ip', 16, '<') .')')
+				)
 
-			for($i=0;$i<12;$i++){
 
-
-				$start=strtotime(date('Y-m', $end-(3600*24*10)).'-01');
-
-				array_unshift($results12Months, array(
-
- 					'start'=>date('Y-m', $start),
- 					'end'=>date('Y-m', $end),
- 					'active'=>$q->countDistinct('ip', 'WHERE timestamp >= '.$start.' AND timestamp < '.$end.' AND ip in ('. $q->distributionThreshold('ip', 16, '>=') .')'),
- 					'casual'=>$q->countDistinct('ip', 'WHERE timestamp >= '.$start.' AND timestamp < '.$end.' AND ip in ('. $q->distributionThreshold('ip', 16, '<') .')')
-				));
-
-				$end=$start;
-
-			}
+			}, $q->monthRanges(12));
 		
 
 		?>
