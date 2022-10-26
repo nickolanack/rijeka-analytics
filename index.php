@@ -761,7 +761,7 @@ if($fileAge>3600){
 						<?php echo json_encode(array('result'=>$value)); ?>,
 						{
 							height:200,
-							colors:["#a0a0a0"]
+							colors:["#f0f0f0"]
 						});
 				<?php
 			}
@@ -830,7 +830,7 @@ if($fileAge>3600){
 
 
 				addChart('chart_12_months_active', 'Last 12 Months', {result:year},{
-					colors:["#66cdaa", "#c0c0c0"]
+					colors:["#66cdaa", "#e0e0e0"]
 				});
 
 
