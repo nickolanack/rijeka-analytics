@@ -54,10 +54,38 @@ class Q{
 			if($results = $this->conn->query(
 				'SELECT count(*) as count, data FROM (SELECT  data, ip FROM event'.$this->_w($where).' GROUP BY data, ip) as t GROUP BY data'
 			)){
+				 
 				return $results->fetch_all(MYSQLI_ASSOC);
 			}
 			return [];
 	
+		}
+
+
+		protected function formatGroups($results, $section){
+
+			$formatted=[];
+
+				foreach ($results as $result) {
+					$data=json_decode($result['data']);
+					if(isset($data->filter->$section)){
+
+						$title=$data->filter->$section;
+						$title=explode(':', $title);
+						$title=array_pop($title);
+						$title=trim($title);
+
+						if(!array_key_exists($title, $formatted)){
+							$formatted[$title]=0;
+						}
+						$formatted[$title]+=intval($result['count']);
+						
+					}
+				}
+
+				return $formatted;
+
+
 		}
 
 		public function distributionThreshold($field, $n, $comparator){
@@ -67,7 +95,7 @@ class Q{
 		public function distribution($field, $where=null){
 
 			if($results = $this->conn->query(
-				
+
 				'SELECT '.$field.', count(*) as count, data FROM event'.$this->_w($where).' GROUP BY '.$field
 			)){
 				return $results->fetch_all(MYSQLI_ASSOC);

@@ -204,24 +204,8 @@ if($fileAge>3600){
 
 		<?php 
 
-			$formatted=[];
 
-			foreach ($q->countDistinctGroupsIps() as $result) {
-				$data=json_decode($result['data']);
-				if(isset($data->filter->filterTour)){
-
-					$title=$data->filter->filterTour;
-					$title=explode(':', $title);
-					$title=array_pop($title);
-					$title=trim($title);
-
-					if(!array_key_exists($title, $formatted)){
-						$formatted[$title]=0;
-					}
-					$formatted[$title]+=intval($result['count']);
-					
-				}
-			}
+			$formatted=$q->formatGroups($q->countDistinctGroupsIps(), 'filterTour');
 
 			foreach ($formatted as $key => $value) {
 				?>
@@ -242,25 +226,7 @@ if($fileAge>3600){
 		
 		<?php 
 
-			$formatted=[];
-
-			foreach ($q->countDistinctGroups() as $result) {
-				$data=json_decode($result['data']);
-				if(isset($data->filter->filterTour)){
-
-					$title=$data->filter->filterTour;
-					$title=explode(':', $title);
-					$title=array_pop($title);
-					$title=trim($title);
-
-					if(!array_key_exists($title, $formatted)){
-						$formatted[$title]=0;
-					}
-					$formatted[$title]+=intval($result['count']);
-
-					
-				}
-			}
+			$formatted=$formatted=$q->formatGroups($q->countDistinctGroups(), 'filterTour');
 
 			foreach ($formatted as $key => $value) {
 				?>
@@ -382,25 +348,9 @@ if($fileAge>3600){
 
 		<?php 
 
-			$formatted=[];
 
-			foreach ($q->countDistinctGroups(' WHERE ip in ('. $q->distributionThreshold('ip', 16, '>=') .') ') as $result) {
-				$data=json_decode($result['data']);
-				if(isset($data->filter->filterTour)){
+			$formatted=$formatted=$q->formatGroups($q->countDistinctGroups(' WHERE ip in ('. $q->distributionThreshold('ip', 16, '>=') .') '), 'filterTour');
 
-					$title=$data->filter->filterTour;
-					$title=explode(':', $title);
-					$title=array_pop($title);
-					$title=trim($title);
-
-					if(!array_key_exists($title, $formatted)){
-						$formatted[$title]=0;
-					}
-					$formatted[$title]+=intval($result['count']);
-
-					
-				}
-			}
 
 			foreach ($formatted as $key => $value) {
 				?>
@@ -420,25 +370,7 @@ if($fileAge>3600){
 
 		<?php 
 
-			$formatted=[];
-
-			foreach ($q->countDistinctGroups(' WHERE ip in ('. $q->distributionThreshold('ip', 16, '<') .') ') as $result) {
-				$data=json_decode($result['data']);
-				if(isset($data->filter->filterTour)){
-
-					$title=$data->filter->filterTour;
-					$title=explode(':', $title);
-					$title=array_pop($title);
-					$title=trim($title);
-
-					if(!array_key_exists($title, $formatted)){
-						$formatted[$title]=0;
-					}
-					$formatted[$title]+=intval($result['count']);
-
-					
-				}
-			}
+			$formatted=$formatted=$q->formatGroups($q->countDistinctGroups(' WHERE ip in ('. $q->distributionThreshold('ip', 16, '<') .') '), 'filterTour');
 
 			foreach ($formatted as $key => $value) {
 				?>
