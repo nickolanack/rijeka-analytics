@@ -105,10 +105,11 @@ if($fileAge>3600){
 	<script type="text/javascript">
 
 
-		addDonut('donut_local', 'Unique Users', {result:(function(data){
+		addDonut('donut_local', 'Unique Users', {result:(function(){
 
 			<?php
-				$iplist=implode(', ', array_map(function(ip){ return json_encode($ip); }, $localIps));
+
+				$iplist=implode(', ', array_map(function($ip){ return json_encode($ip); }, $localIps));
 
 				echo json_encode(array(
 					array(
