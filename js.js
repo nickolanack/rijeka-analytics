@@ -159,6 +159,8 @@ var addChart=(function(){
 		chart.data(result).render();
 	}
 
+	return addChart;
+
 
 })();
 
