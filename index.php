@@ -698,7 +698,7 @@ if($fileAge>3600){
 		addChart('chart_distribution', 'Unique user activity distribution (log2)', {result:distribution}, {
 
 			colorMapping:{
-			    'Result': '#e0e0e0', // column - color
+			    'Result': function(d){ return '#e0e0e0'; }, // column - color
 
 			  },
 
