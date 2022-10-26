@@ -105,7 +105,7 @@ if($fileAge>3600){
 	<script type="text/javascript">
 
 
-		addDonut('donut_local', 'Local Region vs World', {result:(function(data){
+		addDonut('donut_local', 'Unique Users', {result:(function(data){
 
 			<?php
 				$iplist=implode(', ', array_map(function(ip){ return json_encode($ip); }, $localIps));
@@ -127,7 +127,7 @@ if($fileAge>3600){
 		});
 
 
-		addDonut('donut_local', 'Local Region vs World', {result:(function(data){
+		addDonut('donut_local_views', 'Total Views', {result:(function(data){
 
 			var out={'Croatia':0, 'Other':0};
 			data.forEach(function(item){
