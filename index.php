@@ -558,7 +558,7 @@ if($fileAge>3600){
 		}, $results12Months), JSON_PRETTY_PRINT);?>
 
 
-		addChart('chart_12_months', 'Last 12 Months', {result:year});
+		addChart('chart_12_months', 'Last 12 months', {result:year});
 
 
 
@@ -829,7 +829,7 @@ if($fileAge>3600){
 		(function(year){
 
 
-				addChart('chart_12_months_active', 'Active and Casual Users Last 12 Months', {result:year},{
+				addChart('chart_12_months_active', 'Active and casual users - last 12 mnths', {result:year},{
 					colors:["#66cdaa", "#e0e0e0"]
 				});
 
