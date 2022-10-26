@@ -89,7 +89,7 @@ var showWorld=function(){
 var addMetric=(function(){
 
 
-	var addMetric=function(div, title, result, options){
+	return function(div, title, result, options){
 
 		options=ObjectAppend_({
 			height:240,
@@ -109,8 +109,6 @@ var addMetric=(function(){
 
 	};
 
-	return addMetric;
-
 })();
 
 
@@ -118,7 +116,7 @@ var addMetric=(function(){
 var addChart=(function(){
 
 
-	var addChart=function(div, title, result, options){
+	return function(div, title, result, options){
 
 
 		options=ObjectAppend_({
@@ -157,10 +155,58 @@ var addChart=(function(){
 		chart.prepare();
 
 		chart.data(result).render();
-	}
+	};
 
-	return addChart;
+})();
+
+
+
+var addDonut=(function(){
+
+
+	return function(div, title, result, options){
+
+
+		options=ObjectAppend_({
+			height:340
+		}, options);
+
+		var chart = new Keen.Dataviz()
+		.el(div instanceof HTMLElement?div:document.getElementById(div))
+		.height(options.height)
+		.title(title)
+		.type("donut")
+		.stacked(true)
+		.chartOptions({
+			 bar: {
+		        width: {
+		            ratio: 0.9 // this makes bar width 90% of length between ticks
+		        }
+		    },
+		    colors:["#66cdaa"]
+		
+		});
+
+		if(options.colors){
+			chart.colors(options.colors);
+		}
+
+
+		if(options.colorMapping){
+			chart.colorMapping(options.colorMapping);
+		}
+
+
+		
+
+
+		chart.prepare();
+
+		chart.data(result).render();
+	};
+
 
 
 })();
+
 
