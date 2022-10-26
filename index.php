@@ -73,14 +73,17 @@ if($fileAge>3600){
 
 
 
-			drawCloroplethMap(150, <?php echo json_encode(array_map(function($country)use($countries){
+			var chartData=<?php echo json_encode(array_map(function($country)use($countries){
 
 					return array(
 						$country,
 						$countries[$country]
 					);
 
-				}, array_keys($countries)), JSON_PRETTY_PRINT); ?>, 'regions_div');
+				}, array_keys($countries)), JSON_PRETTY_PRINT); ?>;
+
+			drawCloroplethMap(150, chartData, 'regions_div');
+			drawCloroplethMap('world', chartData, 'regions_div_');
 
 			
 		</script>
@@ -91,6 +94,9 @@ if($fileAge>3600){
 			<h1>Analytics. <span>Rijeka in Flux</span> mobile app</h1>
 			<section>
 				<div id="regions_div" style="">
+					
+				</div>
+				<div id="regions_div_" style="">
 					
 				</div>
 			<section>
