@@ -49,6 +49,17 @@ class Q{
 	
 		}
 
+		public function countDistinctGroupsIps($where=null){
+
+			if($results = $this->conn->query(
+				'SELECT count(*) as count, data FROM (SELECT  data, ip, FROM event'.$this->_w($where).' GROUP BY data, ip) as t GROUP BY data'
+			)){
+				return $results->fetch_all(MYSQLI_ASSOC);
+			}
+			return [];
+	
+		}
+
 		public function distributionThreshold($field, $n, $comparator){
 			return 'SELECT '.$field.' FROM (SELECT '.$field.', count(*) as count, data FROM event GROUP BY '.$field.') as a WHERE a.count'. $comparator.$n;
 		}

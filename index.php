@@ -238,6 +238,44 @@ if($fileAge>3600){
 
 
 
+		<?php 
+
+			$formatted=[];
+
+			foreach ($q->countDistinctGroupsIps() as $result) {
+				$data=json_decode($result['data']);
+				if(isset($data->filter->filterTour)){
+
+					$title=$data->filter->filterTour;
+					$title=explode(':', $title);
+					$title=array_pop($title);
+					$title=trim($title);
+
+					if(!array_key_exists($title, $formatted)){
+						$formatted[$title]=0;
+					}
+					$formatted[$title]+=intval($result['count']);
+
+					
+				}
+			}
+
+			foreach ($formatted as $key => $value) {
+				?>
+					addMetric(
+						document.getElementById('metrics_tours_div_unique').appendChild(new Element('div')), 
+						<?php echo json_encode($key); ?>, 
+						<?php echo json_encode(array('result'=>$value)); ?>,
+						{
+							height:200,
+							colors:["#66cdaa"]
+						});
+				<?php
+			}
+		?>
+
+
+
 
 
 

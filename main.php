@@ -47,6 +47,11 @@
 				<div id="metrics_tours_div" class="metric-section">	
 				</div>
 
+				<div id="metrics_tours_div_unique" class="metric-section">	
+				</div>
+
+				
+
 
 				<div id="chart_distribution" class="metric-section">
 				</div>
