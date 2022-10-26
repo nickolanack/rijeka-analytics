@@ -698,6 +698,10 @@ if($fileAge>3600){
 						'label'=>$ranges[$i][0].' - '.$ranges[$i][1].' Section views',
 						'result'=>$value
 						)
+				),
+				'timeframe'=>array(
+					'start'=>$ranges[$i][0],
+					'end'=>$ranges[$i][1]
 				)
 			);
 
