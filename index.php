@@ -183,7 +183,7 @@ if($fileAge>3600){
 
 		
 
-			div#regions_div, div#metrics_div, div#metrics_tours_div, div#metrics_tours_div_active, div#metrics_tours_div_casual, div#chart_12_months, div#chart_distribution {
+			div#regions_div, div#metrics_div, div#metrics_tours_div, div#metrics_tours_div_active, div#metrics_tours_div_casual, div#chart_12_months, div#chart_12_months_active, div#chart_distribution {
 			    max-width: 900px;
 			    width: calc( 100% - 100px );
 			    margin: 50px auto;
