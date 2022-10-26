@@ -689,12 +689,8 @@ if($fileAge>3600){
 
 			return array(
 				'label'=>$ranges[$i][0].' - '.$ranges[$i][1].' Section views',
-				'result'=>array(
-						//'id'=>$i,
-						'result'=>$value,
-						'label'=> $ranges[$i][0].' - '.$ranges[$i][1].' Section views',
-					)
-			    );
+				'result'=>$value
+			);
 
 		}, $values, array_keys($values)), JSON_PRETTY_PRINT);?>
 
