@@ -688,21 +688,8 @@ if($fileAge>3600){
 		var distribution=<?php echo json_encode(array_map(function($value, $i)use($ranges){
 
 			return array(
-				'value'=>array(
-					array(
-						'label'=>$ranges[$i][0].' - '.$ranges[$i][1].' Section views',
-						'result'=>$value
-						),
-					
-					array(
-						'label'=>$ranges[$i][0].' - '.$ranges[$i][1].' Section views',
-						'result'=>$value
-						)
-				),
-				'timeframe'=>array(
-					'start'=>$ranges[$i][0],
-					'end'=>$ranges[$i][1]
-				)
+				'label'=>$ranges[$i][0].' - '.$ranges[$i][1].' Section views',
+				'result'=>$value
 			);
 
 			// array(
@@ -714,7 +701,7 @@ if($fileAge>3600){
 
 
 		addChart('chart_distribution', 'Unique user activity distribution (log2)', {result:([]).concat(distribution), query:{
-			group_by:'activity'
+			//group_by:'activity'
 		}}, {
 
 			colorMapping:(function(){
