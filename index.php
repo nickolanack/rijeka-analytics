@@ -127,7 +127,7 @@ if($fileAge>3600){
 		});
 
 
-		addDonut('donut_local_views', 'Croatia Unigue Users', {result:(function(data){
+		addDonut('donut_local_views', 'Croatia Unique Users', {result:(function(data){
 
 			var out={'Croatia':0, 'Other':0};
 			data.forEach(function(item){
