@@ -67,7 +67,7 @@
 				</div>
 
 
-				<div class="metric-section with-overlay categories">
+				<div class="metric-section with-overlay categories hidden">
 				
 					<div id="metrics_categories_div_unique" class=" metrics-group">	
 					</div>
@@ -76,7 +76,7 @@
 					</div>
 				</div>
 
-				<div class="metric-section with-overlay researchers">
+				<div class="metric-section with-overlay researchers hidden">
 				
 					<div id="metrics_researchers_div_unique" class=" metrics-group">	
 					</div>
