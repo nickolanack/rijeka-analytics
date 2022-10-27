@@ -17,7 +17,12 @@
 			    vertical-align: top;
 			}
 
-			div#regions_div.hidden, div#regions_div_.hidden, div.hidden{
+			div#metrics_tours_div_active, div.with-overlay  {
+			    position: relative;
+			}
+
+
+			div#regions_div.hidden, div#regions_div_.hidden, div.hidden, div.hidden.with-overlay{
 				visibility: hidden;
 				position: absolute;
 			}
@@ -115,10 +120,7 @@
 			    
 			}
 
-			div#metrics_tours_div_active, div.with-overlay  {
-			    position: relative;
-			}
-
+			
 			div#metrics_tours_div_casual, div.metrics-overlay  {
 			    position: absolute;
 			    top: 16px;
