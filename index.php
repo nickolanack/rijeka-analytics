@@ -76,7 +76,15 @@ if($fileAge>3600){
 
 		<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js" ></script>
 		<script type="text/javascript" src="js.js"></script>
-		<script type="text/javascript">
+		
+	</head>
+	<body>
+		<?php 
+		include __DIR__.'/main.php'; 
+		?>
+	</body>
+
+	<script type="text/javascript">
 
 
 
@@ -91,18 +99,6 @@ if($fileAge>3600){
 
 			drawCloroplethMap(150, chartData, 'regions_div');
 			drawCloroplethMap('world', chartData, 'regions_div_');
-
-			
-		</script>
-		
-	</head>
-	<body>
-		<?php 
-		include __DIR__.'/main.php'; 
-		?>
-	</body>
-
-	<script type="text/javascript">
 
 
 		addDonut('donut_local', 'Croatia Total Views', {result:(function(){
@@ -441,24 +437,6 @@ if($fileAge>3600){
 
 
 		
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
