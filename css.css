@@ -22,7 +22,7 @@
 				position: absolute;
 			}
 
-			button.region, button.world, .toggle-btn>button {
+			button.region, button.world, .toggle-btns>button {
 			    background-color: transparent;
 			    border: none;
 			    margin: 5px;
@@ -35,12 +35,12 @@
     			top: 35px;
 			}
 
-			button.region.active, button.world.active, .toggle-btn>button.active {
+			button.region.active, button.world.active, .toggle-btns>button.active {
 			  
 			}
 
 
-			button.region.active:after, button.world.active:after, .toggle-btn>button.active:after {
+			button.region.active:after, button.world.active:after, .toggle-btns>button.active:after {
 			    content: "";
 			    position: relative;
 			    border-bottom: 2px solid black;
