@@ -370,59 +370,35 @@ if($fileAge>3600){
 
 
 
-
-		<?php
-
-
-			$results12Months=array_map(function($range) use($q){
-
-				return array(
-
- 					'start'=>date('Y-m', $range['start']),
- 					'end'=>date('Y-m', $range['end']),
- 					'active'=>$q->countDistinct('ip', 'WHERE timestamp >= '. $range['start'] .' AND timestamp < '. $range['end'] .' AND ip in ('. $q->distributionThreshold('ip', 16, '>=') .')'),
- 					'casual'=>$q->countDistinct('ip', 'WHERE timestamp >= '. $range['start'] .' AND timestamp < '. $range['end'] .' AND ip in ('. $q->distributionThreshold('ip', 16, '<') .')')
-				);
-
-
-			}, $q->monthRanges(12));
-		
-
-		?>
-
 		(function(year){
 
 
-				addChart('chart_12_months_active', 'Active and casual users - last 12 months', {result:year},{
-					colors:["#66cdaa", "#e0e0e0"]
-				});
+			addChart('chart_12_months_active', 'Active and casual users - last 12 months', {result:year},{
+				colors:["#66cdaa", "#e0e0e0"]
+			});
 
 
 
 
-		})(<?php echo json_encode(array_map(function($value){
+		})(<?php echo json_encode(array_map(function($range) use($q){
 
-			return array(
-				'value'=>array(
+			return $q->toTimeframe(array(
 
-					array(
-						'name'=>'Active Users',
-						'result'=>$value['active']
-					),
-					array(
-						'name'=>'Casual Users',
-						'result'=>$value['casual']
-					)
+					'start'=>date('Y-m', $range['start']),
+					'end'=>date('Y-m', $range['end']),
+					'Active Users'=>$q->countDistinct('ip', 'WHERE timestamp >= '. $range['start'] .' AND timestamp < '. $range['end'] .' AND ip in ('. $q->distributionThreshold('ip', 16, '>=') .')'),
+					'Casual Users'=>$q->countDistinct('ip', 'WHERE timestamp >= '. $range['start'] .' AND timestamp < '. $range['end'] .' AND ip in ('. $q->distributionThreshold('ip', 16, '<') .')')
+			));
 
-				),
-				'timeframe'=>array(
-					'start'=>$value['start'].'-01',
-					'end'=>$value['end'].'-01',
-				)
 
-			);
+		}, $q->monthRanges(12)), JSON_PRETTY_PRINT);?>);
 
-		}, $results12Months), JSON_PRETTY_PRINT);?>);
+
+
+
+
+
+
 
 
 	

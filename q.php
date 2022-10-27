@@ -238,4 +238,31 @@ class Q {
 
 	}
 
+
+	public function toTimeframe($value){
+
+		$start=$value['start'];
+		$end=$value['end'];
+
+		unset($value['start');
+		unset($value['end');
+
+		$values=array();
+
+		foreach($value as $label=>$v){
+			$values[]=array(
+				'name'=> $label,
+				'result'=>$v
+			);
+		}
+
+		return array(
+			'value'=>$values,
+			'timeframe'=>array(
+				'start'=>$start.'-01',
+				'end'=>$end.'-01',
+			)
+		);
+	}
+
 }
