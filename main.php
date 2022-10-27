@@ -49,6 +49,10 @@
 				<div id="chart_12_months" class="metric-section">
 				</div>
 
+
+				
+				<div id="chart_12_months_region" class="metric-section">
+				</div>
 				
 
 

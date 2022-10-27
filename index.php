@@ -199,51 +199,33 @@ if($fileAge>3600){
 
 
 
-		<?php
+		addChart('chart_12_months', 'Last 12 months', {result:<?php echo json_encode($q->monthRanges(12, function($start, $end) use($q){
 
-
-			$results12Months=$q->monthRanges(12, function($start, $end) use($q){
-
-				return array(
+				return $q->toTimeframe(array(
 
  					'start'=>date('Y-m', $start),
  					'end'=>date('Y-m', $end),
- 					'unique'=>$q->countDistinct('ip','WHERE timestamp >= '.$start.' AND timestamp < '.$end),
- 					'total'=>$q->count('WHERE timestamp >= '.$start.' AND timestamp < '.$end)
-				);
+ 					'Unique Users'=>$q->countDistinct('ip','WHERE timestamp >= '.$start.' AND timestamp < '.$end),
+ 					'Total Section Views'=>$q->count('WHERE timestamp >= '.$start.' AND timestamp < '.$end)
+				));
 
 
-			});
-		
-
-		?>
-
-		var year=<?php echo json_encode(array_map(function($value){
-
-			return array(
-				'value'=>array(
-
-					array(
-						'name'=>'Unique Users',
-						'result'=>$value['unique']
-					),
-					array(
-						'name'=>'Total Section Views',
-						'result'=>$value['total']
-					)
-
-				),
-				'timeframe'=>array(
-					'start'=>$value['start'].'-01',
-					'end'=>$value['end'].'-01',
-				)
-
-			);
-
-		}, $results12Months), JSON_PRETTY_PRINT);?>
+			}), JSON_PRETTY_PRINT);?>});
 
 
-		addChart('chart_12_months', 'Last 12 months', {result:year});
+
+		addChart('chart_12_months_region', 'Croatia Only last 12 months', {result:<?php echo json_encode($q->monthRanges(12, function($start, $end) use($q){
+
+				return $q->toTimeframe(array(
+
+ 					'start'=>date('Y-m', $start),
+ 					'end'=>date('Y-m', $end),
+ 					'Unique Users'=>$q->countDistinct('ip','WHERE ip in ('.$iplist.') AND timestamp >= '.$start.' AND timestamp < '.$end),
+ 					'Total Section Views'=>$q->count('WHERE ip in ('.$iplist.') AND timestamp >= '.$start.' AND timestamp < '.$end)
+				));
+
+
+			}), JSON_PRETTY_PRINT);?>});
 
 
 
