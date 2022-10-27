@@ -244,8 +244,8 @@ class Q {
 		$start=$value['start'];
 		$end=$value['end'];
 
-		unset($value['start');
-		unset($value['end');
+		unset($value['start']);
+		unset($value['end']);
 
 		$values=array();
 
