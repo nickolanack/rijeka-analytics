@@ -297,91 +297,19 @@ if($fileAge>3600){
 
 		<?php 
 
-
-		$group=function($v){
-			return (int) $v;
-		};
-		$range=function($i){
-			return [$i, $i+1];
-		};
-
-
-		$useLogarithmicScale=function($base)use(&$group, &$range){
-
-			$group=function($v)use($base){
-				 return (int) log($v, $base); 
-			};
-
-			$range=function($i)use($base){
-				return [pow($base, $i), pow($base, $i+1)];
-			};
-
-		};
-
-		$useLinearScale=function($segmentSize)use(&$group, &$range){
-
-			$group=function($v)use($segmentSize){
-				 return (int) $v/$segmentSize;
-			};
-
-			$range=function($i)use($segmentSize){
-				return [$i*$segmentSize, ($i+1)*$segmentSize];
-			};
-
-		};
-
-
-		$useLogarithmicScale(2);
-		//$useLinearScale(10);
-
-		$dist=array();
-
-		$max=0;
-		foreach($q->distribution('ip') as $interact){
-			$index=$group($interact['count']); // $interact['count']/$groupSize;
-
-			$max=max($index, $max);
-
-			if(isset($dist[$index])){
-				$dist[$index]++;
-				continue;
-			}
-
-			$dist[$index]=1;
-		}
-
-		$values=array();
-		$ranges=array();
-
-		for($i=0; $i<=$max; $i++){
-			if(isset($dist[$i])){
-				$values[]=$dist[$i];
-			}else{
-				$values[]=0;
-			}
-
-			$ranges[$i]=$range($i);
-		}
-
-		echo json_encode($values);
-		echo json_encode($ranges);
+		$values=$q->histogram($q->distribution('ip'), 'log2');
 
 		?>
 
 
-		var distribution=<?php echo json_encode(array_map(function($value, $i)use($ranges){
+		var distribution=<?php echo json_encode(array_map(function($value){
 
 			return array(
-				'label'=>$ranges[$i][0].' - '.$ranges[$i][1].' Section views',
-				'result'=>$value
+				'label'=>$value['range'][0].' - '.$value['range'][1].' Section views',
+				'result'=>$value['value']
 			);
 
-			// array(
-			// 	'label'=>$ranges[$i][0].' - '.$ranges[$i][1].' Section views',
-			// 	'result'=>$value
-			// );
-
-		}, $values, array_keys($values)), JSON_PRETTY_PRINT);?>
+		}, $values), JSON_PRETTY_PRINT);?>
 
 
 		addChart('chart_distribution', 'Unique user activity distribution (log2)', {result:([]).concat(distribution), query:{
@@ -551,7 +479,7 @@ if($fileAge>3600){
 
 
 
-
+		distinctDayIntervals
 
 
 
