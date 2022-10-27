@@ -339,7 +339,14 @@ if($fileAge>3600){
 
 			$formatted=$q->formatGroups($q->countDistinctGroupsIps(), 'filterResearcher');
 
+			foreach(array_keys($formatted) as $k){
+				if(strpos($k, '{')===0){
+					unset($formatted[$k]);
+				}
+			}
+
 			arsort($formatted);
+
 			$formatted=array_slice($formatted, 0, 6);
 			$keysForNext=array_keys($formatted);
 
