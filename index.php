@@ -117,14 +117,13 @@ if($fileAge>3600){
 					), array(
 						'Other', $q->count('WHERE ip not in ('.$iplist.')')
 					)
-
 				));
 
 			?>;
 
 
 		})()},{
-			colors:["rgb(0, 187, 222)", "#f0f0f0"]
+			colors:["rgb(0, 187, 222)", "#72949a"]
 		});
 
 
@@ -146,7 +145,7 @@ if($fileAge>3600){
 
 
 		})(chartData)},{
-			colors:["rgb(0, 187, 222)", "#f0f0f0"]
+			colors:["rgb(0, 187, 222)", "#72949a"]
 		});
 
 

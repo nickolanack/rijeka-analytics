@@ -166,4 +166,5 @@
 			div#donuts>div, div.donuts>div {
 			    width: calc( 50% - 10px);
 			    display: inline-block;
+			    min-width: 350px;
 			}
