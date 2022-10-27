@@ -65,6 +65,16 @@
 					</div>
 				</div>
 
+
+				<div class="metric-section with-overlay">
+				
+					<div id="metrics_categories_div_unique" class=" metrics-group">	
+					</div>
+
+					<div id="metrics_categories_div" class=" metrics-group metrics-overlay">	
+					</div>
+				</div>
+
 				
 
 
