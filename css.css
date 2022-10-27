@@ -17,12 +17,12 @@
 			    vertical-align: top;
 			}
 
-			div#regions_div.hidden, div#regions_div_.hidden{
+			div#regions_div.hidden, div#regions_div_.hidden, div.hidden{
 				visibility: hidden;
 				position: absolute;
 			}
 
-			button.region, button.world {
+			button.region, button.world, .toggle-btn>button {
 			    background-color: transparent;
 			    border: none;
 			    margin: 5px;
@@ -35,12 +35,12 @@
     			top: 35px;
 			}
 
-			button.region.active, button.world.active {
+			button.region.active, button.world.active, .toggle-btn>button.active {
 			  
 			}
 
 
-			button.region.active:after, button.world.active:after {
+			button.region.active:after, button.world.active:after, .toggle-btn>button.active:after {
 			    content: "";
 			    position: relative;
 			    border-bottom: 2px solid black;

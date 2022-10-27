@@ -2,7 +2,7 @@
 		<main>
 			<h1>Analytics. <span>Rijeka in Flux</span> mobile app</h1>
 			<section>
-				<p style="text-align: right;"><button class="region active" onclick="showRegion();">Region</button><button class="world" onclick="showWorld();">World</button></p>
+				<p  class="toggle-btns" style="text-align: right;"><button class="region active" onclick="showRegion();">Region</button><button class="world" onclick="showWorld();">World</button></p>
 				<div id="regions_div" style="" class="metric-section">
 					
 				</div>
@@ -56,7 +56,7 @@
 				<p>*These are not the only sections that are logged as `section views`, but are easily distinguished from others. Because some section views do not request unique data, they cannot be identified as a specific app section and are not included below.</p>
 				
 				<p style="text-align: right;"><button class="tours active" onclick="showMetrics('tours');">Tours</button><button class="categories" onclick="showMetrics('categories');">Categories</button><button class="researchers" onclick="showMetrics('researchers');">Researchers</button></p>
-				<p style="text-align: right;"><label class="unique-u">Unique users</label> <label class="total-u" >Total views</label></p>
+				<p class="toggle-btns" style="text-align: right;"><label class="unique-u">Unique users</label> <label class="total-u" >Total views</label></p>
 				<div class="metric-section with-overlay tours">
 				
 					<div id="metrics_tours_div_unique" class=" metrics-group">	
