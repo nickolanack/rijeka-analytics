@@ -296,7 +296,7 @@ if($fileAge>3600){
 		<?php 
 
 
-			$formatted=$q->formatGroups($q->countDistinctGroupsIps(), 'filterCategories');
+			$formatted=$q->formatGroups($q->countDistinctGroupsIps(), 'filterCategory');
 
 			foreach ($formatted as $key => $value) {
 				?>
@@ -317,7 +317,7 @@ if($fileAge>3600){
 		
 		<?php 
 
-			$formatted=$formatted=$q->formatGroups($q->countDistinctGroups(), 'filterCategories');
+			$formatted=$formatted=$q->formatGroups($q->countDistinctGroups(), 'filterCategory');
 
 			foreach ($formatted as $key => $value) {
 				?>
