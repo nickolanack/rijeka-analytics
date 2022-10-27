@@ -214,7 +214,7 @@ if($fileAge>3600){
 
 
 
-		addChart('chart_12_months_region', 'Croatia Only last 12 months', {result:<?php echo json_encode($q->monthRanges(12, function($start, $end) use($q){
+		addChart('chart_12_months_region', 'Croatia Only last 12 months', {result:<?php echo json_encode($q->monthRanges(12, function($start, $end) use($q. $iplist){
 
 				return $q->toTimeframe(array(
 
