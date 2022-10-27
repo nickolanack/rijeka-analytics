@@ -73,9 +73,11 @@
 
 
 				<p>
-					Activity distribution (histogram) shows the total number of unique users (unique ips) grouped on the number of sections views that were logged for each user. 
+					Activity distribution (histogram) shows the total number of unique users (unique IPs) grouped on the number of sections views that were logged for each user. 
 					The shape of the chart is expected to follow a half-normal distribution (the right half of a normal distribution centered around 0). 
 					This assumes a smaller group of highly active users and a larger group of casual viewers.
+					<br/><br/>
+					*Note that this graph is grouping the items along the x-axis using a log<sub>2</sub> algorithm, meaning the grouping sizes increase along x.
 				</p>
 				<p>
 					For the following metrics unique user data is seperated into two groups; casual < 16, and active >= 16.
@@ -112,6 +114,11 @@
 				<div id="chart_retention" class="metric-section">
 				</div>
 				
+				<p>
+					User retention chart shows the number of unique users (unique IPs) grouped on the number of days between their first and last recorded visits. 
+					<br/><br/>
+					*Note that this graph is grouping the items along the x-axis using a log<sub>2</sub> algorithm, meaning the grouping sizes increase along x.
+				</p>
 
 			<section>
 
