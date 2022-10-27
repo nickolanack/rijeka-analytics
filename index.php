@@ -365,7 +365,7 @@ if($fileAge>3600){
 			$formatted=$formatted=$q->formatGroups($q->countDistinctGroups(), 'filterResearcher');
 
 			$formatted=array_map(function($k)use($formatted){
-				return $formatted[$k
+				return $formatted[$k];
 			}, $keysForNext);
 
 			$formatted=array_combine($keysForNext, $formatted);
