@@ -490,7 +490,7 @@ if($fileAge>3600){
 		}, $q->histogram($q->distinctDayIntervals('ip'), 'log2', 'days')), JSON_PRETTY_PRINT);?>
 
 
-		addChart('chart_retention', 'User retention', {result:([]).concat(returns), query:{
+		addChart('chart_retention', 'User retention log<sub>2</sub>', {result:([]).concat(returns), query:{
 			//group_by:'activity'
 		}}, {
 			colors:["#91a8a0"]
