@@ -451,10 +451,10 @@ if($fileAge>3600){
 
 	
 
-		addDonut('donut_active_last1Months', 'Last month active and casual', {result:<?php 
+		addDonut('donut_active_last1Months', 'Last 3 months active and casual', {result:<?php 
 
 
-			$range=$q->monthRanges(1)[0];
+			$range=$q->monthRanges(3)[0];
 
 
 			$active=$q->countDistinct('ip', 'WHERE timestamp >= '. $range['start'] .' AND ip in ('. $q->distributionThreshold('ip', 16, '>=') .')');
