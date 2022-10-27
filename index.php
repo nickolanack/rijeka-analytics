@@ -105,7 +105,7 @@ if($fileAge>3600){
 	<script type="text/javascript">
 
 
-		addDonut('donut_local', 'Unique Users', {result:(function(){
+		addDonut('donut_local', 'Croatia Unique Users', {result:(function(){
 
 			return <?php
 
@@ -127,7 +127,7 @@ if($fileAge>3600){
 		});
 
 
-		addDonut('donut_local_views', 'Total Views', {result:(function(data){
+		addDonut('donut_local_views', 'Croatia Total Views', {result:(function(data){
 
 			var out={'Croatia':0, 'Other':0};
 			data.forEach(function(item){
