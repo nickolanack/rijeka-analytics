@@ -164,7 +164,7 @@ class Q {
 
 	}
 
-	public function histogrom($results, $type = 'log2') {
+	public function histogram($results, $type = 'log2') {
 
 		$group = function ($v) {
 			return (int) $v;
