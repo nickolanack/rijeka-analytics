@@ -77,7 +77,7 @@
 				</div>
 
 				<div class="metric-section with-overlay researchers hidden">
-				
+					<p>Top 6 researchers only</p>
 					<div id="metrics_researchers_div_unique" class=" metrics-group">	
 					</div>
 
