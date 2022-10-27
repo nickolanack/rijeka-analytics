@@ -339,6 +339,10 @@ if($fileAge>3600){
 
 			$formatted=$q->formatGroups($q->countDistinctGroupsIps(), 'filterResearcher');
 
+			arsort($formatted);
+			$formatted=array_slice($formatted, 0, 6);
+			$keysForNext=array_keys($formatted);
+
 			foreach ($formatted as $key => $value) {
 				?>
 					addMetric(
@@ -359,6 +363,12 @@ if($fileAge>3600){
 		<?php 
 
 			$formatted=$formatted=$q->formatGroups($q->countDistinctGroups(), 'filterResearcher');
+
+			$formatted=array_map(function($k)use($formatted){
+				return $formatted[$k
+			}, $keysForNext);
+
+			$formatted=array_combine($keysForNext, $formatted);
 
 			foreach ($formatted as $key => $value) {
 				?>
