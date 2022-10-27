@@ -61,27 +61,41 @@ var drawCloroplethMap = (function(){
 })();
 
 
+var showMetrics=function(active){
+
+	var list=['tours', 'categories', 'researchers'];
+	showSection(active, list);
+
+};
+
+
+var showMap=function(active){
+
+	var list=['region', 'world'];
+	showSection(active, list);
+
+};
+
+var showSection=function(active, list){
+
+	
+	list.forEach(function(type){
+			$$('button.'+type)[0].removeClass('active');
+			$$('div.'+type)[0].addClass('hiddem');
+	});
+
+	$$('button.'+active)[0].addClass('active');
+	$$('div.'+active)[0].removeClass('hidden');
+
+};
+
 
 var showRegion=function(){
-
-	$$('button.region')[0].addClass('active');
-	$$('button.world')[0].removeClass('active');
-
-	$$('#regions_div_')[0].addClass('hidden');
-	$$('#regions_div')[0].removeClass('hidden');
-
+	showMap('region');
 }
 
 var showWorld=function(){
-
-	$$('button.region')[0].removeClass('active');
-	$$('button.world')[0].addClass('active');
-
-
-	$$('#regions_div')[0].addClass('hidden');
-	$$('#regions_div_')[0].removeClass('hidden');
-	
-
+	showMap('world');
 }
 
 
