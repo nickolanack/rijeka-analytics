@@ -101,7 +101,7 @@ if($fileAge>3600){
 			drawCloroplethMap('world', chartData, 'regions_div_');
 
 
-		addDonut('donut_local', 'Croatia Total Views', {result:(function(){
+		addDonut('donut_local', 'Croatia total views', {result:(function(){
 
 			return <?php
 
@@ -123,7 +123,7 @@ if($fileAge>3600){
 		});
 
 
-		addDonut('donut_local_views', 'Croatia Unique Users', {result:(function(data){
+		addDonut('donut_local_views', 'Croatia unique users', {result:(function(data){
 
 			var out={'Croatia':0, 'Other':0};
 			data.forEach(function(item){
@@ -427,7 +427,7 @@ if($fileAge>3600){
 
 	
 
-		addDonut('donut_active', 'All Time Active and Casual', {result:<?php 
+		addDonut('donut_active', 'All time active and casual', {result:<?php 
 
 
 			$active=$q->countDistinct('ip', 'WHERE ip in ('. $q->distributionThreshold('ip', 16, '>=') .')');
@@ -451,7 +451,7 @@ if($fileAge>3600){
 
 	
 
-		addDonut('donut_active_last1Months', 'Last Month Active and Casual', {result:<?php 
+		addDonut('donut_active_last1Months', 'Last month active and casual', {result:<?php 
 
 
 			$range=$q->monthRanges(1)[0];
