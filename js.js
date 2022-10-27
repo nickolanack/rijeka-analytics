@@ -81,7 +81,7 @@ var showSection=function(active, list){
 	
 	list.forEach(function(type){
 			$$('button.'+type)[0].removeClass('active');
-			$$('div.'+type)[0].addClass('hiddem');
+			$$('div.'+type)[0].addClass('hidden');
 	});
 
 	$$('button.'+active)[0].addClass('active');
