@@ -77,7 +77,7 @@
 					The shape of the chart is expected to follow a half-normal distribution (the right half of a normal distribution centered around 0). 
 					This assumes a smaller group of highly active users and a larger group of casual viewers.
 					<br/><br/>
-					*Note that this graph is grouping the items along the x-axis using a log<sub>2</sub> algorithm, meaning the grouping sizes increase along x.
+					*Note that this graph is grouping the items along the horizontal (x-axis) using a log<sub>2</sub> algorithm, meaning the grouping sizes increase along the x-axis.
 				</p>
 				<p>
 					For the following metrics unique user data is seperated into two groups; casual < 16, and active >= 16.
@@ -117,7 +117,7 @@
 				<p>
 					User retention chart shows the number of unique users (unique IPs) grouped on the number of days between their first and last recorded visits. 
 					<br/><br/>
-					*Note that this graph is grouping the items along the x-axis using a log<sub>2</sub> algorithm, meaning the grouping sizes increase along x.
+					*Note that this graph is grouping the items along the horizontal (x-axis) using a log<sub>2</sub> algorithm, meaning the grouping sizes increase along the x-axis.
 				</p>
 
 			<section>
