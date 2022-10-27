@@ -483,7 +483,7 @@ if($fileAge>3600){
 		var returns=<?php echo json_encode(array_map(function($value){
 
 			return array(
-				'label'=>$value['range'][0].' - '.$value['range'][1].' Section views',
+				'label'=>$value['range'][0].' - '.$value['range'][1].' Days',
 				'result'=>$value['value']
 			);
 
