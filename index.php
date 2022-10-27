@@ -334,6 +334,47 @@ if($fileAge>3600){
 		?>
 
 
+		<?php 
+
+
+			$formatted=$q->formatGroups($q->countDistinctGroupsIps(), 'filterResearcher');
+
+			foreach ($formatted as $key => $value) {
+				?>
+					addMetric(
+						document.getElementById('metrics_researchers_div_unique').appendChild(new Element('div')), 
+						<?php echo json_encode($key); ?>, 
+						<?php echo json_encode(array('result'=>$value)); ?>,
+						{
+							height:200
+						});
+				<?php
+			}
+		?>
+
+
+
+
+		
+		<?php 
+
+			$formatted=$formatted=$q->formatGroups($q->countDistinctGroups(), 'filterResearcher');
+
+			foreach ($formatted as $key => $value) {
+				?>
+					addMetric(
+						document.getElementById('metrics_researchers_div').appendChild(new Element('div')), 
+						<?php echo json_encode($key); ?>, 
+						<?php echo json_encode(array('result'=>$value)); ?>,
+						{
+							height:200,
+							colors:['rgb(254, 102, 114)']
+						});
+				<?php
+			}
+		?>
+
+
 
 
 
