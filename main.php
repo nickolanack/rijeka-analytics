@@ -107,6 +107,10 @@
 					<div id="donut_active_last1Months">
 					</div>
 				</div>
+
+
+				<div id="chart_retention" class="metric-section">
+				</div>
 				
 
 			<section>

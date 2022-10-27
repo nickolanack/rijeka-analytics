@@ -62,7 +62,7 @@ class Q {
 	public function distinctDayIntervals($where = null) {
 
 		if ($results = $this->conn->query(
-			'SELECT count, maxinterval/(3600*24) as days FROM (SELECT count(*)as count, ip, (max(timestamp)-min(timestamp)) as maxinterval FROM event' . $this->_w($where) . ' GROUP BY ip) as t WHERE maxinterval>(3600*24);'
+			'SELECT count, maxinterval/(3600*24) as days FROM (SELECT count(*) as count, ip, (max(timestamp)-min(timestamp)) as maxinterval FROM event' . $this->_w($where) . ' GROUP BY ip) as t WHERE maxinterval>(3600*24);'
 		)) {
 
 			return $results->fetch_all(MYSQLI_ASSOC);
@@ -164,7 +164,7 @@ class Q {
 
 	}
 
-	public function histogram($results, $type = 'log2') {
+	public function histogram($results, $type = 'log2', $field='count') {
 
 		$group = function ($v) {
 			return (int) $v;
@@ -210,7 +210,7 @@ class Q {
 
 		$max = 0;
 		foreach ($results as $result) {
-			$index = $group($result['count']); // $interact['count']/$groupSize;
+			$index = $group($result[$field]); // $interact['count']/$groupSize;
 
 			$max = max($index, $max);
 

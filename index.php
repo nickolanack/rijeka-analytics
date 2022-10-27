@@ -479,7 +479,24 @@ if($fileAge>3600){
 
 
 
-		distinctDayIntervals
+	
+		var returns=<?php echo json_encode(array_map(function($value){
+
+			return array(
+				'label'=>$value['range'][0].' - '.$value['range'][1].' Section views',
+				'result'=>$value['value']
+			);
+
+		}, $q->histogram($q->distinctDayIntervals('ip'), 'log2', 'days')), JSON_PRETTY_PRINT);?>
+
+
+		addChart('chart_retention', 'User retention', {result:([]).concat(returns), query:{
+			//group_by:'activity'
+		}}, {
+			colors:["#91a8a0"]
+			 //colors:["#66cdaa"]
+		});
+
 
 
 
