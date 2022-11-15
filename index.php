@@ -148,21 +148,14 @@ if($fileAge>3600){
 
 		<?php 
 
-		$sectionGroups=array(
-			'all'=>'',
-			'croatia'=>'ip in ('.$iplist.')',
-			'other'=>'ip not in ('.$iplist.')'
-		);
 
 
+	
+		$regionsFilters=$q->getRegionsFilters($iplist);
 
 
-		foreach($sectionGroups as $section=>$filter){
+		foreach($regionsFilters as $reg){
 
-
-			$sectionId=$section=='all'?'':('_'.$section);
-			$where=$section=='all'?null:'WHERE '.$filter;
-			$and=$section=='all'?'':' AND '.$filter;
 
 
 			?>
@@ -170,10 +163,10 @@ if($fileAge>3600){
 
 
 
-				addMetric('metric_total<?php echo $sectionId; ?>', "Total App Section Views", <?php echo json_encode(array('result'=>$q->count($where))); ?>,{
+				addMetric('metric_total<?php echo $reg->id; ?>', "Total App Section Views", <?php echo json_encode(array('result'=>$q->count($reg->where))); ?>,{
 					colors:['rgb(254, 102, 114)']
 				});
-				addMetric('metric_ips<?php echo $sectionId; ?>', "Unique IPs", <?php echo json_encode(array('result'=>$q->countDistinct('ip', $where))); ?>);
+				addMetric('metric_ips<?php echo $reg->id; ?>', "Unique IPs", <?php echo json_encode(array('result'=>$q->countDistinct('ip', $reg->where))); ?>);
 
 
 
@@ -183,7 +176,7 @@ if($fileAge>3600){
 
 				?>
 
-				addMetric('metric_today<?php echo $sectionId; ?>', "Today", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp >= '.$today.$and))); ?>);
+				addMetric('metric_today<?php echo $reg->id; ?>', "Today", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp >= '.$today.$reg->and))); ?>);
 
 
 
@@ -194,7 +187,7 @@ if($fileAge>3600){
 
 				?>
 
-				addMetric('metric_7days<?php echo $sectionId; ?>', "Last 7 days", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp >= '.$last7days.$and))); ?>);
+				addMetric('metric_7days<?php echo $reg->id; ?>', "Last 7 days", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp >= '.$last7days.$reg->and))); ?>);
 
 
 
@@ -205,7 +198,7 @@ if($fileAge>3600){
 
 				?>
 
-				addMetric('metric_month<?php echo $sectionId; ?>', "This month", <?php echo json_encode(array('result'=>$uniqueThistMonth=$q->countDistinct('ip','WHERE timestamp >= '.$thisMonth.$and))); ?>);
+				addMetric('metric_month<?php echo $reg->id; ?>', "This month", <?php echo json_encode(array('result'=>$uniqueThistMonth=$q->countDistinct('ip','WHERE timestamp >= '.$thisMonth.$reg->and))); ?>);
 
 
 
@@ -218,7 +211,7 @@ if($fileAge>3600){
 
 				?>
 
-				addMetric('metric_lastMonth<?php echo $sectionId; ?>', "Last month", <?php echo json_encode(array('result'=>$uniqueLastMonth=$q->countDistinct('ip','WHERE timestamp >= '.$lastMonth.' AND timestamp < '.$thisMonth.$and))); ?>);
+				addMetric('metric_lastMonth<?php echo $reg->id; ?>', "Last month", <?php echo json_encode(array('result'=>$uniqueLastMonth=$q->countDistinct('ip','WHERE timestamp >= '.$lastMonth.' AND timestamp < '.$thisMonth.$reg->and))); ?>);
 
 
 		<?php

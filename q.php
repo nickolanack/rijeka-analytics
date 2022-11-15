@@ -265,4 +265,48 @@ class Q {
 		);
 	}
 
+
+
+
+
+	public function getRegionsFilters($iplist){
+
+
+		$sectionGroups=array(
+			'all'=>'',
+			'croatia'=>'ip in ('.$iplist.')',
+			'other'=>'ip not in ('.$iplist.')'
+		);
+
+
+
+		$regions=array();
+
+
+		foreach($sectionGroups as $section=>$filter){
+
+
+			
+
+
+			$regions[]=(object) array(
+				'name'=>$section,
+				'filter'=>$filter,
+				'id'=>$section=='all'?'':('_'.$section),
+				'where'=>$section=='all'?null:'WHERE '.$filter,
+				'and'=>$section=='all'?'':' AND '.$filter,
+			);
+
+		}
+
+		return $regions;
+
+
+	}
+
+
+
+
+
+
 }
