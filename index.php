@@ -146,58 +146,86 @@ if($fileAge>3600){
 
 
 
-		addMetric('metric_total', "Total App Section Views", <?php echo json_encode(array('result'=>$q->count())); ?>,{
-			colors:['rgb(254, 102, 114)']
-		});
-		addMetric('metric_ips', "Unique IPs", <?php echo json_encode(array('result'=>$q->countDistinct('ip'))); ?>);
+		<?php 
 
+		$sectionGroups=array(
+			'all'=>'',
+			'croatia'=>'ip in ('.$iplist.')',
+			'other'=>'ip not in ('.$iplist.')'
+		);
+
+
+
+
+		foreach($sectionGroups as $section=>$filter){
+
+
+			$sectionId=$section=='all'?'':('_'.$section);
+			$where=$section=='all'?null:'WHERE '.$filter;
+			$and=$section=='all'?'':' AND '.$filter;
+
+
+			?>
+
+
+
+
+				addMetric('metric_total<?php echo $sectionId; ?>', "Total App Section Views", <?php echo json_encode(array('result'=>$q->count($where))); ?>,{
+					colors:['rgb(254, 102, 114)']
+				});
+				addMetric('metric_ips<?php echo $sectionId; ?>', "Unique IPs", <?php echo json_encode(array('result'=>$q->countDistinct('ip', $where))); ?>);
+
+
+
+				<?php
+				
+				$today = strtotime(date('Y-m-d'));
+
+				?>
+
+				addMetric('metric_today<?php echo $sectionId; ?>', "Today", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp >= '.$today.$and))); ?>);
+
+
+
+
+				<?php
+
+				$last7days = strtotime(date('Y-m-d', time()-(3600*24*7)));
+
+				?>
+
+				addMetric('metric_7days<?php echo $sectionId; ?>', "Last 7 days", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp >= '.$last7days.$and))); ?>);
+
+
+
+
+				<?php
+
+				$thisMonth = strtotime(date('Y-m').'-01');
+
+				?>
+
+				addMetric('metric_month<?php echo $sectionId; ?>', "This month", <?php echo json_encode(array('result'=>$uniqueThistMonth=$q->countDistinct('ip','WHERE timestamp >= '.$thisMonth.$and))); ?>);
+
+
+
+
+				<?php
+
+
+
+				$lastMonth=strtotime(date('Y-m', $thisMonth-(3600*24*10)).'-01');
+
+				?>
+
+				addMetric('metric_lastMonth<?php echo $sectionId; ?>', "Last month", <?php echo json_encode(array('result'=>$uniqueLastMonth=$q->countDistinct('ip','WHERE timestamp >= '.$lastMonth.' AND timestamp < '.$thisMonth.$and))); ?>);
 
 
 		<?php
-		
-		$today = strtotime(date('Y-m-d'));
+
+		}
 
 		?>
-
-		addMetric('metric_today', "Today", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp >= '.$today))); ?>);
-
-
-
-
-		<?php
-
-		$last7days = strtotime(date('Y-m-d', time()-(3600*24*7)));
-
-		?>
-
-		addMetric('metric_7days', "Last 7 days", <?php echo json_encode(array('result'=>$q->countDistinct('ip','WHERE timestamp >= '.$last7days))); ?>);
-
-
-
-
-		<?php
-
-		$thisMonth = strtotime(date('Y-m').'-01');
-
-		?>
-
-		addMetric('metric_month', "This month", <?php echo json_encode(array('result'=>$uniqueThistMonth=$q->countDistinct('ip','WHERE timestamp >= '.$thisMonth))); ?>);
-
-
-
-
-		<?php
-
-
-
-		$lastMonth=strtotime(date('Y-m', $thisMonth-(3600*24*10)).'-01');
-
-		?>
-
-		addMetric('metric_lastMonth', "Last month", <?php echo json_encode(array('result'=>$uniqueLastMonth=$q->countDistinct('ip','WHERE timestamp >= '.$lastMonth.' AND timestamp < '.$thisMonth))); ?>);
-
-
-
 
 		addChart('chart_12_months', 'Last 12 months', {result:<?php echo json_encode($q->monthRanges(12, function($start, $end) use($q){
 
