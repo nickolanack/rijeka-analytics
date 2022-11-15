@@ -81,7 +81,7 @@ var showMap=function(active){
 var showMainMetric=function(active){
 
 	var list=['all-metrics', 'croatia-metrics', 'other-metrics'];
-	showSection(active+'-metric', list);
+	showSection(active+'-metrics', list);
 
 };
 
