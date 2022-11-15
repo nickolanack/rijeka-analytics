@@ -76,6 +76,16 @@ var showMap=function(active){
 
 };
 
+
+
+var showMainMetric=function(active){
+
+	var list=['all-metrics', 'croatia-metrics', 'other-metrics'];
+	showSection(active+'-metric', list);
+
+};
+
+
 var showSection=function(active, list){
 
 	

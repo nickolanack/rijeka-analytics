@@ -22,10 +22,10 @@
 				</div>
 
 
-				<p  class="toggle-btns" style="text-align: right;"><button class="section-all active" onclick="">All</button><button class="section-croatia" onclick="">Croatia</button><button class="section-other" onclick="">Other</button></p>
+				<p  class="toggle-btns" style="text-align: right;"><button class="all-metrics active" onclick="showMainMetric('all');">All</button><button class="croatia-metrics" onclick="showMainMetric('croatia');">Croatia</button><button class="other-metrics" onclick="showMainMetric('other');">Other</button></p>
 
 
-				<div id="metrics_div" class="metric-section">
+				<div id="metrics_div" class="metric-section all-metrics">
 					<div id="metric_total"></div>
 					<div id="metric_ips"></div>
 					<div id="metric_today"></div>
@@ -34,7 +34,7 @@
 					<div id="metric_lastMonth"></div>
 				</div>
 
-				<div id="metrics_div_croatia" class="metric-section">
+				<div id="metrics_div_croatia" class="hidden metric-section croatia-metrics">
 					<div id="metric_total_croatia"></div>
 					<div id="metric_ips_croatia"></div>
 					<div id="metric_today_croatia"></div>
@@ -43,7 +43,7 @@
 					<div id="metric_lastMonth_croatia"></div>
 				</div>
 
-				<div id="metrics_div_other" class="metric-section">
+				<div id="metrics_div_other" class="hidden metric-section other-metrics">
 					<div id="metric_total_other"></div>
 					<div id="metric_ips_other"></div>
 					<div id="metric_today_other"></div>
