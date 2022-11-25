@@ -5,8 +5,8 @@
 				<p  class="toggle-btns" style="text-align: right;">
 					<button class="region active" onclick="showMap('region');">Region</button>
 					<button class="world" onclick="showMap('world');">World</button>
-					<button class="world" onclick="showMap('region-cluster');">Croatia*</button>
-					<button class="world" onclick="showMap('na-cluster');">North America*</button>
+					<button class="region-cluster" onclick="showMap('region-cluster');">Croatia*</button>
+					<button class="na-cluster" onclick="showMap('na-cluster');">North America*</button>
 				</p>
 				<div id="regions_div" style="" class="metric-section region"></div>
 				<div id="regions_div_" class="hidden metric-section world" style=""></div>
