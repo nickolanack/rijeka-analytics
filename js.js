@@ -99,7 +99,7 @@ var googleMapCharts = (function(){
 
 	return {
 		init:initGoogleMap,
-		drawCloroplethMap:drawCloroplethMap
+		drawCloroplethMap:drawCloroplethMap,
 		drawCloroplethMarkerMap:drawCloroplethMarkerMap
 	}
 
