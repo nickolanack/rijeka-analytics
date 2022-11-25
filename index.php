@@ -155,8 +155,8 @@ if($fileAge>3600){
 			googleMapCharts.drawCloroplethMap('150', chartData, 'regions_div');
 			googleMapCharts.drawCloroplethMap('world', chartData, 'regions_div_');
 
-			googleMapCharts.drawCloroplethMarkerMap('HR', chartData, 'regions_cluster_div');
-			googleMapCharts.drawCloroplethMarkerMap('021', chartData, 'regions_cluster_div_');
+			googleMapCharts.drawCloroplethMarkerMap('HR', europeData, 'regions_cluster_div');
+			googleMapCharts.drawCloroplethMarkerMap('021', northAmericaData, 'regions_cluster_div_');
 
 
 		addDonut('donut_local', 'Croatia total views', {result:(function(){
