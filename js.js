@@ -73,7 +73,18 @@ var googleMapCharts = (function(){
 
 		var render=function(){
 
-			var data = google.visualization.arrayToDataTable(([['Region', 'Unique IPs']]).concat(chartData));
+			var data = new google.visualization.DataTable();
+
+			data.addColumn('number', 'LATITUDE');                                
+			data.addColumn('number', 'LONGITUDE');
+			data.addColumn('string', 'DESCRIPTION'); 
+			data.addColumn('number', 'Value:', 'value'); 
+			data.addColumn({type:'string', role:'tooltip'});  
+
+			data.addRows(chartData);
+
+
+			//var data = google.visualization.arrayToDataTable(([['Region', 'Unique IPs']]).concat(chartData));
 			var options = {
 				colorAxis: {colors: ['rgb(161, 199, 211)', 'rgb(0, 187, 222)', 'rgb(254, 102, 114)']},
 				region:region,
