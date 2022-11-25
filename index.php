@@ -42,7 +42,7 @@ $regions=array();
 
 foreach($regionmap as $ip=>$data){
 
-	$continent=$data->continent_name;
+	$continent=$data['continent_name'];
 
 	if(!array_key_exists($continent, $regions)){
 		$regions[$continent]=array(
@@ -50,11 +50,11 @@ foreach($regionmap as $ip=>$data){
 		);
 	}
 
-	$city=$data->city;
+	$city=$data['city'];
 	if(!array_key_exists($city, $regions[$continent]['cities'])){
 		$regions[$continent]['cities'][$city]=array(
 			'counter'=>0,
-			'location'=>array($data->latitude, $data->longitude)
+			'location'=>array($data['latitude'], $data['longitude'])
 		);
 	}
 	$regions[$continent]['cities'][$city]['counter']++;
