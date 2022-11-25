@@ -146,7 +146,7 @@ if($fileAge>3600){
 						$countries[$country]
 					);
 
-				}, array_keys($countries)), JSON_PRETTY_PRINT); ?>;
+				}, array_keys($countries))); ?>;
 
 			var apiKey=<?php echo json_encode(file_get_contents('../.key.txt')); ?>;
 
