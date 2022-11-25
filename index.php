@@ -112,8 +112,8 @@ if($fileAge>3600){
 	<script type="text/javascript">
 
 
-			var europeData=<?php echo json_encode($regions['Europe'])); ?>;
-			var northAmericaData=<?php echo json_encode($regions['North America'])); ?>;
+			var europeData=<?php echo json_encode($regions['Europe']); ?>;
+			var northAmericaData=<?php echo json_encode($regions['North America']); ?>;
 
 
 			var chartData=<?php echo json_encode(array_map(function($country)use($countries){
