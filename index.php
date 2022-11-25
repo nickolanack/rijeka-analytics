@@ -51,6 +51,9 @@ foreach($regionmap as $ip=>$data){
 	}
 
 	$city=$data['city'];
+	if(empty($city)){
+		$city='Unknown';
+	}
 	if(!array_key_exists($city, $regions[$continent]['cities'])){
 		$regions[$continent]['cities'][$city]=array(
 			'counter'=>0,
@@ -115,12 +118,13 @@ if($fileAge>3600){
 
 			var europeData=<?php echo json_encode(array_map(function($city){
 
+
 				return array(
 					$city['location'][0],
 					$city['location'][1],
 					$city['name'],
 					$city['counter'],
-					'Unique IPs'
+					'Unique IPs: '.$city['counter']
 				);
 
 			}, array_values($regions['Europe']['cities']))); ?>;
@@ -133,7 +137,7 @@ if($fileAge>3600){
 					$city['location'][1],
 					$city['name'],
 					$city['counter'],
-					'Unique IPs'
+					'Unique IPs: '.$city['counter']
 				);
 
 			}, array_values($regions['North America']['cities']))); ?>;
