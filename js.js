@@ -3,11 +3,6 @@
 var drawCloroplethMap = (function(){
 
 
-	google.charts.load('current', {
-		'packages':['geochart'],
-	});
-
-
 
 	var loaded=false;
 	var loading=false;
@@ -47,7 +42,7 @@ var drawCloroplethMap = (function(){
 
 			google.charts.load('current', opt);
 			google.charts.setOnLoadCallback(onLoadCharts);
-			
+
 		})();
 
 
