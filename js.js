@@ -71,7 +71,7 @@ var showMetrics=function(active){
 
 var showMap=function(active){
 
-	var list=['region', 'world'];
+	var list=['region', 'world', 'region-cluster', 'na-cluster'];
 	showSection(active, list);
 
 };
@@ -100,13 +100,6 @@ var showSection=function(active, list){
 };
 
 
-var showRegion=function(){
-	showMap('region');
-}
-
-var showWorld=function(){
-	showMap('world');
-}
 
 
 

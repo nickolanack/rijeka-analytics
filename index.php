@@ -100,6 +100,9 @@ if($fileAge>3600){
 			drawCloroplethMap(150, chartData, 'regions_div');
 			drawCloroplethMap('world', chartData, 'regions_div_');
 
+			drawCloroplethMap('HR', chartData, 'regions_cluster_div');
+			drawCloroplethMap('North America', chartData, 'regions_cluster_div_');
+
 
 		addDonut('donut_local', 'Croatia total views', {result:(function(){
 

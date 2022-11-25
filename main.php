@@ -2,14 +2,16 @@
 		<main>
 			<h1>Analytics. <span>Rijeka in Flux</span> mobile app</h1>
 			<section>
-				<p  class="toggle-btns" style="text-align: right;"><button class="region active" onclick="showRegion();">Region</button><button class="world" onclick="showWorld();">World</button></p>
-				<div id="regions_div" style="" class="metric-section region">
-					
-				</div>
-				<div id="regions_div_" class="hidden metric-section world" style="">
-					
-				</div>
-
+				<p  class="toggle-btns" style="text-align: right;">
+					<button class="region active" onclick="showMap('region');">Region</button>
+					<button class="world" onclick="showMap('world');">World</button>
+					<button class="world" onclick="showMap('region-cluster');">Croatia*</button>
+					<button class="world" onclick="showMap('na-cluster');">North America*</button>
+				</p>
+				<div id="regions_div" style="" class="metric-section region"></div>
+				<div id="regions_div_" class="hidden metric-section world" style=""></div>
+				<div id="regions_cluster_div" class="hidden metric-section region-cluster" style=""></div>
+				<div id="regions_cluster_div_" class="hidden metric-section na-cluster" style=""></div>
 
 
 			<section>
