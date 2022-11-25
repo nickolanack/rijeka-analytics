@@ -97,7 +97,7 @@ if($fileAge>3600){
 
 				}, array_keys($countries)), JSON_PRETTY_PRINT); ?>;
 
-			drawCloroplethMap(150, chartData, 'regions_div');
+			drawCloroplethMap('150', chartData, 'regions_div');
 			drawCloroplethMap('world', chartData, 'regions_div_');
 
 			drawCloroplethMap('HR', chartData, 'regions_cluster_div');

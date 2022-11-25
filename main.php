@@ -3,7 +3,7 @@
 			<h1>Analytics. <span>Rijeka in Flux</span> mobile app</h1>
 			<section>
 				<p  class="toggle-btns" style="text-align: right;">
-					<button class="region active" onclick="showMap('region');">Region</button>
+					<button class="region active" onclick="showMap('region');">Europe</button>
 					<button class="world" onclick="showMap('world');">World</button>
 					<button class="region-cluster" onclick="showMap('region-cluster');">Croatia*</button>
 					<button class="na-cluster" onclick="showMap('na-cluster');">North America*</button>
