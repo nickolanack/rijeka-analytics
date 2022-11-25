@@ -10,6 +10,7 @@ var drawCloroplethMap = (function(){
 
 
 	var loaded=false;
+	var loading=false;
 	var queue=[];
 	function onLoadCharts() {
 		loaded=true;
@@ -27,6 +28,28 @@ var drawCloroplethMap = (function(){
 
 
 	var drawCloroplethMap=function(region, chartData, divId, key){
+
+
+		(function(){
+
+			if(loading){
+				return;
+			}
+			loading=true;
+
+			var opt={
+				'packages':['geochart']
+			};
+
+			if(key){
+				opt.mapsApiKey=key
+			}
+
+			google.charts.load('current', opt);
+			google.charts.setOnLoadCallback(onLoadCharts);
+			
+		})();
+
 
 		var render=function(){
 
@@ -50,16 +73,8 @@ var drawCloroplethMap = (function(){
 
 
 	};
-	var opt={
-		'packages':['geochart']
-	};
 
-	if(key){
-		opt.mapsApiKey=key
-	}
-
-	google.charts.load('current', opt);
-	google.charts.setOnLoadCallback(onLoadCharts);
+	
 
 	return drawCloroplethMap;
 
