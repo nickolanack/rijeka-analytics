@@ -123,7 +123,7 @@ if($fileAge>3600){
 					'Unique IPs'
 				);
 
-			}, $regions['Europe'])); ?>;
+			}, $regions['Europe']['cities'])); ?>;
 
 
 			var northAmericaData=<?php echo json_encode(array_map(function($city){
@@ -136,7 +136,7 @@ if($fileAge>3600){
 					'Unique IPs'
 				);
 
-			}, $regions['North America'])); ?>;
+			}, $regions['North America']['cities'])); ?>;
 
 
 			var chartData=<?php echo json_encode(array_map(function($country)use($countries){
