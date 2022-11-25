@@ -46,7 +46,7 @@ foreach($regionmap as $ip=>$data){
 
 	if(!array_key_exists($continent, $regions)){
 		$regions[$continent]=array(
-			'cities'=array()
+			'cities'=>array()
 		);
 	}
 
