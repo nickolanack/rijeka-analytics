@@ -73,7 +73,7 @@ var googleMapCharts = (function(){
 
 		var render=function(){
 
-			var data = google.visualization.arrayToDataTable(([['Country', 'Unique IPs']]).concat(chartData));
+			var data = google.visualization.arrayToDataTable(([['Region', 'Unique IPs']]).concat(chartData));
 			var options = {
 				colorAxis: {colors: ['rgb(161, 199, 211)', 'rgb(0, 187, 222)', 'rgb(254, 102, 114)']},
 				region:region,

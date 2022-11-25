@@ -37,6 +37,31 @@ foreach($ipmap as $ip=>$country){
 }
 
 
+$regionmap=json_decode(file_get_contents('../.ipregionmap.json'), true);
+$regions=array();
+
+foreach($regionmap as $ip=>$data){
+
+	$continent=$data->continent_name;
+
+	if(!array_key_exists($continent, $regions)){
+		$regions[$continent]=array(
+			'cities'=array()
+		);
+	}
+
+	$city=$data->city;
+	if(!array_key_exists($city, $regions[$continent]['cities'])){
+		$regions[$continent]['cities'][$city]=array(
+			'counter'=>0,
+			'location'=>array($data->latitude, $data->longitude)
+		);
+	}
+	$regions[$continent]['cities'][$city]['counter']++;
+	
+}
+
+
 $fileAge=time()-filemtime('../.ipmap.json');
 if($fileAge>3600){
 	touch('../.ipmap.json');
@@ -87,6 +112,9 @@ if($fileAge>3600){
 	<script type="text/javascript">
 
 
+			var europeData=<?php echo json_encode($regions['Europe'])); ?>;
+			var northAmericaData=<?php echo json_encode($regions['North America'])); ?>;
+
 
 			var chartData=<?php echo json_encode(array_map(function($country)use($countries){
 
@@ -104,8 +132,8 @@ if($fileAge>3600){
 			googleMapCharts.drawCloroplethMap('150', chartData, 'regions_div');
 			googleMapCharts.drawCloroplethMap('world', chartData, 'regions_div_');
 
-			googleMapCharts.drawCloroplethMarkerMap('HR', chartData, 'regions_cluster_div');
-			googleMapCharts.drawCloroplethMarkerMap('021', chartData, 'regions_cluster_div_');
+			//googleMapCharts.drawCloroplethMarkerMap('HR', chartData, 'regions_cluster_div');
+			//googleMapCharts.drawCloroplethMarkerMap('021', chartData, 'regions_cluster_div_');
 
 
 		addDonut('donut_local', 'Croatia total views', {result:(function(){
