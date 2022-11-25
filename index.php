@@ -117,7 +117,7 @@ if($fileAge>3600){
 
 				return array(
 					$city['location'][0],
-					$city['location'][2],
+					$city['location'][1],
 					$city['name'],
 					$city['counter'],
 					'Unique IPs'
@@ -130,7 +130,7 @@ if($fileAge>3600){
 
 				return array(
 					$city['location'][0],
-					$city['location'][2],
+					$city['location'][1],
 					$city['name'],
 					$city['counter'],
 					'Unique IPs'
