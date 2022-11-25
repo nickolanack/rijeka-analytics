@@ -1,6 +1,6 @@
 'use strict'
 
-var drawCloroplethMap = (function(){
+var googleMapCharts = (function(){
 
 
 
@@ -18,14 +18,7 @@ var drawCloroplethMap = (function(){
 			
 	
 
-	
-
-
-
-	var drawCloroplethMap=function(region, chartData, divId, key){
-
-
-		(function(){
+	var initGoogleMap=function(key){
 
 			if(loading){
 				return;
@@ -43,7 +36,12 @@ var drawCloroplethMap = (function(){
 			google.charts.load('current', opt);
 			google.charts.setOnLoadCallback(onLoadCharts);
 
-		})();
+		};
+
+
+
+	var drawCloroplethMap=function(region, chartData, divId){
+
 
 
 		var render=function(){
@@ -69,9 +67,41 @@ var drawCloroplethMap = (function(){
 
 	};
 
+	var drawCloroplethMarkerMap=function(region, chartData, divId){
+
+
+
+		var render=function(){
+
+			var data = google.visualization.arrayToDataTable(([['Country', 'Unique IPs']]).concat(chartData));
+			var options = {
+				colorAxis: {colors: ['rgb(161, 199, 211)', 'rgb(0, 187, 222)', 'rgb(254, 102, 114)']},
+				region:region,
+				displayMode: 'markers',
+			};
+			var chart = new google.visualization.GeoChart(document.getElementById(divId));
+			chart.draw(data, options);
+
+		};
+
+
+		if(loaded){
+			render();
+			return;
+		}
+
+		queue.push(render);
+
+
+	};
+
 	
 
-	return drawCloroplethMap;
+	return {
+		init:initGoogleMap,
+		drawCloroplethMap:drawCloroplethMap
+		drawCloroplethMarkerMap:drawCloroplethMarkerMap
+	}
 
 })();
 
