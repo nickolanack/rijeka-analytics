@@ -6,9 +6,9 @@
 				<p class="toggle-btns" style="text-align: right;">
 					<button class="region active" onclick="showMap('region');">Europe</button>
 					<button class="world" onclick="showMap('world');">World</button>
-					<button class="region-cluster" onclick="showMap('region-cluster');">Croatia*</button>
-					<button class="na-cluster" onclick="showMap('na-cluster');">North America*</button>
-					<i>* displays data clustered on origin city</i>
+					<button title="shows data clustered around cities" class="region-cluster" onclick="showMap('region-cluster');">Croatia*</button>
+					<button title="data data clustered around cities" class="na-cluster" onclick="showMap('na-cluster');">North America*</button>
+
 				</p>
 
 				<div id="regions_div" style="" class="metric-section region"></div>
