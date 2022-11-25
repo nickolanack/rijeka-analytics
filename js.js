@@ -26,7 +26,7 @@ var drawCloroplethMap = (function(){
 
 
 
-	var drawCloroplethMap=function(region, chartData, divId){
+	var drawCloroplethMap=function(region, chartData, divId, key){
 
 		var render=function(){
 
@@ -50,10 +50,15 @@ var drawCloroplethMap = (function(){
 
 
 	};
+	var opt={
+		'packages':['geochart']
+	};
 
-	google.charts.load('current', {
-		'packages':['geochart'],
-	});
+	if(key){
+		opt.mapsApiKey=key
+	}
+
+	google.charts.load('current', opt);
 	google.charts.setOnLoadCallback(onLoadCharts);
 
 	return drawCloroplethMap;

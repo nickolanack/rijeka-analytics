@@ -97,11 +97,13 @@ if($fileAge>3600){
 
 				}, array_keys($countries)), JSON_PRETTY_PRINT); ?>;
 
-			drawCloroplethMap('150', chartData, 'regions_div');
-			drawCloroplethMap('world', chartData, 'regions_div_');
+			var apiKey=<?php echo json_encode(file_get_contents('../.key.txt')); ?>;
 
-			drawCloroplethMap('HR', chartData, 'regions_cluster_div');
-			drawCloroplethMap('021', chartData, 'regions_cluster_div_');
+			drawCloroplethMap('150', chartData, 'regions_div', apiKey);
+			drawCloroplethMap('world', chartData, 'regions_div_', apiKey);
+
+			drawCloroplethMap('HR', chartData, 'regions_cluster_div', apiKey);
+			drawCloroplethMap('021', chartData, 'regions_cluster_div_', apiKey);
 
 
 		addDonut('donut_local', 'Croatia total views', {result:(function(){
